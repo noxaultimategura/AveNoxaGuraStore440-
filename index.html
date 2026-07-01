@@ -118,7 +118,7 @@
         .top-stats-search {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             flex-wrap: wrap;
             gap: 1rem;
             margin-bottom: 1rem;
@@ -146,23 +146,25 @@
             color: #b0b0d4;
         }
 
+        /* ========== SEARCH SECTION - DIATAS TOMBOL REFRESH ========== */
         .search-section {
             max-width: 600px;
             margin: 0;
+            width: 100%;
         }
 
         .search-row-flex {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: stretch;
             gap: 0.8rem;
+            /* Jarak antara kotak search dan tombol refresh */
+            width: 100%;
         }
 
         .search-wrapper {
             position: relative;
-            flex: 1;
-            min-width: 250px;
+            width: 100%;
         }
 
         .search-icon {
@@ -218,17 +220,19 @@
             background: #2a2a4a;
         }
 
-        /* ========== BUTTON GROUP - REFRESH & KEMBALI BERSEMBELAHAN ========== */
+        /* ========== BUTTON GROUP - REFRESH (DI BAWAH SEARCH) ========== */
         .btn-group {
             display: flex;
             align-items: center;
             gap: 0.5rem;
             flex-shrink: 0;
+            width: 100%;
         }
 
         .btn-refresh-neon {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
             background: rgba(42, 42, 74, 0.3);
             border: 1px solid rgba(42, 42, 74, 0.6);
@@ -242,6 +246,8 @@
             text-decoration: none;
             font-family: inherit;
             font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+            width: 100%;
+            /* Membuat tombol selebar kotak search */
         }
 
         .btn-refresh-neon:hover {
@@ -281,7 +287,6 @@
         }
 
         /* ========== GRID MATERI ========== */
-        /* ========== GRID MATERI ========== */
         #materiContainer {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -305,28 +310,6 @@
             display: flex;
             flex-direction: column;
             gap: 0.8rem;
-            overflow: hidden;
-            background: linear-gradient(135deg, rgba(13, 13, 26, 0.85), rgba(6, 6, 13, 0.7));
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            text-decoration: none;
-            cursor: pointer;
-            animation: fadeIn 0.6s ease forwards;
-        }
-
-        /* ========== CARD STYLE ========== */
-        .materi-card {
-            border-radius: 1rem;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-            border-left: 4px solid #2a2a4a;
-            border-right: 1px solid rgba(42, 42, 74, 0.3);
-            border-top: 1px solid rgba(42, 42, 74, 0.2);
-            border-bottom: 1px solid rgba(42, 42, 74, 0.2);
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-            min-width: 0;
             overflow: hidden;
             background: linear-gradient(135deg, rgba(13, 13, 26, 0.85), rgba(6, 6, 13, 0.7));
             backdrop-filter: blur(4px);
@@ -860,6 +843,11 @@
                 min-width: unset;
             }
 
+            .search-row-flex {
+                gap: 0.6rem;
+                /* Jarak lebih kecil di HP */
+            }
+
             .btn-group {
                 width: 100%;
                 flex-direction: row;
@@ -870,6 +858,7 @@
                 justify-content: center;
                 padding: 0.6rem 0.8rem;
                 font-size: 0.75rem;
+                width: 100%;
             }
 
             .total-stats-box {
@@ -941,6 +930,10 @@
 
             .noxa-store {
                 font-size: 1.5rem;
+            }
+
+            .search-row-flex {
+                gap: 0.5rem;
             }
         }
 
