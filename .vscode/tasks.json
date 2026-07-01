@@ -1,0 +1,11 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Auto Push",
+            "type": "shell",
+            "command": "git add . && git commit -m \"Auto Save\" && git push origin master",
+            "problemMatcher": []
+        }
+    ]
+}
