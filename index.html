@@ -118,7 +118,7 @@
         .top-stats-search {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             flex-wrap: wrap;
             gap: 1rem;
             margin-bottom: 1rem;
@@ -146,25 +146,23 @@
             color: #b0b0d4;
         }
 
-        /* ========== SEARCH SECTION - DIATAS TOMBOL REFRESH ========== */
         .search-section {
             max-width: 600px;
             margin: 0;
-            width: 100%;
         }
 
         .search-row-flex {
             display: flex;
-            flex-direction: column;
-            align-items: stretch;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
             gap: 0.8rem;
-            /* Jarak antara kotak search dan tombol refresh */
-            width: 100%;
         }
 
         .search-wrapper {
             position: relative;
-            width: 100%;
+            flex: 1;
+            min-width: 250px;
         }
 
         .search-icon {
@@ -220,19 +218,17 @@
             background: #2a2a4a;
         }
 
-        /* ========== BUTTON GROUP - REFRESH (DI BAWAH SEARCH) ========== */
+        /* ========== BUTTON GROUP - REFRESH & KEMBALI BERSEMBELAHAN ========== */
         .btn-group {
             display: flex;
             align-items: center;
             gap: 0.5rem;
             flex-shrink: 0;
-            width: 100%;
         }
 
         .btn-refresh-neon {
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 0.5rem;
             background: rgba(42, 42, 74, 0.3);
             border: 1px solid rgba(42, 42, 74, 0.6);
@@ -246,8 +242,6 @@
             text-decoration: none;
             font-family: inherit;
             font-size: clamp(0.7rem, 1.5vw, 0.9rem);
-            width: 100%;
-            /* Membuat tombol selebar kotak search */
         }
 
         .btn-refresh-neon:hover {
@@ -310,6 +304,28 @@
             display: flex;
             flex-direction: column;
             gap: 0.8rem;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(13, 13, 26, 0.85), rgba(6, 6, 13, 0.7));
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            text-decoration: none;
+            cursor: pointer;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        /* ========== CARD STYLE ========== */
+        .materi-card {
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border-left: 4px solid #2a2a4a;
+            border-right: 1px solid rgba(42, 42, 74, 0.3);
+            border-top: 1px solid rgba(42, 42, 74, 0.2);
+            border-bottom: 1px solid rgba(42, 42, 74, 0.2);
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            min-width: 0;
             overflow: hidden;
             background: linear-gradient(135deg, rgba(13, 13, 26, 0.85), rgba(6, 6, 13, 0.7));
             backdrop-filter: blur(4px);
@@ -792,6 +808,7 @@
             }
         }
 
+        /* ===== TABLET (768px - 991px) ===== */
         @media (min-width: 768px) and (max-width: 991px) {
             #materiContainer {
                 grid-template-columns: repeat(3, 1fr);
@@ -801,9 +818,45 @@
             .materi-card {
                 padding: 1.2rem;
             }
+
+            /* ===== PERUBAHAN UNTUK TABLET: Search di atas tombol ===== */
+            .top-stats-search {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-section {
+                width: 100%;
+                max-width: 100%;
+                order: -1;
+                margin-bottom: 0.5rem;
+            }
+
+            .search-row-flex {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.8rem;
+            }
+
+            .search-wrapper {
+                width: 100%;
+                min-width: unset;
+            }
+
+            .btn-group {
+                width: 100%;
+            }
+
+            .btn-refresh-neon {
+                max-width: 200px;
+            }
+
+            .total-stats-box {
+                justify-content: center;
+            }
         }
 
-        /* ===== HP Portrait ===== */
+        /* ===== HP Portrait (max-width: 767px) ===== */
         @media (max-width: 767px) {
             body {
                 padding: 0.8rem;
@@ -834,23 +887,28 @@
                 align-items: stretch;
             }
 
+            /* ===== PERUBAHAN UTAMA: Search di atas tombol ===== */
             .search-section {
                 width: 100%;
                 max-width: 100%;
+                order: -1;
+            }
+
+            .search-row-flex {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.8rem;
             }
 
             .search-wrapper {
                 min-width: unset;
-            }
-
-            .search-row-flex {
-                gap: 0.6rem;
-                /* Jarak lebih kecil di HP */
+                width: 100%;
             }
 
             .btn-group {
                 width: 100%;
                 flex-direction: row;
+                justify-content: flex-start;
             }
 
             .btn-refresh-neon {
@@ -858,11 +916,12 @@
                 justify-content: center;
                 padding: 0.6rem 0.8rem;
                 font-size: 0.75rem;
-                width: 100%;
+                max-width: 200px;
             }
 
             .total-stats-box {
                 justify-content: center;
+                flex-wrap: wrap;
             }
 
             .stats-bar {
@@ -910,6 +969,7 @@
             }
         }
 
+        /* ===== HP Kecil (max-width: 575px) ===== */
         @media (max-width: 575px) {
             #materiContainer {
                 grid-template-columns: 1fr;
@@ -932,11 +992,12 @@
                 font-size: 1.5rem;
             }
 
-            .search-row-flex {
-                gap: 0.5rem;
+            .btn-refresh-neon {
+                max-width: 100%;
             }
         }
 
+        /* ===== HP Sangat Kecil (max-width: 479px) ===== */
         @media (max-width: 479px) {
             #materiContainer {
                 grid-template-columns: 1fr;
