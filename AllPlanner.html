@@ -1075,7 +1075,7 @@
 
         <div class="materi-grid" id="materiContainer">
             <!-- ===== PLANNER 1 ===== -->
-            <div class="materi-card gradien-card" data-title="Planner Harian">
+            <div class="materi-card gradien-card" data-title="Daily Planner Pro">
                 <span class="mapel-badge">📋 Planner</span>
                 <div class="card-icon">📅</div>
                 <h3 class="card-title">Daily Planner Pro</h3>
@@ -1088,7 +1088,7 @@
                 </div>
             </div>
 
-            <div class="materi-card gradien-card" data-title="Planner Mingguan">
+            <div class="materi-card gradien-card" data-title="Weekly Planner">
                 <span class="mapel-badge">📋 Planner</span>
                 <div class="card-icon">📆</div>
                 <h3 class="card-title">Weekly Planner</h3>
@@ -1101,7 +1101,7 @@
                 </div>
             </div>
 
-            <div class="materi-card gradien-card" data-title="Planner Bulanan">
+            <div class="materi-card gradien-card" data-title="Monthly Planner">
                 <span class="mapel-badge">📋 Planner</span>
                 <div class="card-icon">📊</div>
                 <h3 class="card-title">Monthly Planner</h3>
@@ -1114,7 +1114,7 @@
                 </div>
             </div>
 
-            <div class="materi-card gradien-card" data-title="Planner Tahunan">
+            <div class="materi-card gradien-card" data-title="Yearly Planner">
                 <span class="mapel-badge">📋 Planner</span>
                 <div class="card-icon">🗓️</div>
                 <h3 class="card-title">Yearly Planner</h3>
@@ -1225,12 +1225,15 @@
                 let visibleCount = 0;
 
                 allCards.forEach(card => {
-                    const titleAttr = card.getAttribute('data-title');
+                    // Ambil dari data-title
+                    const titleAttr = card.getAttribute('data-title') || '';
+
+                    // Ambil dari h3 .card-title
                     const titleH3 = card.querySelector('.card-title');
-                    let title = '';
-                    if (titleAttr) title = titleAttr;
-                    else if (titleH3) title = titleH3.innerText || '';
-                    title = title.toLowerCase();
+                    const titleH3Text = titleH3 ? titleH3.innerText || '' : '';
+
+                    // Gabungkan kedua sumber title
+                    let title = (titleAttr + ' ' + titleH3Text).toLowerCase();
 
                     const links = card.querySelectorAll('.button-group .materi-link');
                     let hasValidLink = false;
