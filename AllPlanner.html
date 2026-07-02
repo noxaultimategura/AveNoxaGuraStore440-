@@ -126,10 +126,9 @@
         }
 
         /* ================================================================ */
-        /* HAPUS MEDIA QUERY YANG MENYEMBUNYIKAN HEADER */
+        /* TOP STATS & SEARCH - LAYOUT BARU */
         /* ================================================================ */
 
-        /* ========== TOP STATS & SEARCH ========== */
         .top-stats-search {
             display: flex;
             justify-content: space-between;
@@ -161,23 +160,17 @@
             color: var(--planner-6);
         }
 
+        /* ========== SEARCH SECTION - LAYOUT FLEX ROW ========== */
         .search-section {
-            max-width: 600px;
-            margin: 0;
-        }
-
-        .search-row-flex {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 0.8rem;
+            flex: 1;
+            max-width: 700px;
+            min-width: 300px;
         }
 
         .search-wrapper {
             position: relative;
             flex: 1;
-            min-width: 250px;
+            min-width: 200px;
         }
 
         .search-icon {
@@ -233,7 +226,7 @@
             background: var(--planner-4);
         }
 
-        /* ========== BUTTON GROUP - REFRESH & KEMBALI BERSEMBELAHAN ========== */
+        /* ========== BUTTON GROUP ========== */
         .btn-group {
             display: flex;
             align-items: center;
@@ -282,7 +275,29 @@
             box-shadow: 0 0 20px rgba(229, 31, 31, 0.15);
         }
 
-        /* ========== STATS BAR ========== */
+        /* ================================================================ */
+        /* SEARCH ROW - LAYOUT UTAMA UNTUK LAPTOP/PC */
+        /* ================================================================ */
+
+        .search-row-flex {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            width: 100%;
+        }
+
+        .search-row-flex .search-wrapper {
+            flex: 1;
+        }
+
+        .search-row-flex .btn-group {
+            flex-shrink: 0;
+        }
+
+        /* ================================================================ */
+        /* STATS BAR */
+        /* ================================================================ */
+
         .stats-bar {
             display: flex;
             justify-content: space-between;
@@ -717,7 +732,7 @@
         }
 
         /* ================================================================ */
-        /* RESPONSIVE */
+        /* RESPONSIVE - LAPTOP/PC/DESKTOP (>= 992px) */
         /* ================================================================ */
 
         @media (min-width: 1700px) {
@@ -790,6 +805,10 @@
             }
         }
 
+        /* ================================================================ */
+        /* RESPONSIVE - TABLET (768px - 991px) */
+        /* ================================================================ */
+
         @media (min-width: 768px) and (max-width: 991px) {
             #materiContainer {
                 grid-template-columns: repeat(3, 1fr);
@@ -799,9 +818,36 @@
             .materi-card {
                 padding: 1.2rem;
             }
+
+            /* Tablet: search tetap di atas tombol */
+            .search-section {
+                max-width: 100%;
+                min-width: unset;
+                width: 100%;
+            }
+
+            .search-row-flex {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.6rem;
+            }
+
+            .search-row-flex .btn-group {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .btn-refresh-neon,
+            .btn-back-neon {
+                flex: 1;
+                justify-content: center;
+            }
         }
 
-        /* ===== HP Portrait ===== */
+        /* ================================================================ */
+        /* RESPONSIVE - HP (<= 767px) */
+        /* ================================================================ */
+
         @media (max-width: 767px) {
             body {
                 padding: 0.8rem;
@@ -832,16 +878,23 @@
                 align-items: stretch;
             }
 
+            .total-stats-box {
+                justify-content: center;
+            }
+
             .search-section {
-                width: 100%;
                 max-width: 100%;
-            }
-
-            .search-wrapper {
                 min-width: unset;
+                width: 100%;
             }
 
-            .btn-group {
+            .search-row-flex {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.6rem;
+            }
+
+            .search-row-flex .btn-group {
                 width: 100%;
                 flex-direction: row;
             }
@@ -852,10 +905,6 @@
                 justify-content: center;
                 padding: 0.6rem 0.8rem;
                 font-size: 0.75rem;
-            }
-
-            .total-stats-box {
-                justify-content: center;
             }
 
             .stats-bar {
@@ -908,6 +957,26 @@
                 font-size: 0.7rem;
                 justify-content: center;
             }
+
+            .search-wrapper {
+                min-width: unset;
+            }
+
+            .btn-refresh-neon,
+            .btn-back-neon,
+            .btn-beli,
+            .clear-btn {
+                min-height: 44px;
+                min-width: 44px;
+            }
+
+            #searchInput {
+                font-size: 16px;
+            }
+
+            .materi-card {
+                min-height: 120px;
+            }
         }
 
         @media (max-width: 575px) {
@@ -933,10 +1002,6 @@
             }
         }
 
-        /* ================================================================ */
-        /* FALLBACK TANPA ORIENTATION */
-        /* ================================================================ */
-
         @media (max-width: 479px) {
             #materiContainer {
                 grid-template-columns: 1fr;
@@ -944,56 +1009,6 @@
 
             .materi-card {
                 padding: 0.9rem;
-            }
-        }
-
-        @media (max-width: 767px) {
-            #materiContainer {
-                grid-template-columns: 1fr;
-            }
-
-            .materi-card {
-                padding: 1rem;
-                min-height: 120px;
-            }
-
-            .footer {
-                border-radius: 0.8rem;
-                border-left: none;
-                border-right: none;
-            }
-        }
-
-        @media (min-width: 768px) and (max-width: 991px) {
-            #materiContainer {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .materi-card {
-                padding: 1.2rem;
-            }
-        }
-
-        /* ================================================================ */
-        /* AKSESIBILITAS & KENYAMANAN */
-        /* ================================================================ */
-
-        @media (max-width: 767px) {
-
-            .btn-refresh-neon,
-            .btn-back-neon,
-            .btn-beli,
-            .clear-btn {
-                min-height: 44px;
-                min-width: 44px;
-            }
-
-            #searchInput {
-                font-size: 16px;
-            }
-
-            .materi-card {
-                min-height: 120px;
             }
         }
 
@@ -1037,17 +1052,17 @@
                 <span>⏳ <strong>Belum Ada:</strong> <span id="materiBelumAda">0</span></span>
             </div>
             <div class="search-section">
-                <div class="search-row-flex" style="margin-bottom: 0.8rem;">
+                <div class="search-row-flex">
                     <div class="search-wrapper">
                         <div class="search-icon">🔍</div>
                         <input type="text" id="searchInput" placeholder="Cari Planner ..." autocomplete="off">
                         <button id="clearSearchBtn" class="clear-btn">✖</button>
                     </div>
-                </div>
-                <div class="search-row-flex">
-                    <button id="refreshButton" class="btn-refresh-neon"><span>⟳</span> Refresh</button>
-                    <a href="44. AllProgramming.html" class="btn-refresh-neon"
-                        style="text-decoration: none;">Kembali</a>
+                    <div class="btn-group">
+                        <button id="refreshButton" class="btn-refresh-neon"><span>⟳</span> Refresh</button>
+                        <a href="44. AllProgramming.html" class="btn-refresh-neon"
+                            style="text-decoration: none;">Kembali</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1133,7 +1148,6 @@
             </div>
         </div>
     </footer>
-    </div>
 
     <script>
         (function () {
