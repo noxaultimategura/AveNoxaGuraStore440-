@@ -17467,7 +17467,7 @@
                 <span class="mapel-badge">📖 PAI</span>
                 <h3 class="card-title">Zuhud</h3>
                 <div class="card-price">Rp 50.000</div>
-                <div class="card-status status-soon">2</div>
+                <div class="card-status status-soon">Coming Soon</div>
                 <div class="button-group">
                     <a href="" class="materi-link"><button class="btn-dapatkan">📘 Dapatkan</button></a>
                 </div>
@@ -17478,69 +17478,56 @@
         (function () {
             'use strict';
 
-            // ========== KONFIGURASI HARGA DEFAULT ==========
-            const defaultPrice = "Rp 50.000";
-
-            // ========== FUNGSI UTAMA UNTUK MENAMBAHKAN HARGA & STATUS ==========
+            // ========== FUNGSI UTAMA UNTUK MENGATUR STATUS ==========
             function processCards() {
                 const cards = document.querySelectorAll('.materi-card');
 
                 cards.forEach(card => {
-                    // 1. Cek apakah elemen harga/status sudah ada (untuk mencegah duplikasi jika script dijalankan ulang)
-                    if (card.querySelector('.card-price')) return;
+                    // 1. Ambil elemen status yang SUDAH ADA di HTML
+                    let statusDiv = card.querySelector('.card-status');
 
-                    // 2. Ambil elemen judul dan button group untuk referensi posisi
-                    const titleEl = card.querySelector('.card-title');
-                    const buttonGroup = card.querySelector('.button-group');
+                    // Jika elemen status belum ada, buat baru
+                    if (!statusDiv) {
+                        statusDiv = document.createElement('div');
+                        statusDiv.className = 'card-status';
+                        const titleEl = card.querySelector('.card-title');
+                        const buttonGroup = card.querySelector('.button-group');
+                        if (titleEl && buttonGroup) {
+                            titleEl.insertAdjacentElement('afterend', statusDiv);
+                        }
+                    }
 
-                    // 3. Buat Elemen Harga
-                    const priceDiv = document.createElement('div');
-                    priceDiv.className = 'card-price';
-                    priceDiv.textContent = defaultPrice;
+                    // 2. Logika Penentuan Status Berdasarkan ISI Text Status Div
+                    let rawStatus = statusDiv.textContent.trim();
 
-                    // 4. Buat Elemen Status
-                    const statusDiv = document.createElement('div');
-                    statusDiv.className = 'card-status';
-
-                    // 5. Logika Penentuan Status
-                    // Cek link di dalam .button-group a.materi-link
+                    // Cek link valid
                     const linkEl = card.querySelector('.button-group a.materi-link');
                     let hasValidLink = false;
-
                     if (linkEl) {
                         const href = linkEl.getAttribute('href');
-                        // Link dianggap valid jika tidak kosong, bukan #, dan bukan #!
                         if (href && href.trim() !== '' && href.trim() !== '#' && href.trim() !== '#!') {
                             hasValidLink = true;
                         }
                     }
 
-                    // Cek atribut data-status manual (opsional)
-                    // 0 = Hidden, 1 = Coming Soon, 2 = Auto (Active if link exists)
-                    const manualStatus = card.getAttribute('data-status');
+                    // Reset Class
+                    statusDiv.className = 'card-status';
+                    statusDiv.style.display = '';
 
-                    if (manualStatus === '0') {
-                        // STATUS 0: KOSONG / HIDDEN
-                        // Kita tetap membuat elemennya tapi dengan class khusus untuk hide, 
-                        // atau kita bisa mengosongkan isinya. Sesuai request "tidak menampilkan apa apa".
-                        statusDiv.className = 'card-status status-empty';
-                        statusDiv.style.display = 'none'; // Pastikan hidden via JS juga
-                    } else if (manualStatus === '1') {
-                        // STATUS 1: COMING SOON (Walaupun ada link atau tidak)
+                    // Logika Switch Case berdasarkan angka 0, 1, 2
+                    if (rawStatus === '0') {
+                        // STATUS 0: KOSONG / TIDAK MENAMPILKAN APA-APA
+                        statusDiv.textContent = '';
+                        statusDiv.classList.add('status-empty');
+                        statusDiv.style.display = 'none';
+                    }
+                    else if (rawStatus === '1') {
+                        // STATUS 1: COMING SOON
                         statusDiv.textContent = 'Coming Soon';
                         statusDiv.classList.add('status-soon');
-                    } else if (manualStatus === '2') {
-                        // STATUS 2: NYALA SEMUA KALAU ADA LINK, KECUALI TIDAK ADA LINK LANGSUNG COMING SOON
-                        if (hasValidLink) {
-                            statusDiv.textContent = 'Tersedia';
-                            statusDiv.classList.add('status-active');
-                        } else {
-                            statusDiv.textContent = 'Coming Soon';
-                            statusDiv.classList.add('status-soon');
-                        }
-                    } else {
-                        // DEFAULT LOGIC (Jika tidak ada data-status)
-                        // Mengikuti aturan: Status 2 logic (Active if link, else Coming Soon)
+                    }
+                    else if (rawStatus === '2') {
+                        // STATUS 2: NYALA SEMUA KALAU ADA LINK
                         if (hasValidLink) {
                             statusDiv.textContent = 'Tersedia';
                             statusDiv.classList.add('status-active');
@@ -17549,28 +17536,15 @@
                             statusDiv.classList.add('status-soon');
                         }
                     }
-
-                    // 6. Masukkan ke DOM
-                    // Urutan: Title -> Price -> Status -> Button Group
-                    if (titleEl) {
-                        titleEl.insertAdjacentElement('afterend', priceDiv);
-                        priceDiv.insertAdjacentElement('afterend', statusDiv);
-                    } else {
-                        // Fallback jika title tidak ditemukan
-                        card.insertBefore(priceDiv, buttonGroup);
-                        card.insertBefore(statusDiv, buttonGroup);
+                    else {
+                        // DEFAULT: Coming Soon
+                        statusDiv.textContent = 'Coming Soon';
+                        statusDiv.classList.add('status-soon');
                     }
                 });
             }
 
-            // Jalankan fungsi segera setelah DOM siap
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', processCards);
-            } else {
-                processCards();
-            }
-
-            // ========== SCRIPT ASLI NOXA STORE (DIPERTAHANKAN) ==========
+            // ========== SCRIPT UTAMA NOXA STORE ==========
 
             const colorThemes = ['theme-arab-primary', 'theme-arab-purple', 'theme-arab-gray', 'theme-arab-green', 'theme-arab-light'];
             let currentThemeIndex = 0;
@@ -17627,7 +17601,6 @@
                 let sudahAda = 0;
                 let belumAda = 0;
                 allCards.forEach(card => {
-                    // Gunakan logika link yang sama
                     if (cardHasLink(card)) {
                         sudahAda++;
                     } else {
@@ -17645,23 +17618,22 @@
             function filterMateri() {
                 const searchTerm = searchInput ? searchInput.value.trim().toLowerCase() : '';
                 const allCards = getAllCards();
-                let hasAnyLink = false;
 
-                // Cek apakah ada kartu yang punya link valid
-                allCards.forEach(card => {
-                    if (cardHasLink(card)) hasAnyLink = true;
-                });
-
+                // Hapus pesan kosong/no result sebelumnya
                 const oldEmptyState = document.querySelector('.empty-state');
                 if (oldEmptyState) oldEmptyState.remove();
                 const oldNoResult = document.getElementById('customNoResultMsg');
                 if (oldNoResult) oldNoResult.remove();
 
-                // Jika sama sekali tidak ada link di seluruh halaman
+                // Cek apakah ada kartu dengan link valid
+                let hasAnyLink = false;
+                allCards.forEach(card => {
+                    if (cardHasLink(card)) hasAnyLink = true;
+                });
+
+                // Jika tidak ada link sama sekali
                 if (!hasAnyLink) {
                     allCards.forEach(card => {
-                        // Jangan sembunyikan kartu jika hanya mencari, tapi tampilkan pesan kosong global
-                        // Namun sesuai logika asli, jika tidak ada link, kartu disembunyikan kecuali logic empty state
                         card.style.display = 'none';
                     });
                     if (resultCounterSpan) {
@@ -17693,16 +17665,14 @@
 
                     const isMatch = searchTerm === '' || title.includes(searchTerm);
 
-                    // Tampilkan jika: Cocok pencarian DAN (Memiliki Link ATAU Statusnya bukan Hidden)
-                    // Note: Logic asli hanya menampilkan jika hasLink && isMatch. 
-                    // Kita pertahankan logic asli agar kartu tanpa link tetap terfilter jika dicari, 
-                    // tapi visual statusnya sudah diatur oleh processCards() di atas.
+                    // Tampilkan jika: Cocok pencarian DAN memiliki link
                     const shouldShow = hasLink && isMatch;
 
                     card.style.display = shouldShow ? '' : 'none';
                     if (shouldShow) visibleCount++;
                 });
 
+                // Update Counter & Pesan
                 if (searchTerm !== '' && visibleCount === 0) {
                     if (resultCounterSpan) {
                         resultCounterSpan.innerHTML = '❌ Materi tidak ditemukan';
@@ -17721,6 +17691,8 @@
                 }
                 updateStatistik();
             }
+
+            // ========== EVENT LISTENERS ==========
 
             let debounceTimer;
             if (searchInput) {
@@ -17765,6 +17737,7 @@
                 updateStatistik();
             }
 
+            // Keyboard Shortcuts
             window.addEventListener('keydown', function (e) {
                 if (!searchInput) return;
                 if ((e.ctrlKey && e.key === 'k') || (e.ctrlKey && e.key === 'K')) {
@@ -17818,6 +17791,7 @@
                 });
             }
 
+            // Tambahkan keyframe untuk refresh animation
             if (!document.querySelector('#refreshSpinKeyframe')) {
                 const spinStyle = document.createElement('style');
                 spinStyle.id = 'refreshSpinKeyframe';
@@ -17825,6 +17799,7 @@
                 document.head.appendChild(spinStyle);
             }
 
+            // Click handler untuk tombol Dapatkan
             document.addEventListener('click', function (e) {
                 const btn = e.target.closest('.btn-dapatkan');
                 if (btn) {
@@ -17841,6 +17816,7 @@
                 }
             });
 
+            // Click handler untuk card (open link)
             document.addEventListener('click', function (e) {
                 const card = e.target.closest('.materi-card');
                 if (card && !e.target.closest('.btn-dapatkan') && !e.target.closest('a')) {
@@ -17875,13 +17851,25 @@
                 arabIndex = 0;
             }
 
-            setTimeout(function () {
-                initArabGradient();
-                updateButtonsState();
-                filterMateri();
-                // Panggil processCards lagi untuk memastikan jika ada perubahan dinamis
+            // ========== INISIALISASI ==========
+            // Jalankan saat DOM siap
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function () {
+                    processCards();
+                    setTimeout(function () {
+                        initArabGradient();
+                        updateButtonsState();
+                        filterMateri();
+                    }, 100);
+                });
+            } else {
                 processCards();
-            }, 100);
+                setTimeout(function () {
+                    initArabGradient();
+                    updateButtonsState();
+                    filterMateri();
+                }, 100);
+            }
 
             console.log('✅ Noxa Store | Bahasa Arab & PAI - Theme Active');
         })();
