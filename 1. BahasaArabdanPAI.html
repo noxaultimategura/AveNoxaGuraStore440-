@@ -11715,14 +11715,39 @@
                     </div>
                     </footer>
 
-                    <!-- SCRIPT -->
                     <script>
                         (function () {
                             'use strict';
 
-                            // ========== FUNGSI UTAMA UNTUK MENGATUR STATUS ==========
+                            // ========== GLOBAL ELEMENTS ==========
+                            const searchInput = document.getElementById('searchInput');
+                            const materiContainer = document.getElementById('materiContainer');
+                            const resultCounterSpan = document.getElementById('resultCounter');
+                            const clearBtn = document.getElementById('clearSearchBtn');
+                            const shortcutNotifSpan = document.getElementById('shortcutNotif');
+                            const refreshBtn = document.getElementById('refreshButton');
+
+                            // ========== HELPER FUNCTIONS ==========
+                            function getAllCards() {
+                                return Array.from(document.querySelectorAll('.materi-card'));
+                            }
+
+                            function cardHasLink(card) {
+                                const links = card.querySelectorAll('.button-group .materi-link');
+                                let hasLink = false;
+
+                                links.forEach(link => {
+                                    const href = link.getAttribute('href');
+                                    if (href && href.trim() !== '' && href.trim() !== '#' && href.trim() !== '#!') {
+                                        hasLink = true;
+                                    }
+                                });
+                                return hasLink;
+                            }
+
+                            // ========== FUNGSI UTAMA ==========
                             function processCards() {
-                                const cards = document.querySelectorAll('.materi-card');
+                                const cards = getAllCards();
 
                                 cards.forEach(card => {
                                     let statusDiv = card.querySelector('.card-status');
@@ -11742,7 +11767,7 @@
                                             }
                                         }
 
-                                        // Reset class
+                                        // Reset class & display
                                         statusDiv.className = 'card-status';
                                         statusDiv.style.display = '';
 
@@ -11780,34 +11805,11 @@
                                 });
                             }
 
-                            // ========== SCRIPT UTAMA ==========
-                            const searchInput = document.getElementById('searchInput');
-                            const materiContainer = document.getElementById('materiContainer');
-                            const resultCounterSpan = document.getElementById('resultCounter');
-                            const clearBtn = document.getElementById('clearSearchBtn');
-                            const shortcutNotifSpan = document.getElementById('shortcutNotif');
-                            const refreshBtn = document.getElementById('refreshButton');
-
-                            function getAllCards() {
-                                return Array.from(document.querySelectorAll('.materi-card'));
-                            }
-
-                            function cardHasLink(card) {
-                                const links = card.querySelectorAll('.button-group .materi-link');
-                                let hasLink = false;
-                                links.forEach(link => {
-                                    const href = link.getAttribute('href');
-                                    if (href && href !== '' && href !== '#' && href !== '#!') {
-                                        hasLink = true;
-                                    }
-                                });
-                                return hasLink;
-                            }
-
                             function updateStatistik() {
                                 const allCards = getAllCards();
                                 let sudahAda = 0;
                                 let belumAda = 0;
+
                                 allCards.forEach(card => {
                                     if (cardHasLink(card)) {
                                         sudahAda++;
@@ -11815,9 +11817,11 @@
                                         belumAda++;
                                     }
                                 });
+
                                 const totalMateri = document.getElementById('totalMateriCount');
                                 const materiSudahAda = document.getElementById('materiSudahAda');
                                 const materiBelumAda = document.getElementById('materiBelumAda');
+
                                 if (totalMateri) totalMateri.innerText = allCards.length;
                                 if (materiSudahAda) materiSudahAda.innerText = sudahAda;
                                 if (materiBelumAda) materiBelumAda.innerText = belumAda;
@@ -11827,11 +11831,14 @@
                                 const searchTerm = searchInput ? searchInput.value.trim().toLowerCase() : '';
                                 const allCards = getAllCards();
 
+                                // Hapus pesan kosong/error lama jika ada
                                 const oldEmptyState = document.querySelector('.empty-state');
                                 if (oldEmptyState) oldEmptyState.remove();
+
                                 const oldNoResult = document.getElementById('customNoResultMsg');
                                 if (oldNoResult) oldNoResult.remove();
 
+                                // Cek apakah ada materi yang punya link sama sekali
                                 let hasAnyLink = false;
                                 allCards.forEach(card => {
                                     if (cardHasLink(card)) hasAnyLink = true;
@@ -11845,19 +11852,26 @@
                                         resultCounterSpan.innerHTML = '📚 Belum ada materi tersedia';
                                         resultCounterSpan.style.color = '#CCE2A3';
                                     }
+
                                     const emptyDiv = document.createElement('div');
                                     emptyDiv.className = 'empty-state';
-                                    emptyDiv.innerHTML = '<div style="font-size: 3rem; margin-bottom: 1rem;">📭</div><div style="font-size: 1.2rem; font-weight: 700; color: #F0ECF5; margin-bottom: 0.5rem;">Materi belum tersedia</div><div style="font-size: 0.9rem; color: #99A1A6;">Belum ada materi yang tersedia saat ini.<br>Silakan cek kembali nanti.</div>';
+                                    emptyDiv.innerHTML = `
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📭</div>
+                    <div style="font-size: 1.2rem; font-weight: 700; color: #F0ECF5; margin-bottom: 0.5rem;">Materi belum tersedia</div>
+                    <div style="font-size: 0.9rem; color: #99A1A6;">Belum ada materi yang tersedia saat ini.<br>Silakan cek kembali nanti.</div>
+                `;
                                     if (materiContainer) materiContainer.appendChild(emptyDiv);
                                     return;
                                 }
 
+                                // Filter kartu berdasarkan pencarian
                                 let visibleCount = 0;
                                 allCards.forEach(card => {
                                     const hasLink = cardHasLink(card);
                                     const titleAttr = card.getAttribute('data-title');
                                     const titleH3 = card.querySelector('.card-title');
                                     let title = '';
+
                                     if (titleAttr) title = titleAttr;
                                     else if (titleH3) title = titleH3.innerText || '';
                                     title = title.toLowerCase();
@@ -11869,6 +11883,7 @@
                                     if (shouldShow) visibleCount++;
                                 });
 
+                                // Tampilkan pesan jika tidak ada hasil pencarian
                                 if (searchTerm !== '' && visibleCount === 0) {
                                     if (resultCounterSpan) {
                                         resultCounterSpan.innerHTML = '❌ Materi tidak ditemukan';
@@ -11881,11 +11896,35 @@
                                     if (materiContainer) materiContainer.appendChild(msgDiv);
                                 } else {
                                     if (resultCounterSpan) {
-                                        resultCounterSpan.innerHTML = searchTerm !== '' ? '✨ Ditemukan ' + visibleCount + ' materi' :
-                                            '📚 ' + visibleCount + ' materi';
+                                        resultCounterSpan.innerHTML = searchTerm !== '' ? '✨ Ditemukan ' + visibleCount + ' materi' : '📚 ' + visibleCount + ' materi';
                                         resultCounterSpan.style.color = '#F0ECF5';
                                     }
                                 }
+                                updateStatistik();
+                            }
+
+                            function updateButtonsState() {
+                                document.querySelectorAll('.button-group .materi-link').forEach(function (link) {
+                                    const href = link.getAttribute('href');
+                                    const btn = link.querySelector('button');
+                                    if (!btn) return;
+
+                                    const preventInvalidClick = function (e) {
+                                        if (!href || href === '' || href === '#' || href === '#!') e.preventDefault();
+                                    };
+
+                                    if (!href || href === '' || href === '#' || href === '#!') {
+                                        btn.style.cursor = 'not-allowed';
+                                        btn.style.opacity = '0.5';
+                                        link.removeEventListener('click', preventInvalidClick);
+                                        link.addEventListener('click', preventInvalidClick);
+                                    } else {
+                                        btn.style.cursor = 'pointer';
+                                        btn.style.opacity = '1';
+                                        if (!link.getAttribute('target')) link.setAttribute('target', '_blank');
+                                        link.removeEventListener('click', preventInvalidClick);
+                                    }
+                                });
                                 updateStatistik();
                             }
 
@@ -11910,32 +11949,11 @@
                                 });
                             }
 
-                            function updateButtonsState() {
-                                document.querySelectorAll('.button-group .materi-link').forEach(function (link) {
-                                    const href = link.getAttribute('href');
-                                    const btn = link.querySelector('button');
-                                    if (!btn) return;
-                                    const preventInvalidClick = function (e) {
-                                        if (!href || href === '' || href === '#' || href === '#!') e.preventDefault();
-                                    };
-                                    if (!href || href === '' || href === '#' || href === '#!') {
-                                        btn.style.cursor = 'not-allowed';
-                                        btn.style.opacity = '0.5';
-                                        link.removeEventListener('click', preventInvalidClick);
-                                        link.addEventListener('click', preventInvalidClick);
-                                    } else {
-                                        btn.style.cursor = 'pointer';
-                                        btn.style.opacity = '1';
-                                        if (!link.getAttribute('target')) link.setAttribute('target', '_blank');
-                                        link.removeEventListener('click', preventInvalidClick);
-                                    }
-                                });
-                                updateStatistik();
-                            }
-
                             // Keyboard Shortcuts
                             window.addEventListener('keydown', function (e) {
                                 if (!searchInput) return;
+
+                                // Ctrl + K
                                 if ((e.ctrlKey && e.key === 'k') || (e.ctrlKey && e.key === 'K')) {
                                     e.preventDefault();
                                     searchInput.focus();
@@ -11944,6 +11962,8 @@
                                         setTimeout(function () { shortcutNotifSpan.innerText = ''; }, 1500);
                                     }
                                 }
+
+                                // Shift + F
                                 if (e.shiftKey && (e.key === 'F' || e.key === 'f')) {
                                     e.preventDefault();
                                     searchInput.focus();
@@ -11952,6 +11972,8 @@
                                         setTimeout(function () { shortcutNotifSpan.innerText = ''; }, 1500);
                                     }
                                 }
+
+                                // ESC
                                 if (e.key === 'Escape') {
                                     if (searchInput.value !== '') {
                                         searchInput.value = '';
@@ -11966,10 +11988,12 @@
                                 }
                             });
 
+                            // Tombol Refresh
                             if (refreshBtn) {
                                 refreshBtn.addEventListener('click', function () {
                                     if (searchInput) searchInput.value = '';
                                     filterMateri();
+
                                     const refreshIcon = refreshBtn.querySelector('span');
                                     if (refreshIcon) {
                                         refreshIcon.style.animation = 'spin 0.5s ease';
@@ -11979,6 +12003,7 @@
                                         shortcutNotifSpan.innerText = '⟳ Halaman disegarkan';
                                         setTimeout(function () { shortcutNotifSpan.innerText = ''; }, 1200);
                                     }
+
                                     getAllCards().forEach(function (card) {
                                         card.style.transform = 'scale(0.98)';
                                         setTimeout(function () { card.style.transform = ''; }, 200);
@@ -11987,15 +12012,15 @@
                                 });
                             }
 
+                            // Tambah Style Keyframe Animasi jika belum ada
                             if (!document.querySelector('#refreshSpinKeyframe')) {
                                 const spinStyle = document.createElement('style');
                                 spinStyle.id = 'refreshSpinKeyframe';
-                                spinStyle.textContent =
-                                    '@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }';
+                                spinStyle.textContent = '@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }';
                                 document.head.appendChild(spinStyle);
                             }
 
-                            // Click handler untuk tombol Dapatkan
+                            // Click handler delegasi untuk tombol 'Dapatkan'
                             document.addEventListener('click', function (e) {
                                 const btn = e.target.closest('.btn-dapatkan');
                                 if (btn && !btn.classList.contains('disabled')) {
@@ -12003,6 +12028,7 @@
                                     const href = link ? link.getAttribute('href') : null;
                                     const card = btn.closest('.materi-card');
                                     const title = card ? card.getAttribute('data-title') || 'Materi' : 'Materi';
+
                                     if (href && href !== '' && href !== '#' && href !== '#!') {
                                         window.open(href, '_blank');
                                     } else {
@@ -12012,18 +12038,20 @@
                                 }
                             });
 
-                            // Click handler untuk card
+                            // Click handler delegasi untuk area Kartu (Card)
                             document.addEventListener('click', function (e) {
                                 const card = e.target.closest('.materi-card');
                                 if (card && !e.target.closest('.btn-dapatkan') && !e.target.closest('a')) {
                                     const links = card.querySelectorAll('.button-group .materi-link');
                                     let linkHref = '';
+
                                     links.forEach(function (l) {
                                         const href = l.getAttribute('href');
                                         if (href && href !== '' && href !== '#' && href !== '#!') {
                                             linkHref = href;
                                         }
                                     });
+
                                     const title = card.getAttribute('data-title') || 'Materi';
                                     if (linkHref && linkHref !== '' && linkHref !== '#' && linkHref !== '#!') {
                                         window.open(linkHref, '_blank');
@@ -12037,26 +12065,28 @@
                                 }
                             });
 
-                            // ========== INISIALISASI ==========
-                            if (document.readyState === 'loading') {
-                                document.addEventListener('DOMContentLoaded', function () {
-                                    processCards();
-                                    setTimeout(function () {
-                                        updateButtonsState();
-                                        filterMateri();
-                                    }, 100);
-                                });
-                            } else {
+                            // ========== INISIALISASI PADA SAAT LOAD ==========
+                            function init() {
                                 processCards();
                                 setTimeout(function () {
                                     updateButtonsState();
                                     filterMateri();
                                 }, 100);
+
+                                // Mengatur tahun otomatis pada footer
+                                const footerYearEl = document.getElementById('footerYear');
+                                if (footerYearEl) {
+                                    footerYearEl.textContent = new Date().getFullYear();
+                                }
+
+                                console.log('✅ Noxa Store | Bahasa Arab & PAI - Active');
                             }
 
-                            document.getElementById('footerYear').textContent = new Date().getFullYear();
-
-                            console.log('✅ Noxa Store | Bahasa Arab & PAI - Active');
+                            if (document.readyState === 'loading') {
+                                document.addEventListener('DOMContentLoaded', init);
+                            } else {
+                                init();
+                            }
                         })();
                     </script>
 </body>
