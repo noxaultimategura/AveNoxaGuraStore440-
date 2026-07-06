@@ -313,7 +313,9 @@
             margin-top: 1.5rem;
         }
 
-        /* ========= CARD MATERI - DIPERBAIKI ========= */
+        /* ================================================================ */
+        /* CARD MATERI - DENGAN BADGE DI POJOK KANAN ATAS */
+        /* ================================================================ */
         .materi-card {
             border-radius: 1rem;
             padding: 1.2rem 0.8rem 1rem;
@@ -330,6 +332,8 @@
             box-shadow: 0 8px 20px rgba(90, 58, 142, 0.4);
             animation: cardRainbow 14s ease-in-out infinite;
             min-height: 170px;
+            position: relative;
+            overflow: hidden;
             justify-content: flex-start;
         }
 
@@ -381,17 +385,45 @@
             border-color: var(--ungu-7);
         }
 
-        /* BADGE - DIPERKECIL & DI PALING ATAS */
+        /* ================================================================ */
+        /* BADGE - DI POJOK KANAN ATAS, SESUAI PANJANG TEKS */
+        /* ================================================================ */
         .mapel-badge {
-            font-size: clamp(1.4rem, 3vw, 2.2rem);
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            font-size: clamp(0.6rem, 1vw, 0.8rem);
             line-height: 1.2;
-            margin-bottom: 0.1rem;
-            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-            position: relative;
-            z-index: 1;
-            order: 0;
+            padding: 0.2rem 0.6rem;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-weight: 600;
+            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            width: auto;
+            max-width: 90%;
         }
 
+        .mapel-badge .badge-emoji {
+            font-size: 0.8em;
+        }
+
+        .mapel-badge .badge-text {
+            font-size: 0.7em;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+        }
+
+        /* ================================================================ */
+        /* CARD CONTENT - TETAP DI TENGAH */
+        /* ================================================================ */
         .card-title {
             color: #fff;
             font-size: clamp(0.85rem, 2vw, 1.1rem);
@@ -401,8 +433,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            order: 1;
             line-height: 1.3;
+            margin-top: 0.5rem;
+            padding-right: 0.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .card-subtitle {
@@ -410,7 +445,8 @@
             color: #9988bb;
             font-weight: 400;
             margin-top: -0.1rem;
-            order: 2;
+            position: relative;
+            z-index: 1;
         }
 
         .card-status-wrapper {
@@ -419,7 +455,8 @@
             justify-content: center;
             gap: 0.5rem;
             margin: 0.1rem 0;
-            order: 3;
+            position: relative;
+            z-index: 1;
         }
 
         .card-status {
@@ -458,11 +495,12 @@
         .card-price {
             font-size: clamp(0.7rem, 1.3vw, 0.85rem);
             font-weight: 800;
-            color: var(--gold, #ffd700);
+            color: #ffd700;
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
             padding: 0.1rem 0;
             letter-spacing: 0.5px;
-            order: 4;
+            position: relative;
+            z-index: 1;
         }
 
         .card-price::before {
@@ -473,7 +511,8 @@
         /* ========= BUTTON DAPATKAN ========= */
         .button-group {
             width: 100%;
-            order: 5;
+            position: relative;
+            z-index: 1;
         }
 
         .btn-dapatkan {
@@ -661,7 +700,7 @@
         }
 
         /* ================================================================ */
-        /* RESPONSIVE GRID - SATU TEMPAT */
+        /* RESPONSIVE GRID */
         /* ================================================================ */
 
         /* HP Kecil Potrait (<= 420px) - 1 grid */
@@ -756,12 +795,17 @@
             }
 
             .mapel-badge {
-                font-size: 1.4rem;
+                top: 5px;
+                right: 6px;
+                font-size: 0.5rem;
+                padding: 0.1rem 0.4rem;
             }
 
             .card-title {
                 font-size: 0.75rem;
                 min-height: 2rem;
+                margin-top: 0.3rem;
+                padding-right: 0.3rem;
             }
 
             .card-subtitle {
@@ -892,12 +936,17 @@
             }
 
             .mapel-badge {
-                font-size: 1.4rem;
+                top: 5px;
+                right: 6px;
+                font-size: 0.5rem;
+                padding: 0.1rem 0.35rem;
             }
 
             .card-title {
                 font-size: 0.7rem;
                 min-height: 1.8rem;
+                margin-top: 0.2rem;
+                padding-right: 0.2rem;
             }
 
             .card-subtitle {
@@ -1034,12 +1083,17 @@
             }
 
             .mapel-badge {
-                font-size: 1.8rem;
+                top: 6px;
+                right: 8px;
+                font-size: 0.55rem;
+                padding: 0.15rem 0.4rem;
             }
 
             .card-title {
                 font-size: 0.8rem;
                 min-height: 2.2rem;
+                margin-top: 0.3rem;
+                padding-right: 0.3rem;
             }
 
             .card-subtitle {
@@ -1168,12 +1222,17 @@
             }
 
             .mapel-badge {
-                font-size: 2rem;
+                top: 7px;
+                right: 9px;
+                font-size: 0.6rem;
+                padding: 0.15rem 0.45rem;
             }
 
             .card-title {
                 font-size: 0.85rem;
                 min-height: 2.2rem;
+                margin-top: 0.3rem;
+                padding-right: 0.3rem;
             }
 
             .card-subtitle {
@@ -1281,12 +1340,17 @@
             }
 
             .mapel-badge {
-                font-size: 2.2rem;
+                top: 8px;
+                right: 10px;
+                font-size: 0.65rem;
+                padding: 0.15rem 0.5rem;
             }
 
             .card-title {
                 font-size: 0.9rem;
                 min-height: 2.4rem;
+                margin-top: 0.3rem;
+                padding-right: 0.3rem;
             }
 
             .card-subtitle {
@@ -1364,12 +1428,17 @@
             }
 
             .mapel-badge {
-                font-size: 2.2rem;
+                top: 8px;
+                right: 10px;
+                font-size: 0.65rem;
+                padding: 0.15rem 0.5rem;
             }
 
             .card-title {
                 font-size: 0.9rem;
                 min-height: 2.4rem;
+                margin-top: 0.3rem;
+                padding-right: 0.3rem;
             }
 
             .card-subtitle {
@@ -1445,12 +1514,17 @@
             }
 
             .mapel-badge {
-                font-size: 2.4rem;
+                top: 9px;
+                right: 11px;
+                font-size: 0.7rem;
+                padding: 0.15rem 0.55rem;
             }
 
             .card-title {
                 font-size: 0.95rem;
                 min-height: 2.5rem;
+                margin-top: 0.3rem;
+                padding-right: 0.3rem;
             }
 
             .card-subtitle {
@@ -1522,12 +1596,17 @@
             }
 
             .mapel-badge {
-                font-size: 2.6rem;
+                top: 10px;
+                right: 12px;
+                font-size: 0.75rem;
+                padding: 0.15rem 0.6rem;
             }
 
             .card-title {
                 font-size: 1rem;
                 min-height: 2.6rem;
+                margin-top: 0.3rem;
+                padding-right: 0.3rem;
             }
 
             .card-subtitle {
@@ -1617,12 +1696,17 @@
             }
 
             .mapel-badge {
-                font-size: 2.8rem;
+                top: 10px;
+                right: 12px;
+                font-size: 0.8rem;
+                padding: 0.2rem 0.6rem;
             }
 
             .card-title {
                 font-size: 1.05rem;
                 min-height: 2.6rem;
+                margin-top: 0.3rem;
+                padding-right: 0.3rem;
             }
 
             .card-subtitle {
@@ -1717,12 +1801,17 @@
             }
 
             .mapel-badge {
-                font-size: 3.2rem;
+                top: 12px;
+                right: 14px;
+                font-size: 0.9rem;
+                padding: 0.25rem 0.8rem;
             }
 
             .card-title {
                 font-size: 1.2rem;
                 min-height: 2.8rem;
+                margin-top: 0.4rem;
+                padding-right: 0.5rem;
             }
 
             .card-subtitle {
