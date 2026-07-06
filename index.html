@@ -15,7 +15,7 @@
 
         /* ========== ROOT VARIABLES ========== */
         :root {
-            --radius-card: 1rem;
+            --radius-card: 1.2rem;
             --radius-container: 2rem;
             --shadow-heavy: 0 25px 45px rgba(0, 0, 0, 0.8);
             --text-color: #FFFFFF;
@@ -316,44 +316,45 @@
         }
 
         /* ================================================================ */
-        /* GRID MATERI                                                      */
+        /* GRID MATERI - DIPERBAIKI AGAR CARD BESAR                        */
         /* ================================================================ */
 
         #materiContainer {
             display: grid;
-            gap: 1.2rem;
+            gap: 1.5rem;
             margin-top: 1.5rem;
+            grid-template-columns: repeat(4, 1fr);
         }
 
         /* ================================================================ */
-        /* CARD MATERI                                                      */
+        /* CARD MATERI - DIPERBESAR                                        */
         /* ================================================================ */
 
         .materi-card {
             border-radius: var(--radius-card);
-            padding: 1.2rem 0.8rem 1rem;
+            padding: 1.8rem 1.2rem 1.5rem;
             transition: all 0.5s ease;
             border: 1px solid rgba(42, 42, 74, 0.3);
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            gap: 0.3rem;
+            gap: 0.6rem;
             text-decoration: none;
             cursor: pointer;
             background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);
-            min-height: 170px;
+            min-height: 240px;
             position: relative;
             overflow: hidden;
-            justify-content: flex-start;
+            justify-content: center;
         }
 
         .materi-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-6px);
             border-color: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 12px 25px -8px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.5);
         }
 
         .materi-card.gradien-0 {
@@ -382,11 +383,11 @@
 
         .status-badge {
             position: absolute;
-            top: 8px;
-            right: 10px;
-            font-size: clamp(0.5rem, 0.8vw, 0.65rem);
+            top: 10px;
+            right: 12px;
+            font-size: clamp(0.55rem, 0.8vw, 0.7rem);
             line-height: 1.2;
-            padding: 0.15rem 0.6rem;
+            padding: 0.2rem 0.7rem;
             background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);
@@ -418,22 +419,21 @@
         /* ================================================================ */
 
         .card-icon {
-            font-size: clamp(2rem, 3vw, 3rem);
-            margin-top: 0.5rem;
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            margin-top: 0.2rem;
             position: relative;
             z-index: 1;
         }
 
         .card-title {
-            font-size: clamp(0.85rem, 2vw, 1.1rem);
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
             font-weight: 700;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-            min-height: 2.4rem;
+            min-height: 2.6rem;
             display: flex;
             align-items: center;
             justify-content: center;
             line-height: 1.3;
-            margin-top: 0.2rem;
             padding-right: 0.5rem;
             position: relative;
             z-index: 1;
@@ -441,32 +441,25 @@
         }
 
         .card-desc {
-            font-size: clamp(0.5rem, 0.9vw, 0.6rem);
+            font-size: clamp(0.6rem, 1vw, 0.8rem);
             opacity: 0.7;
             font-weight: 400;
-            margin-top: -0.1rem;
             position: relative;
             z-index: 1;
             color: #7a7aaa;
         }
 
         /* ================================================================ */
-        /* BUTTON GROUP                                                     */
+        /* BUTTON ENTER - DIPERBESAR                                        */
         /* ================================================================ */
 
-        .button-group {
-            width: 100%;
-            position: relative;
-            z-index: 1;
-            margin-top: 0.1rem;
-        }
-
         .btn-enter {
-            width: 100%;
-            padding: 0.55rem 1rem;
+            width: 80%;
+            max-width: 250px;
+            padding: 0.7rem 1.5rem;
             border-radius: 40px;
             font-weight: 700;
-            font-size: clamp(0.6rem, 1.3vw, 0.75rem);
+            font-size: clamp(0.7rem, 1.5vw, 0.85rem);
             text-align: center;
             transition: all 0.25s ease;
             display: inline-block;
@@ -476,6 +469,9 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            margin-top: 0.2rem;
+            position: relative;
+            z-index: 1;
         }
 
         .btn-enter:not([disabled]) {
@@ -792,13 +788,13 @@
             }
 
             #materiContainer {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr !important;
                 gap: 0.8rem;
             }
 
             .materi-card {
-                padding: 0.8rem 0.6rem 0.8rem;
-                min-height: 140px;
+                padding: 1rem 0.8rem;
+                min-height: 180px;
             }
 
             .status-badge {
@@ -809,19 +805,18 @@
             }
 
             .card-title {
-                font-size: 0.75rem;
-                min-height: 2rem;
-                margin-top: 0.3rem;
-                padding-right: 0.3rem;
+                font-size: 0.9rem;
+                min-height: 2.2rem;
             }
 
             .card-desc {
-                font-size: 0.45rem;
+                font-size: 0.55rem;
             }
 
             .btn-enter {
-                padding: 0.45rem 0.7rem;
-                font-size: 0.6rem;
+                width: 100%;
+                padding: 0.5rem 0.8rem;
+                font-size: 0.7rem;
             }
 
             .footer {
@@ -912,13 +907,13 @@
             }
 
             #materiContainer {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr) !important;
                 gap: 0.7rem;
             }
 
             .materi-card {
-                padding: 0.7rem 0.5rem 0.7rem;
-                min-height: 130px;
+                padding: 0.9rem 0.7rem;
+                min-height: 170px;
             }
 
             .status-badge {
@@ -929,19 +924,18 @@
             }
 
             .card-title {
-                font-size: 0.7rem;
-                min-height: 1.8rem;
-                margin-top: 0.2rem;
-                padding-right: 0.2rem;
+                font-size: 0.8rem;
+                min-height: 2rem;
             }
 
             .card-desc {
-                font-size: 0.45rem;
+                font-size: 0.5rem;
             }
 
             .btn-enter {
+                width: 100%;
                 padding: 0.4rem 0.6rem;
-                font-size: 0.55rem;
+                font-size: 0.6rem;
             }
 
             .footer {
@@ -1036,13 +1030,13 @@
             }
 
             #materiContainer {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr) !important;
                 gap: 0.9rem;
             }
 
             .materi-card {
-                padding: 0.9rem 0.7rem 0.9rem;
-                min-height: 150px;
+                padding: 1.2rem 0.9rem;
+                min-height: 190px;
             }
 
             .status-badge {
@@ -1053,19 +1047,18 @@
             }
 
             .card-title {
-                font-size: 0.8rem;
+                font-size: 0.9rem;
                 min-height: 2.2rem;
-                margin-top: 0.3rem;
-                padding-right: 0.3rem;
             }
 
             .card-desc {
-                font-size: 0.5rem;
+                font-size: 0.55rem;
             }
 
             .btn-enter {
+                width: 90%;
                 padding: 0.5rem 0.8rem;
-                font-size: 0.65rem;
+                font-size: 0.7rem;
             }
 
             .footer {
@@ -1144,13 +1137,13 @@
             }
 
             #materiContainer {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr) !important;
                 gap: 1rem;
             }
 
             .materi-card {
-                padding: 1rem 0.8rem 1rem;
-                min-height: 160px;
+                padding: 1.3rem 1rem;
+                min-height: 200px;
             }
 
             .status-badge {
@@ -1161,19 +1154,18 @@
             }
 
             .card-title {
-                font-size: 0.85rem;
-                min-height: 2.2rem;
-                margin-top: 0.3rem;
-                padding-right: 0.3rem;
+                font-size: 0.95rem;
+                min-height: 2.4rem;
             }
 
             .card-desc {
-                font-size: 0.55rem;
+                font-size: 0.6rem;
             }
 
             .btn-enter {
+                width: 85%;
                 padding: 0.55rem 0.9rem;
-                font-size: 0.65rem;
+                font-size: 0.7rem;
             }
 
             .footer {
@@ -1233,13 +1225,13 @@
             }
 
             #materiContainer {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(3, 1fr) !important;
                 gap: 1rem;
             }
 
             .materi-card {
-                padding: 1.1rem 0.8rem 1.1rem;
-                min-height: 165px;
+                padding: 1.4rem 1rem;
+                min-height: 210px;
             }
 
             .status-badge {
@@ -1250,17 +1242,16 @@
             }
 
             .card-title {
-                font-size: 0.9rem;
-                min-height: 2.4rem;
-                margin-top: 0.3rem;
-                padding-right: 0.3rem;
+                font-size: 1rem;
+                min-height: 2.5rem;
             }
 
             .card-desc {
-                font-size: 0.55rem;
+                font-size: 0.6rem;
             }
 
             .btn-enter {
+                width: 80%;
                 padding: 0.55rem 0.9rem;
                 font-size: 0.7rem;
             }
@@ -1301,13 +1292,13 @@
             }
 
             #materiContainer {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(3, 1fr) !important;
                 gap: 1.1rem;
             }
 
             .materi-card {
-                padding: 1.1rem 0.8rem 1.1rem;
-                min-height: 165px;
+                padding: 1.5rem 1rem;
+                min-height: 215px;
             }
 
             .status-badge {
@@ -1318,19 +1309,18 @@
             }
 
             .card-title {
-                font-size: 0.9rem;
-                min-height: 2.4rem;
-                margin-top: 0.3rem;
-                padding-right: 0.3rem;
+                font-size: 1.05rem;
+                min-height: 2.5rem;
             }
 
             .card-desc {
-                font-size: 0.55rem;
+                font-size: 0.65rem;
             }
 
             .btn-enter {
+                width: 75%;
                 padding: 0.6rem 1rem;
-                font-size: 0.7rem;
+                font-size: 0.75rem;
             }
 
             .footer {
@@ -1363,13 +1353,13 @@
             }
 
             #materiContainer {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(3, 1fr) !important;
                 gap: 1.1rem;
             }
 
             .materi-card {
-                padding: 1.2rem 0.9rem 1.2rem;
-                min-height: 170px;
+                padding: 1.6rem 1.1rem;
+                min-height: 220px;
             }
 
             .status-badge {
@@ -1380,19 +1370,18 @@
             }
 
             .card-title {
-                font-size: 0.95rem;
-                min-height: 2.5rem;
-                margin-top: 0.3rem;
-                padding-right: 0.3rem;
+                font-size: 1.1rem;
+                min-height: 2.6rem;
             }
 
             .card-desc {
-                font-size: 0.6rem;
+                font-size: 0.7rem;
             }
 
             .btn-enter {
+                width: 75%;
                 padding: 0.65rem 1.1rem;
-                font-size: 0.75rem;
+                font-size: 0.8rem;
             }
 
             .footer {
@@ -1425,13 +1414,13 @@
             }
 
             #materiContainer {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(4, 1fr) !important;
                 gap: 1.2rem;
             }
 
             .materi-card {
-                padding: 1.3rem 0.9rem 1.3rem;
-                min-height: 175px;
+                padding: 1.7rem 1.2rem;
+                min-height: 230px;
             }
 
             .status-badge {
@@ -1442,19 +1431,18 @@
             }
 
             .card-title {
-                font-size: 1rem;
-                min-height: 2.6rem;
-                margin-top: 0.3rem;
-                padding-right: 0.3rem;
+                font-size: 1.15rem;
+                min-height: 2.8rem;
             }
 
             .card-desc {
-                font-size: 0.6rem;
+                font-size: 0.75rem;
             }
 
             .btn-enter {
-                padding: 0.65rem 1.1rem;
-                font-size: 0.75rem;
+                width: 70%;
+                padding: 0.7rem 1.2rem;
+                font-size: 0.85rem;
             }
 
             .footer {
@@ -1504,13 +1492,13 @@
             }
 
             #materiContainer {
-                grid-template-columns: repeat(5, 1fr);
-                gap: 1.2rem;
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 1.3rem;
             }
 
             .materi-card {
-                padding: 1.4rem 1rem 1.4rem;
-                min-height: 185px;
+                padding: 1.8rem 1.3rem;
+                min-height: 240px;
             }
 
             .status-badge {
@@ -1521,19 +1509,18 @@
             }
 
             .card-title {
-                font-size: 1.05rem;
-                min-height: 2.6rem;
-                margin-top: 0.3rem;
-                padding-right: 0.3rem;
+                font-size: 1.2rem;
+                min-height: 2.8rem;
             }
 
             .card-desc {
-                font-size: 0.65rem;
+                font-size: 0.8rem;
             }
 
             .btn-enter {
+                width: 70%;
                 padding: 0.7rem 1.2rem;
-                font-size: 0.8rem;
+                font-size: 0.85rem;
             }
 
             .footer {
@@ -1586,13 +1573,13 @@
             }
 
             #materiContainer {
-                grid-template-columns: repeat(5, 1fr);
+                grid-template-columns: repeat(4, 1fr) !important;
                 gap: 1.5rem;
             }
 
             .materi-card {
-                padding: 1.8rem 1.2rem 1.8rem;
-                min-height: 210px;
+                padding: 2rem 1.5rem;
+                min-height: 260px;
                 border-radius: 1.5rem;
             }
 
@@ -1604,17 +1591,16 @@
             }
 
             .card-title {
-                font-size: 1.2rem;
-                min-height: 2.8rem;
-                margin-top: 0.4rem;
-                padding-right: 0.5rem;
+                font-size: 1.3rem;
+                min-height: 3rem;
             }
 
             .card-desc {
-                font-size: 0.7rem;
+                font-size: 0.85rem;
             }
 
             .btn-enter {
+                width: 65%;
                 padding: 0.8rem 1.4rem;
                 font-size: 0.9rem;
                 border-radius: 60px;
@@ -1661,7 +1647,7 @@
             }
 
             .materi-card {
-                min-height: 120px;
+                min-height: 160px;
             }
         }
 
@@ -1878,8 +1864,8 @@
             'use strict';
 
             // ================================================================ */
-            // DATA MENU - KONSISTEN DENGAN MAPEL & PENDUKUNG                   */
-            // status: 0 = hidden (tidak tampil), 1 = coming soon, 2 = aktif    */
+            // DATA MENU                                                         */
+            // status: 0 = hidden, 1 = coming soon, 2 = aktif                   */
             // ================================================================ */
 
             const menuData = [{
@@ -1888,35 +1874,35 @@
                 title: 'Materi Pelajaran',
                 desc: 'Kumpulan materi pelajaran sekolah',
                 href: '0. allmapel.html',
-                status: 0 // AKTIF
+                status: 2 // AKTIF
             }, {
                 id: 2,
                 icon: '💻',
                 title: 'Bahasa Pemrograman',
                 desc: 'Belajar coding & programming',
                 href: '44. AllProgramming.html',
-                status: 0 // AKTIF
+                status: 2 // AKTIF
             }, {
                 id: 3,
                 icon: '⚙️',
                 title: 'Framework',
                 desc: 'Koleksi framework populer',
                 href: 'AllFramework.html',
-                status: 0 // Coming Soon
+                status: 1 // Coming Soon
             }, {
                 id: 4,
                 icon: '📦',
                 title: 'Type of Library',
                 desc: 'Jenis-jenis library pemrograman',
                 href: 'AllLibrary.html',
-                status: 0 // Coming Soon
+                status: 1 // Coming Soon
             }, {
                 id: 5,
                 icon: '📖',
                 title: 'Planner',
                 desc: 'Kumpulan Planner Aesthetic',
                 href: 'AllPlanner.html',
-                status: 2 // Coming Soon
+                status: 1 // Coming Soon
             }, {
                 id: 6,
                 icon: '🖼️',
@@ -1941,7 +1927,7 @@
             const subMenuIndicator = document.getElementById('subMenuIndicator');
 
             // ================================================================ */
-            // COLOR THEMES (5 Warna - Sama dengan Mapel & Pendukung)            */
+            // COLOR THEMES (5 Warna)                                            */
             // ================================================================ */
 
             const colorThemes = ['theme-primary', 'theme-1', 'theme-2', 'theme-3', 'theme-4'];
@@ -1954,11 +1940,10 @@
                 bodyEl.classList.add(colorThemes[currentThemeIndex]);
             }
 
-            // Ganti tema setiap 5 detik (seperti di mapel & pendukung)
             setInterval(applyNextTheme, 5000);
 
             // ================================================================ */
-            // GRADIENT ROTATION (Sama dengan mapel & pendukung)                */
+            // GRADIENT ROTATION                                                  */
             // ================================================================ */
 
             const gradienList = ['gradien-0', 'gradien-1', 'gradien-2', 'gradien-3', 'gradien-4'];
@@ -1974,7 +1959,6 @@
                 });
             }
 
-            // Ganti gradien setiap 3 detik
             setInterval(rotateGradient, 3000);
 
             // ================================================================ */
@@ -1988,23 +1972,19 @@
                 let comingCount = 0;
                 let hiddenCount = 0;
 
-                // Filter menu visible (status !== 0)
                 const visibleMenus = menuData.filter(item => item.status !== 0);
 
-                // Hitung statistik
                 menuData.forEach(item => {
                     if (item.status === 2) activeCount++;
                     else if (item.status === 1) comingCount++;
                     else if (item.status === 0) hiddenCount++;
                 });
 
-                // Update stats
                 document.getElementById('totalMateriCount').innerText = menuData.length;
                 document.getElementById('materiSudahAda').innerText = activeCount;
                 document.getElementById('materiComingSoon').innerText = comingCount;
                 document.getElementById('materiHidden').innerText = hiddenCount;
 
-                // Build cards
                 let cardsHTML = '';
                 visibleMenus.forEach((item, index) => {
                     const isMatch = searchTerm === '' ||
@@ -2020,8 +2000,6 @@
                     const buttonText = item.status === 1 ? '⏳ Segera' : '🚪 Masuk';
                     const displayStyle = isMatch ? '' : 'style="display:none;"';
                     const linkHref = item.status === 2 ? item.href : '#';
-
-                    // Animasi delay untuk efek cascade
                     const delay = (index % 6) * 0.06;
 
                     cardsHTML += `
@@ -2044,7 +2022,6 @@
 
                 materiContainer.innerHTML = cardsHTML;
 
-                // Update sub menu indicator
                 let subHTML = '';
                 visibleMenus.forEach(item => {
                     const emoji = item.status === 2 ? '✅' : '⏳';
@@ -2052,7 +2029,6 @@
                 });
                 subMenuIndicator.innerHTML = subHTML;
 
-                // Update counter
                 if (resultCounterSpan) {
                     if (searchTerm !== '' && visibleCount === 0) {
                         resultCounterSpan.innerHTML = '❌ Menu tidak ditemukan';
@@ -2067,7 +2043,6 @@
                     }
                 }
 
-                // Event listener untuk card status 1 (Coming Soon)
                 document.querySelectorAll('.materi-card.status-1').forEach(card => {
                     card.addEventListener('click', function (e) {
                         e.preventDefault();
@@ -2076,11 +2051,6 @@
                             setTimeout(() => shortcutNotifSpan.innerText = '', 2000);
                         }
                     });
-                });
-
-                // Event listener untuk card status 2 (Aktif) - klik card untuk navigasi
-                document.querySelectorAll('.materi-card.status-2').forEach(card => {
-                    // Sudah otomatis karena <a> tag
                 });
 
                 return visibleCount;
@@ -2146,13 +2116,11 @@
             }
 
             // ================================================================ */
-            // KEYBOARD SHORTCUTS (Sama dengan mapel & pendukung)               */
+            // KEYBOARD SHORTCUTS                                                */
             // ================================================================ */
 
             window.addEventListener('keydown', (e) => {
                 if (!searchInput) return;
-
-                // Cek apakah desktop (min-width 992px)
                 const isDesktop = window.innerWidth >= 992;
                 if (!isDesktop) return;
 
@@ -2197,7 +2165,6 @@
                     if (searchInput) searchInput.value = '';
                     renderMenu();
 
-                    // Animasi refresh
                     const refreshIcon = refreshBtn.querySelector('span');
                     if (refreshIcon) {
                         refreshIcon.style.animation = 'spin 0.5s ease';
@@ -2211,7 +2178,6 @@
                         setTimeout(() => shortcutNotifSpan.innerText = '', 1200);
                     }
 
-                    // Animasi card scale
                     document.querySelectorAll('.materi-card').forEach(card => {
                         card.style.transform = 'scale(0.98)';
                         setTimeout(() => {
@@ -2258,7 +2224,7 @@
             console.log('💡 Ubah status di variable menuData (0=hidden, 1=coming soon, 2=aktif)');
 
             // ================================================================ */
-            // CLICK CARD HANDLER (Sama dengan mapel & pendukung)               */
+            // CLICK CARD HANDLER                                                */
             // ================================================================ */
 
             document.addEventListener('click', function (e) {
@@ -2285,7 +2251,6 @@
                 }
             });
 
-            // Tombol enter handler
             document.addEventListener('click', function (e) {
                 const btn = e.target.closest('.btn-enter');
                 if (btn && !btn.disabled) {
