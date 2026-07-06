@@ -27716,7 +27716,6 @@
     </footer>
 
     <script>
-
         (function () {
             'use strict';
 
@@ -27727,6 +27726,15 @@
             const clearBtn = document.getElementById('clearSearchBtn');
             const shortcutNotifSpan = document.getElementById('shortcutNotif');
             const refreshBtn = document.getElementById('refreshButton');
+
+            // ========== 50 THEMES ==========
+            const THEMES = [];
+            for (let i = 1; i <= 50; i++) {
+                THEMES.push('theme-' + i);
+            }
+
+            let currentThemeIndex = -1;
+            let themeInterval = null;
 
             // ========== HELPER FUNCTIONS ==========
             function getAllCards() {
@@ -27856,8 +27864,8 @@
                     emptyDiv.className = 'empty-state';
                     emptyDiv.innerHTML = `
                 <div style="font-size: 3rem; margin-bottom: 1rem;">📭</div>
-                <div style="font-size: 1.2rem; font-weight: 700; color: #F0ECF5; margin-bottom: 0.5rem;">Materi belum tersedia</div>
-                <div style="font-size: 0.9rem; color: #99A1A6;">Belum ada materi yang tersedia saat ini.<br>Silakan cek kembali nanti.</div>
+                <div style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem;">Materi belum tersedia</div>
+                <div style="font-size: 0.9rem; opacity: 0.7;">Belum ada materi yang tersedia saat ini.<br>Silakan cek kembali nanti.</div>
             `;
                     if (materiContainer) materiContainer.appendChild(emptyDiv);
                     return;
@@ -27895,7 +27903,7 @@
                     if (resultCounterSpan) {
                         resultCounterSpan.innerHTML = searchTerm !== '' ? '✨ Ditemukan ' + visibleCount + ' materi' : '📚 ' +
                             visibleCount + ' materi';
-                        resultCounterSpan.style.color = '#F0ECF5';
+                        resultCounterSpan.style.color = 'inherit';
                     }
                 }
                 updateStatistik();
@@ -27926,76 +27934,91 @@
                 updateStatistik();
             }
 
-            // ========== THEME TOGGLE (UK / US) ==========
-            function toggleTheme() {
+            // ========== THEME SYSTEM - 50 WARNA ==========
+            function getRandomThemeIndex() {
+                let newIndex;
+                do {
+                    newIndex = Math.floor(Math.random() * THEMES.length);
+                } while (newIndex === currentThemeIndex && THEMES.length > 1);
+                return newIndex;
+            }
+
+            function applyTheme(themeName) {
                 const body = document.body;
-                const themes = [
-                    'theme-uk-1', 'theme-uk-2', 'theme-uk-3', 'theme-uk-4', 'theme-uk-5',
-                    'theme-us-1', 'theme-us-2', 'theme-us-3', 'theme-us-4', 'theme-us-5'
-                ];
-
-                themes.forEach(t => body.classList.remove(t));
-
-                const randomTheme = themes[Math.floor(Math.random() * themes.length)];
-                body.classList.add(randomTheme);
-
                 const cards = document.querySelectorAll('.materi-card');
+
+                // Hapus semua theme class
+                THEMES.forEach(t => body.classList.remove(t));
+
+                // Apply theme baru
+                body.classList.add(themeName);
+
+                // Apply gradien ke card (acak)
                 cards.forEach((card, index) => {
-                    card.classList.remove(
-                        'uk-gradien-0', 'uk-gradien-1', 'uk-gradien-2', 'uk-gradien-3', 'uk-gradien-4',
-                        'us-gradien-0', 'us-gradien-1', 'us-gradien-2', 'us-gradien-3', 'us-gradien-4'
-                    );
-
-                    const isUK = randomTheme.startsWith('theme-uk');
+                    card.classList.remove('gradien-0', 'gradien-1', 'gradien-2', 'gradien-3', 'gradien-4');
                     const gradIndex = index % 5;
-
-                    if (isUK) {
-                        card.classList.add('uk-gradien-' + gradIndex);
-                    } else {
-                        card.classList.add('us-gradien-' + gradIndex);
-                    }
+                    card.classList.add('gradien-' + gradIndex);
                 });
 
+                // Simpan ke localStorage
                 try {
-                    localStorage.setItem('noxa-theme', randomTheme);
+                    localStorage.setItem('noxa-theme-50', themeName);
+                    localStorage.setItem('noxa-theme-index', String(currentThemeIndex));
                 } catch (e) { }
+            }
 
-                return randomTheme;
+            function toggleTheme() {
+                const newIndex = getRandomThemeIndex();
+                currentThemeIndex = newIndex;
+                applyTheme(THEMES[newIndex]);
+
+                if (shortcutNotifSpan) {
+                    shortcutNotifSpan.innerText = '🎨 Tema ' + (newIndex + 1) + ' dari 50';
+                    setTimeout(function () {
+                        if (!shortcutNotifSpan.dataset.manual) {
+                            shortcutNotifSpan.innerText = '';
+                        }
+                    }, 2000);
+                }
+
+                return THEMES[newIndex];
+            }
+
+            function startAutoTheme() {
+                if (themeInterval) {
+                    clearInterval(themeInterval);
+                }
+                themeInterval = setInterval(function () {
+                    toggleTheme();
+                }, 10000); // 10 detik
+            }
+
+            function stopAutoTheme() {
+                if (themeInterval) {
+                    clearInterval(themeInterval);
+                    themeInterval = null;
+                }
             }
 
             function loadSavedTheme() {
                 let savedTheme = null;
+                let savedIndex = -1;
+
                 try {
-                    savedTheme = localStorage.getItem('noxa-theme');
+                    savedTheme = localStorage.getItem('noxa-theme-50');
+                    const idx = localStorage.getItem('noxa-theme-index');
+                    if (idx !== null) savedIndex = parseInt(idx, 10);
                 } catch (e) { }
 
-                const body = document.body;
-                const themes = [
-                    'theme-uk-1', 'theme-uk-2', 'theme-uk-3', 'theme-uk-4', 'theme-uk-5',
-                    'theme-us-1', 'theme-us-2', 'theme-us-3', 'theme-us-4', 'theme-us-5'
-                ];
-
-                themes.forEach(t => body.classList.remove(t));
-
-                if (savedTheme && themes.includes(savedTheme)) {
-                    body.classList.add(savedTheme);
-                    const cards = document.querySelectorAll('.materi-card');
-                    const isUK = savedTheme.startsWith('theme-uk');
-                    cards.forEach((card, index) => {
-                        card.classList.remove(
-                            'uk-gradien-0', 'uk-gradien-1', 'uk-gradien-2', 'uk-gradien-3', 'uk-gradien-4',
-                            'us-gradien-0', 'us-gradien-1', 'us-gradien-2', 'us-gradien-3', 'us-gradien-4'
-                        );
-                        const gradIndex = index % 5;
-                        if (isUK) {
-                            card.classList.add('uk-gradien-' + gradIndex);
-                        } else {
-                            card.classList.add('us-gradien-' + gradIndex);
-                        }
-                    });
+                if (savedTheme && THEMES.includes(savedTheme) && savedIndex >= 0) {
+                    currentThemeIndex = savedIndex;
+                    applyTheme(savedTheme);
                     return savedTheme;
                 } else {
-                    return toggleTheme();
+                    const newIndex = getRandomThemeIndex();
+                    currentThemeIndex = newIndex;
+                    applyTheme(THEMES[newIndex]);
+                    return THEMES[newIndex];
                 }
             }
 
@@ -28014,8 +28037,12 @@
                     filterMateri();
                     if (searchInput) searchInput.focus();
                     if (shortcutNotifSpan) {
+                        shortcutNotifSpan.dataset.manual = 'true';
                         shortcutNotifSpan.innerText = '⌨️ Pencarian dihapus';
-                        setTimeout(function () { shortcutNotifSpan.innerText = ''; }, 1200);
+                        setTimeout(function () {
+                            shortcutNotifSpan.dataset.manual = '';
+                            shortcutNotifSpan.innerText = '';
+                        }, 1200);
                     }
                 });
             }
@@ -28028,8 +28055,12 @@
                     e.preventDefault();
                     searchInput.focus();
                     if (shortcutNotifSpan) {
+                        shortcutNotifSpan.dataset.manual = 'true';
                         shortcutNotifSpan.innerText = '🔎 Ctrl+K fokus pencarian';
-                        setTimeout(function () { shortcutNotifSpan.innerText = ''; }, 1500);
+                        setTimeout(function () {
+                            shortcutNotifSpan.dataset.manual = '';
+                            shortcutNotifSpan.innerText = '';
+                        }, 1500);
                     }
                 }
 
@@ -28037,8 +28068,12 @@
                     e.preventDefault();
                     searchInput.focus();
                     if (shortcutNotifSpan) {
+                        shortcutNotifSpan.dataset.manual = 'true';
                         shortcutNotifSpan.innerText = '⚡ Shift+F fokus';
-                        setTimeout(function () { shortcutNotifSpan.innerText = ''; }, 1500);
+                        setTimeout(function () {
+                            shortcutNotifSpan.dataset.manual = '';
+                            shortcutNotifSpan.innerText = '';
+                        }, 1500);
                     }
                 }
 
@@ -28047,8 +28082,12 @@
                         searchInput.value = '';
                         filterMateri();
                         if (shortcutNotifSpan) {
+                            shortcutNotifSpan.dataset.manual = 'true';
                             shortcutNotifSpan.innerText = '⌨️ Pencarian dibersihkan (ESC)';
-                            setTimeout(function () { shortcutNotifSpan.innerText = ''; }, 1200);
+                            setTimeout(function () {
+                                shortcutNotifSpan.dataset.manual = '';
+                                shortcutNotifSpan.innerText = '';
+                            }, 1200);
                         }
                     } else {
                         searchInput.blur();
@@ -28061,7 +28100,11 @@
                     if (searchInput) searchInput.value = '';
                     filterMateri();
 
+                    // Ganti tema manual
                     toggleTheme();
+
+                    // Restart auto theme
+                    startAutoTheme();
 
                     const refreshIcon = refreshBtn.querySelector('span');
                     if (refreshIcon) {
@@ -28069,8 +28112,12 @@
                         setTimeout(function () { refreshIcon.style.animation = ''; }, 500);
                     }
                     if (shortcutNotifSpan) {
-                        shortcutNotifSpan.innerText = '⟳ Halaman disegarkan + Ganti Tema';
-                        setTimeout(function () { shortcutNotifSpan.innerText = ''; }, 1500);
+                        shortcutNotifSpan.dataset.manual = 'true';
+                        shortcutNotifSpan.innerText = '⟳ Refresh + Tema Baru';
+                        setTimeout(function () {
+                            shortcutNotifSpan.dataset.manual = '';
+                            shortcutNotifSpan.innerText = '';
+                        }, 1500);
                     }
 
                     getAllCards().forEach(function (card) {
@@ -28124,8 +28171,12 @@
                     if (linkHref && linkHref !== '' && linkHref !== '#' && linkHref !== '#!') {
                         window.open(linkHref, '_blank');
                         if (shortcutNotifSpan) {
+                            shortcutNotifSpan.dataset.manual = 'true';
                             shortcutNotifSpan.innerText = '🔗 Membuka: ' + title;
-                            setTimeout(function () { shortcutNotifSpan.innerText = ''; }, 2000);
+                            setTimeout(function () {
+                                shortcutNotifSpan.dataset.manual = '';
+                                shortcutNotifSpan.innerText = '';
+                            }, 2000);
                         }
                     } else {
                         alert('🔗 Link untuk "' + title + '" belum tersedia.');
@@ -28142,7 +28193,12 @@
 
             // ========== INISIALISASI ==========
             function init() {
+                // Load tema tersimpan
                 loadSavedTheme();
+
+                // Mulai auto ganti tema setiap 10 detik
+                startAutoTheme();
+
                 processCards();
                 setTimeout(function () {
                     updateButtonsState();
@@ -28154,7 +28210,9 @@
                     footerYearEl.textContent = new Date().getFullYear();
                 }
 
-                console.log('✅ Noxa Store | Script Active');
+                console.log('✅ Noxa Store | 50 Themes Active');
+                console.log('🎨 Tema berganti otomatis setiap 10 detik');
+                console.log('🔄 Klik Refresh untuk ganti tema manual');
             }
 
             if (document.readyState === 'loading') {
