@@ -27418,15 +27418,6 @@
     </footer>
 
     <script>
-        /**
- * ================================================================
- * NOXA STORE - MASTER SCRIPT
- * Digunakan untuk semua file HTML di Noxa Store
- * ================================================================
- * Cara pakai: 
- *   <script src="script.js">
-    * ================================================================
-    */
 
         (function () {
             'use strict';
@@ -27566,11 +27557,10 @@
                     const emptyDiv = document.createElement('div');
                     emptyDiv.className = 'empty-state';
                     emptyDiv.innerHTML = `
-    <div style="font-size: 3rem; margin-bottom: 1rem;">📭</div>
-    <div style="font-size: 1.2rem; font-weight: 700; color: #F0ECF5; margin-bottom: 0.5rem;">Materi belum tersedia</div>
-    <div style="font-size: 0.9rem; color: #99A1A6;">Belum ada materi yang tersedia saat ini.<br>Silakan cek kembali
-        nanti.</div>
-    `;
+                <div style="font-size: 3rem; margin-bottom: 1rem;">📭</div>
+                <div style="font-size: 1.2rem; font-weight: 700; color: #F0ECF5; margin-bottom: 0.5rem;">Materi belum tersedia</div>
+                <div style="font-size: 0.9rem; color: #99A1A6;">Belum ada materi yang tersedia saat ini.<br>Silakan cek kembali nanti.</div>
+            `;
                     if (materiContainer) materiContainer.appendChild(emptyDiv);
                     return;
                 }
@@ -27646,17 +27636,13 @@
                     'theme-us-1', 'theme-us-2', 'theme-us-3', 'theme-us-4', 'theme-us-5'
                 ];
 
-                // Hapus semua theme class
                 themes.forEach(t => body.classList.remove(t));
 
-                // Pilih theme acak
                 const randomTheme = themes[Math.floor(Math.random() * themes.length)];
                 body.classList.add(randomTheme);
 
-                // Update border color card sesuai theme
                 const cards = document.querySelectorAll('.materi-card');
                 cards.forEach((card, index) => {
-                    // Hapus semua gradien class
                     card.classList.remove(
                         'uk-gradien-0', 'uk-gradien-1', 'uk-gradien-2', 'uk-gradien-3', 'uk-gradien-4',
                         'us-gradien-0', 'us-gradien-1', 'us-gradien-2', 'us-gradien-3', 'us-gradien-4'
@@ -27672,12 +27658,9 @@
                     }
                 });
 
-                // Simpan theme ke localStorage
                 try {
                     localStorage.setItem('noxa-theme', randomTheme);
-                } catch (e) {
-                    // ignore
-                }
+                } catch (e) { }
 
                 return randomTheme;
             }
@@ -27686,9 +27669,7 @@
                 let savedTheme = null;
                 try {
                     savedTheme = localStorage.getItem('noxa-theme');
-                } catch (e) {
-                    // ignore
-                }
+                } catch (e) { }
 
                 const body = document.body;
                 const themes = [
@@ -27696,12 +27677,10 @@
                     'theme-us-1', 'theme-us-2', 'theme-us-3', 'theme-us-4', 'theme-us-5'
                 ];
 
-                // Hapus semua theme class
                 themes.forEach(t => body.classList.remove(t));
 
                 if (savedTheme && themes.includes(savedTheme)) {
                     body.classList.add(savedTheme);
-                    // Update card gradien sesuai theme yang disimpan
                     const cards = document.querySelectorAll('.materi-card');
                     const isUK = savedTheme.startsWith('theme-uk');
                     cards.forEach((card, index) => {
@@ -27743,10 +27722,8 @@
                 });
             }
 
-            // Keyboard Shortcuts - HANYA UNTUK DESKTOP (>= 992px)
             window.addEventListener('keydown', function (e) {
                 if (!searchInput) return;
-
                 if (!isDesktop()) return;
 
                 if ((e.ctrlKey && e.key === 'k') || (e.ctrlKey && e.key === 'K')) {
@@ -27786,7 +27763,6 @@
                     if (searchInput) searchInput.value = '';
                     filterMateri();
 
-                    // Ganti theme saat refresh
                     toggleTheme();
 
                     const refreshIcon = refreshBtn.querySelector('span');
@@ -27807,7 +27783,6 @@
                 });
             }
 
-            // Tambahan Style Keyframe Refresh
             if (!document.querySelector('#refreshSpinKeyframe')) {
                 const spinStyle = document.createElement('style');
                 spinStyle.id = 'refreshSpinKeyframe';
@@ -27817,7 +27792,6 @@
             }
 
             // ========== EVENT DELEGASI ==========
-            // Klik tombol Dapatkan
             document.addEventListener('click', function (e) {
                 const btn = e.target.closest('.btn-dapatkan');
                 if (btn && !btn.classList.contains('disabled')) {
@@ -27835,7 +27809,6 @@
                 }
             });
 
-            // Klik card (area luar tombol)
             document.addEventListener('click', function (e) {
                 const card = e.target.closest('.materi-card');
                 if (card && !e.target.closest('.btn-dapatkan') && !e.target.closest('a')) {
@@ -27866,16 +27839,12 @@
             let resizeTimer;
             window.addEventListener('resize', function () {
                 clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(function () {
-                    // Update tampilan jika diperlukan
-                }, 250);
+                resizeTimer = setTimeout(function () { }, 250);
             });
 
             // ========== INISIALISASI ==========
             function init() {
-                // Load theme yang tersimpan
                 loadSavedTheme();
-
                 processCards();
                 setTimeout(function () {
                     updateButtonsState();
@@ -27887,8 +27856,7 @@
                     footerYearEl.textContent = new Date().getFullYear();
                 }
 
-                console.log('✅ Noxa Store | Master Script Active');
-                console.log('📌 Gunakan tombol refresh untuk ganti tema (UK/US)');
+                console.log('✅ Noxa Store | Script Active');
             }
 
             if (document.readyState === 'loading') {
@@ -27899,6 +27867,7 @@
 
         })();
     </script>
+
 
 </body>
 
