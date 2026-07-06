@@ -325,124 +325,1117 @@
             margin-top: 1.5rem;
         }
 
-        /* HP Kecil Potrait (<= 420px) - 1 grid */
+        /* ================================================================ */
+        /* RESPONSIVE - SEMUA DALAM SATU TEMPAT */
+        /* ================================================================ */
+
+        /* --- HP KECIL POTRAIT (<= 420px) --- */
         @media (max-width: 420px) {
+            body {
+                padding: 0.5rem;
+            }
+
+            .app-container {
+                padding: 0.6rem;
+                border-radius: 0.8rem;
+                width: 100%;
+            }
+
+            .top-brand-bar {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.3rem;
+            }
+
+            .judul-web-kanan h1 {
+                text-align: center;
+                font-size: 0.75rem;
+            }
+
+            .judul-web-kanan p {
+                text-align: center;
+                font-size: 0.6rem;
+            }
+
+            .top-stats-search {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .total-stats-box {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .total-stats-box span {
+                font-size: 0.55rem;
+                padding: 0.15rem 0.4rem;
+            }
+
+            .search-row-flex {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-wrapper {
+                width: 100%;
+            }
+
+            .btn-group {
+                width: 100%;
+                flex-direction: row;
+            }
+
+            .btn-refresh-neon,
+            .btn-back-neon {
+                flex: 1;
+                justify-content: center;
+                padding: 0.6rem 0.8rem;
+                font-size: 0.7rem;
+            }
+
+            .stats-bar {
+                flex-direction: column;
+                text-align: center;
+                padding: 0.6rem;
+                gap: 0.3rem;
+            }
+
+            .shortcut-msg {
+                display: none !important;
+            }
+
+            #shortcutNotif {
+                min-width: auto;
+                font-size: 0.5rem;
+            }
+
             #materiContainer {
                 grid-template-columns: 1fr;
                 gap: 0.8rem;
             }
 
+            .materi-card {
+                padding: 1rem 0.8rem;
+                min-height: 150px;
+            }
+
+            .mapel-badge {
+                font-size: 2rem;
+            }
+
+            .card-title {
+                font-size: 0.8rem;
+            }
+
+            .card-subtitle {
+                font-size: 0.5rem;
+            }
+
+            .card-status {
+                font-size: 0.5rem;
+                padding: 0.15rem 0.6rem;
+            }
+
+            .card-price {
+                font-size: 0.7rem;
+            }
+
+            .btn-dapatkan {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.65rem;
+            }
+
+            .footer {
+                padding: 0.6rem 0.8rem;
+                width: 100%;
+                border-radius: 0.8rem;
+                margin-top: 0.6rem;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.4rem;
+            }
+
+            .footer-brand-section {
+                justify-content: center;
+            }
+
+            .footer-brand {
+                font-size: 0.8rem;
+            }
+
+            .footer-tagline {
+                font-size: 0.55rem;
+                padding: 0.1rem 0.4rem;
+            }
+
+            .footer-info {
+                font-size: 0.55rem;
+                justify-content: center;
+                gap: 0.2rem;
+            }
+        }
+
+        /* --- HP KECIL LANDSCAPE (421px - 575px) --- */
+        @media (min-width: 421px) and (max-width: 575px) {
+            body {
+                padding: 0.6rem;
+            }
+
+            .app-container {
+                padding: 0.8rem;
+                border-radius: 1rem;
+                width: 100%;
+            }
+
+            .top-brand-bar {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.3rem;
+            }
+
+            .judul-web-kanan h1 {
+                text-align: center;
+                font-size: 0.8rem;
+            }
+
+            .judul-web-kanan p {
+                text-align: center;
+                font-size: 0.6rem;
+            }
+
+            .top-stats-search {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-row-flex {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .btn-group {
+                flex: 1;
+            }
+
+            .btn-refresh-neon,
+            .btn-back-neon {
+                flex: 1;
+                justify-content: center;
+                padding: 0.5rem 0.6rem;
+                font-size: 0.65rem;
+            }
+
+            .stats-bar {
+                flex-direction: column;
+                text-align: center;
+                padding: 0.5rem;
+                gap: 0.3rem;
+            }
+
             .shortcut-msg {
                 display: none !important;
             }
 
-            .stats-bar {
-                justify-content: center;
-                text-align: center;
+            #shortcutNotif {
+                min-width: auto;
+                font-size: 0.5rem;
             }
-        }
 
-        /* HP Kecil Landscape (421px - 575px) - 2 grid */
-        @media (min-width: 421px) and (max-width: 575px) {
             #materiContainer {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 0.8rem;
             }
 
+            .materi-card {
+                padding: 0.9rem 0.7rem;
+                min-height: 150px;
+            }
+
+            .mapel-badge {
+                font-size: 2rem;
+            }
+
+            .card-title {
+                font-size: 0.8rem;
+            }
+
+            .card-subtitle {
+                font-size: 0.5rem;
+            }
+
+            .card-status {
+                font-size: 0.5rem;
+                padding: 0.15rem 0.6rem;
+            }
+
+            .card-price {
+                font-size: 0.7rem;
+            }
+
+            .btn-dapatkan {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.65rem;
+            }
+
+            .footer {
+                padding: 0.6rem 0.8rem;
+                width: 100%;
+                border-radius: 0.8rem;
+                margin-top: 0.6rem;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.4rem;
+            }
+
+            .footer-brand-section {
+                justify-content: center;
+            }
+
+            .footer-brand {
+                font-size: 0.85rem;
+            }
+
+            .footer-tagline {
+                font-size: 0.55rem;
+            }
+
+            .footer-info {
+                font-size: 0.55rem;
+                justify-content: center;
+            }
+        }
+
+        /* --- HP BIASA POTRAIT (576px - 767px) --- */
+        @media (min-width: 576px) and (max-width: 767px) {
+            body {
+                padding: 0.8rem;
+            }
+
+            .app-container {
+                padding: 1rem;
+                border-radius: 1.2rem;
+                width: 100%;
+            }
+
+            .top-brand-bar {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .judul-web-kanan h1 {
+                text-align: center;
+                font-size: 0.9rem;
+            }
+
+            .judul-web-kanan p {
+                text-align: center;
+                font-size: 0.65rem;
+            }
+
+            .top-stats-search {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .total-stats-box {
+                justify-content: center;
+            }
+
+            .total-stats-box span {
+                font-size: 0.6rem;
+                padding: 0.15rem 0.5rem;
+            }
+
+            .search-row-flex {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .btn-group {
+                flex: 1;
+            }
+
+            .btn-refresh-neon,
+            .btn-back-neon {
+                flex: 1;
+                justify-content: center;
+                padding: 0.5rem 0.7rem;
+                font-size: 0.7rem;
+            }
+
+            .stats-bar {
+                flex-direction: column;
+                text-align: center;
+                padding: 0.6rem;
+                gap: 0.3rem;
+            }
+
             .shortcut-msg {
                 display: none !important;
             }
 
-            .stats-bar {
-                justify-content: center;
-                text-align: center;
+            #shortcutNotif {
+                min-width: auto;
+                font-size: 0.55rem;
             }
-        }
 
-        /* HP Biasa Potrait (576px - 767px) - 2 grid */
-        @media (min-width: 576px) and (max-width: 767px) {
             #materiContainer {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 0.9rem;
             }
 
-            .shortcut-msg {
-                display: none !important;
+            .materi-card {
+                padding: 1rem 0.8rem;
+                min-height: 160px;
             }
 
-            .stats-bar {
-                justify-content: center;
+            .mapel-badge {
+                font-size: 2.2rem;
+            }
+
+            .card-title {
+                font-size: 0.85rem;
+            }
+
+            .card-subtitle {
+                font-size: 0.55rem;
+            }
+
+            .card-status {
+                font-size: 0.55rem;
+                padding: 0.2rem 0.7rem;
+            }
+
+            .card-price {
+                font-size: 0.75rem;
+            }
+
+            .btn-dapatkan {
+                padding: 0.6rem 1rem;
+                font-size: 0.7rem;
+            }
+
+            .footer {
+                padding: 0.7rem 1rem;
+                width: 100%;
+                border-radius: 0.8rem;
+                margin-top: 0.8rem;
+            }
+
+            .footer-container {
+                flex-direction: column;
                 text-align: center;
+                gap: 0.5rem;
+            }
+
+            .footer-brand-section {
+                justify-content: center;
+            }
+
+            .footer-brand {
+                font-size: 0.9rem;
+            }
+
+            .footer-tagline {
+                font-size: 0.6rem;
+                padding: 0.1rem 0.5rem;
+            }
+
+            .footer-info {
+                font-size: 0.6rem;
+                justify-content: center;
+                gap: 0.2rem;
             }
         }
 
-        /* HP Biasa Landscape (768px - 991px) - 3 grid */
+        /* --- HP BIASA LANDSCAPE (768px - 991px) --- */
         @media (min-width: 768px) and (max-width: 991px) {
-            #materiContainer {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1rem;
+            body {
+                padding: 0.8rem;
+            }
+
+            .app-container {
+                padding: 1.2rem;
+                border-radius: 1.5rem;
+            }
+
+            .top-brand-bar {
+                flex-direction: row;
+            }
+
+            .judul-web-kanan h1 {
+                text-align: right;
+                font-size: 1rem;
+            }
+
+            .judul-web-kanan p {
+                text-align: right;
+                font-size: 0.7rem;
+            }
+
+            .top-stats-search {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .search-row-flex {
+                flex-direction: row;
+                flex-wrap: wrap;
+                flex: 1;
+            }
+
+            .btn-group {
+                flex: 1;
+                min-width: 150px;
+            }
+
+            .btn-refresh-neon,
+            .btn-back-neon {
+                flex: 1;
+                justify-content: center;
+                padding: 0.5rem 0.8rem;
+                font-size: 0.7rem;
+            }
+
+            .stats-bar {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.3rem;
             }
 
             .shortcut-msg {
                 display: none !important;
             }
 
-            .stats-bar {
-                justify-content: center;
-                text-align: center;
+            #shortcutNotif {
+                min-width: auto;
+                font-size: 0.6rem;
             }
-        }
 
-        /* Tablet Potrait (992px - 1024px) - 3 grid */
-        @media (min-width: 992px) and (max-width: 1024px) {
             #materiContainer {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 1rem;
             }
+
+            .materi-card {
+                padding: 1.1rem 0.9rem;
+                min-height: 165px;
+            }
+
+            .mapel-badge {
+                font-size: 2.4rem;
+            }
+
+            .card-title {
+                font-size: 0.9rem;
+            }
+
+            .card-subtitle {
+                font-size: 0.6rem;
+            }
+
+            .card-status {
+                font-size: 0.6rem;
+                padding: 0.2rem 0.7rem;
+            }
+
+            .card-price {
+                font-size: 0.8rem;
+            }
+
+            .btn-dapatkan {
+                padding: 0.6rem 1rem;
+                font-size: 0.7rem;
+            }
+
+            .footer {
+                padding: 0.8rem 1.2rem;
+                width: 100%;
+                border-radius: 1rem;
+                margin-top: 0.8rem;
+            }
+
+            .footer-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+
+            .footer-brand {
+                font-size: 0.95rem;
+            }
+
+            .footer-tagline {
+                font-size: 0.6rem;
+            }
+
+            .footer-info {
+                font-size: 0.65rem;
+            }
         }
 
-        /* Tablet Landscape (1025px - 1199px) - 4 grid */
+        /* --- TABLET POTRAIT (992px - 1024px) --- */
+        @media (min-width: 992px) and (max-width: 1024px) {
+            body {
+                padding: 1rem;
+            }
+
+            .app-container {
+                padding: 1.2rem;
+                border-radius: 1.5rem;
+            }
+
+            .top-brand-bar {
+                gap: 0.5rem;
+            }
+
+            .judul-web-kanan h1 {
+                font-size: 1.1rem;
+            }
+
+            .top-stats-search {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .search-row-flex {
+                flex-direction: row;
+                flex-wrap: wrap;
+                flex: 1;
+            }
+
+            .btn-group {
+                flex: 1;
+                min-width: 160px;
+            }
+
+            .btn-refresh-neon,
+            .btn-back-neon {
+                flex: 1;
+                justify-content: center;
+                padding: 0.5rem 0.8rem;
+                font-size: 0.7rem;
+            }
+
+            .stats-bar {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.3rem;
+            }
+
+            #materiContainer {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+
+            .materi-card {
+                padding: 1.2rem 0.9rem;
+                min-height: 170px;
+            }
+
+            .mapel-badge {
+                font-size: 2.5rem;
+            }
+
+            .card-title {
+                font-size: 0.95rem;
+            }
+
+            .card-subtitle {
+                font-size: 0.6rem;
+            }
+
+            .card-status {
+                font-size: 0.6rem;
+            }
+
+            .card-price {
+                font-size: 0.8rem;
+            }
+
+            .btn-dapatkan {
+                padding: 0.6rem 1rem;
+                font-size: 0.75rem;
+            }
+
+            .footer {
+                padding: 0.8rem 1.2rem;
+                border-radius: 1rem;
+            }
+
+            .footer-container {
+                gap: 0.8rem;
+            }
+
+            .footer-brand {
+                font-size: 1rem;
+            }
+
+            .footer-info {
+                font-size: 0.7rem;
+            }
+        }
+
+        /* --- TABLET LANDSCAPE (1025px - 1199px) --- */
         @media (min-width: 1025px) and (max-width: 1199px) {
+            body {
+                padding: 1.2rem;
+            }
+
+            .app-container {
+                padding: 1.4rem;
+                border-radius: 1.6rem;
+            }
+
+            .judul-web-kanan h1 {
+                font-size: 1.2rem;
+            }
+
+            .judul-web-kanan p {
+                font-size: 0.75rem;
+            }
+
+            .total-stats-box span {
+                font-size: 0.65rem;
+            }
+
+            .stats-bar {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.3rem;
+            }
+
             #materiContainer {
                 grid-template-columns: repeat(4, 1fr);
                 gap: 1.1rem;
             }
+
+            .materi-card {
+                padding: 1.3rem 0.9rem;
+                min-height: 170px;
+            }
+
+            .mapel-badge {
+                font-size: 2.6rem;
+            }
+
+            .card-title {
+                font-size: 0.95rem;
+            }
+
+            .card-subtitle {
+                font-size: 0.6rem;
+            }
+
+            .card-status {
+                font-size: 0.6rem;
+            }
+
+            .card-price {
+                font-size: 0.85rem;
+            }
+
+            .btn-dapatkan {
+                padding: 0.65rem 1.1rem;
+                font-size: 0.75rem;
+            }
+
+            .footer {
+                padding: 0.9rem 1.4rem;
+                border-radius: 1.2rem;
+            }
+
+            .footer-container {
+                gap: 1rem;
+            }
+
+            .footer-brand {
+                font-size: 1.05rem;
+            }
+
+            .footer-tagline {
+                font-size: 0.65rem;
+            }
+
+            .footer-info {
+                font-size: 0.75rem;
+            }
         }
 
-        /* Laptop Potrait (1200px - 1365px) - 3 grid */
+        /* --- LAPTOP POTRAIT (1200px - 1365px) --- */
         @media (min-width: 1200px) and (max-width: 1365px) {
+            body {
+                padding: 1.2rem;
+            }
+
+            .app-container {
+                padding: 1.4rem;
+                border-radius: 1.8rem;
+            }
+
+            .judul-web-kanan h1 {
+                font-size: 1.3rem;
+            }
+
+            .judul-web-kanan p {
+                font-size: 0.8rem;
+            }
+
+            .total-stats-box span {
+                font-size: 0.7rem;
+            }
+
             #materiContainer {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 1.1rem;
             }
+
+            .materi-card {
+                padding: 1.3rem 1rem;
+                min-height: 175px;
+            }
+
+            .mapel-badge {
+                font-size: 2.8rem;
+            }
+
+            .card-title {
+                font-size: 1rem;
+            }
+
+            .card-subtitle {
+                font-size: 0.65rem;
+            }
+
+            .card-status {
+                font-size: 0.65rem;
+            }
+
+            .card-price {
+                font-size: 0.85rem;
+            }
+
+            .btn-dapatkan {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.8rem;
+            }
+
+            .footer {
+                padding: 1rem 1.5rem;
+                border-radius: 1.2rem;
+            }
+
+            .footer-brand {
+                font-size: 1.05rem;
+            }
+
+            .footer-tagline {
+                font-size: 0.65rem;
+            }
+
+            .footer-info {
+                font-size: 0.75rem;
+            }
         }
 
-        /* Laptop Landscape Umum (1366px - 1599px) - 5 grid */
+        /* --- LAPTOP LANDSCAPE UMUM (1366px - 1599px) --- */
         @media (min-width: 1366px) and (max-width: 1599px) {
+            body {
+                padding: 1.5rem;
+            }
+
+            .app-container {
+                padding: 1.6rem;
+                border-radius: 2rem;
+            }
+
+            .judul-web-kanan h1 {
+                font-size: 1.4rem;
+            }
+
+            .judul-web-kanan p {
+                font-size: 0.85rem;
+            }
+
+            .total-stats-box span {
+                font-size: 0.75rem;
+            }
+
             #materiContainer {
                 grid-template-columns: repeat(5, 1fr);
                 gap: 1.2rem;
             }
+
+            .materi-card {
+                padding: 1.4rem 1rem;
+                min-height: 180px;
+            }
+
+            .mapel-badge {
+                font-size: 3rem;
+            }
+
+            .card-title {
+                font-size: 1.05rem;
+            }
+
+            .card-subtitle {
+                font-size: 0.65rem;
+            }
+
+            .card-status {
+                font-size: 0.65rem;
+            }
+
+            .card-price {
+                font-size: 0.9rem;
+            }
+
+            .btn-dapatkan {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.8rem;
+            }
+
+            .footer {
+                padding: 1rem 1.5rem;
+                border-radius: 1.3rem;
+            }
+
+            .footer-brand {
+                font-size: 1.1rem;
+            }
+
+            .footer-tagline {
+                font-size: 0.7rem;
+            }
+
+            .footer-info {
+                font-size: 0.8rem;
+            }
         }
 
-        /* Desktop PC (1600px - 1919px) - 6 grid */
+        /* --- DESKTOP PC (1600px - 1919px) --- */
         @media (min-width: 1600px) and (max-width: 1919px) {
+            body {
+                padding: 1.5rem;
+            }
+
+            .app-container {
+                padding: 1.8rem;
+                border-radius: 2.2rem;
+            }
+
+            .noxa-store {
+                font-size: 2.5rem;
+            }
+
+            .judul-web-kanan h1 {
+                font-size: 1.5rem;
+            }
+
+            .judul-web-kanan p {
+                font-size: 0.85rem;
+            }
+
+            .total-stats-box span {
+                font-size: 0.8rem;
+            }
+
+            .search-row-flex {
+                gap: 0.8rem;
+            }
+
+            #searchInput {
+                font-size: 0.9rem;
+            }
+
+            .btn-refresh-neon,
+            .btn-back-neon {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.85rem;
+            }
+
             #materiContainer {
                 grid-template-columns: repeat(6, 1fr);
                 gap: 1.2rem;
             }
+
+            .materi-card {
+                padding: 1.5rem 1.1rem;
+                min-height: 190px;
+            }
+
+            .mapel-badge {
+                font-size: 3.2rem;
+            }
+
+            .card-title {
+                font-size: 1.1rem;
+            }
+
+            .card-subtitle {
+                font-size: 0.7rem;
+            }
+
+            .card-status {
+                font-size: 0.7rem;
+                padding: 0.25rem 0.8rem;
+            }
+
+            .card-price {
+                font-size: 0.95rem;
+            }
+
+            .btn-dapatkan {
+                padding: 0.75rem 1.3rem;
+                font-size: 0.85rem;
+            }
+
+            .footer {
+                padding: 1.2rem 2rem;
+                border-radius: 1.5rem;
+            }
+
+            .footer-brand {
+                font-size: 1.2rem;
+            }
+
+            .footer-tagline {
+                font-size: 0.7rem;
+            }
+
+            .footer-info {
+                font-size: 0.85rem;
+            }
         }
 
-        /* Monitor Besar (>= 1920px) - 6 grid atau lebih */
+        /* --- MONITOR BESAR (>= 1920px) --- */
         @media (min-width: 1920px) {
+            body {
+                padding: 2rem;
+            }
+
+            .app-container {
+                padding: 2rem;
+                border-radius: 2.5rem;
+                max-width: 1800px;
+            }
+
+            .noxa-store {
+                font-size: 3rem;
+            }
+
+            .judul-web-kanan h1 {
+                font-size: 1.8rem;
+            }
+
+            .judul-web-kanan p {
+                font-size: 0.9rem;
+            }
+
+            .total-stats-box span {
+                font-size: 0.85rem;
+                padding: 0.25rem 0.9rem;
+            }
+
+            .search-row-flex {
+                gap: 1rem;
+            }
+
+            #searchInput {
+                font-size: 1rem;
+                padding: 0.8rem 2.5rem 0.8rem 3rem;
+            }
+
+            .btn-refresh-neon,
+            .btn-back-neon {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
             #materiContainer {
                 grid-template-columns: repeat(6, 1fr);
                 gap: 1.5rem;
             }
+
+            .materi-card {
+                padding: 2rem 1.5rem;
+                min-height: 220px;
+                border-radius: 1.5rem;
+            }
+
+            .mapel-badge {
+                font-size: 4rem;
+            }
+
+            .card-title {
+                font-size: 1.3rem;
+            }
+
+            .card-subtitle {
+                font-size: 0.75rem;
+            }
+
+            .card-status {
+                font-size: 0.75rem;
+                padding: 0.3rem 1rem;
+            }
+
+            .card-price {
+                font-size: 1.1rem;
+            }
+
+            .btn-dapatkan {
+                padding: 0.9rem 1.5rem;
+                font-size: 1rem;
+                border-radius: 60px;
+            }
+
+            .stats-bar {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.85rem;
+                border-radius: 80px;
+            }
+
+            .shortcut-msg {
+                font-size: 0.7rem;
+                padding: 0.2rem 0.9rem;
+            }
+
+            #shortcutNotif {
+                font-size: 0.7rem;
+                min-width: 120px;
+            }
+
+            .footer {
+                padding: 1.5rem 2.5rem;
+                border-radius: 1.8rem;
+                max-width: 1800px;
+            }
+
+            .footer-brand {
+                font-size: 1.3rem;
+            }
+
+            .footer-tagline {
+                font-size: 0.75rem;
+            }
+
+            .footer-info {
+                font-size: 0.9rem;
+            }
         }
 
         /* ================================================================ */
-        /* CARD MATERI - AESTHETIC */
+        /* CARD MATERI - AESTHETIC (BASE) */
         /* ================================================================ */
         .materi-card {
             display: flex;
@@ -685,7 +1678,7 @@
         }
 
         /* ================================================================ */
-        /* FOOTER */
+        /* FOOTER - BASE STYLE (SUDAH DI ATAS) */
         /* ================================================================ */
         .footer {
             width: 98%;
@@ -754,294 +1747,10 @@
         }
 
         /* ================================================================ */
-        /* RESPONSIVE - MOBILE FIRST ADJUSTMENTS */
+        /* AKSESIBILITAS - FALLBACK & ACCESSIBILITY */
         /* ================================================================ */
 
-        /* Semua HP (<= 767px) - sembunyikan shortcut msg dan sesuaikan */
-        @media (max-width: 767px) {
-            body {
-                padding: 0.8rem;
-            }
-
-            .app-container {
-                padding: 1rem;
-                border-radius: 1.2rem;
-                width: 100%;
-            }
-
-            .top-brand-bar {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .judul-web-kanan h1 {
-                text-align: center;
-                font-size: clamp(0.8rem, 3vw, 1rem);
-            }
-
-            .judul-web-kanan p {
-                text-align: center;
-                font-size: 0.65rem;
-            }
-
-            .top-stats-search {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .total-stats-box {
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-
-            .total-stats-box span {
-                font-size: 0.6rem;
-                padding: 0.15rem 0.5rem;
-            }
-
-            .search-row-flex {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .search-wrapper {
-                width: 100%;
-            }
-
-            .btn-group {
-                width: 100%;
-                flex-direction: row;
-            }
-
-            .btn-refresh-neon,
-            .btn-back-neon {
-                flex: 1;
-                justify-content: center;
-                padding: 0.6rem 0.8rem;
-                font-size: 0.7rem;
-            }
-
-            .stats-bar {
-                flex-direction: column;
-                text-align: center;
-                padding: 0.6rem;
-                gap: 0.3rem;
-            }
-
-            .shortcut-msg {
-                display: none !important;
-            }
-
-            #shortcutNotif {
-                min-width: auto;
-                font-size: 0.55rem;
-            }
-
-            .materi-card {
-                padding: 1rem 0.8rem;
-                min-height: 160px;
-            }
-
-            .mapel-badge {
-                font-size: 2.2rem;
-            }
-
-            .card-title {
-                font-size: 0.85rem;
-            }
-
-            .card-subtitle {
-                font-size: 0.55rem;
-            }
-
-            .card-status {
-                font-size: 0.55rem;
-                padding: 0.2rem 0.7rem;
-            }
-
-            .card-price {
-                font-size: 0.75rem;
-            }
-
-            .btn-dapatkan {
-                padding: 0.6rem 1rem;
-                font-size: 0.7rem;
-            }
-
-            .footer {
-                padding: 0.8rem 1rem;
-                width: 100%;
-                border-radius: 0.8rem;
-                margin-top: 0.8rem;
-            }
-
-            .footer-container {
-                flex-direction: column;
-                text-align: center;
-                gap: 0.5rem;
-            }
-
-            .footer-brand-section {
-                justify-content: center;
-            }
-
-            .footer-brand {
-                font-size: 0.9rem;
-            }
-
-            .footer-tagline {
-                font-size: 0.6rem;
-                padding: 0.1rem 0.5rem;
-            }
-
-            .footer-info {
-                font-size: 0.6rem;
-                justify-content: center;
-                gap: 0.2rem;
-            }
-        }
-
-        /* Tablet (768px - 1024px) */
-        @media (min-width: 768px) and (max-width: 1024px) {
-            body {
-                padding: 1rem;
-            }
-
-            .app-container {
-                padding: 1.2rem;
-                border-radius: 1.5rem;
-            }
-
-            .top-brand-bar {
-                gap: 0.5rem;
-            }
-
-            .top-stats-search {
-                flex-direction: row;
-                flex-wrap: wrap;
-            }
-
-            .search-row-flex {
-                flex-direction: row;
-                flex-wrap: wrap;
-                flex: 1;
-            }
-
-            .btn-group {
-                flex: 1;
-                min-width: 150px;
-            }
-
-            .btn-refresh-neon,
-            .btn-back-neon {
-                flex: 1;
-                justify-content: center;
-                padding: 0.5rem 0.8rem;
-                font-size: 0.7rem;
-            }
-
-            .materi-card {
-                padding: 1.2rem 0.9rem;
-                min-height: 170px;
-            }
-
-            .mapel-badge {
-                font-size: 2.5rem;
-            }
-
-            .card-title {
-                font-size: 0.95rem;
-            }
-
-            .stats-bar {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-
-        /* Laptop (1025px - 1365px) */
-        @media (min-width: 1025px) and (max-width: 1365px) {
-            .app-container {
-                padding: 1.4rem;
-                border-radius: 1.8rem;
-            }
-
-            .materi-card {
-                padding: 1.3rem 1rem;
-                min-height: 175px;
-            }
-
-            .mapel-badge {
-                font-size: 2.8rem;
-            }
-
-            .card-title {
-                font-size: 1rem;
-            }
-        }
-
-        /* Desktop (>= 1366px) */
-        @media (min-width: 1366px) {
-            .app-container {
-                padding: 1.6rem;
-                border-radius: 2rem;
-            }
-
-            .materi-card {
-                padding: 1.5rem 1.2rem;
-                min-height: 190px;
-            }
-
-            .mapel-badge {
-                font-size: 3rem;
-            }
-
-            .card-title {
-                font-size: 1.1rem;
-            }
-        }
-
-        /* Monitor Besar (>= 1920px) */
-        @media (min-width: 1920px) {
-            body {
-                padding: 2rem;
-            }
-
-            .app-container {
-                padding: 2rem;
-                border-radius: 2.5rem;
-            }
-
-            .materi-card {
-                padding: 2rem 1.5rem;
-                min-height: 220px;
-            }
-
-            .mapel-badge {
-                font-size: 3.8rem;
-            }
-
-            .card-title {
-                font-size: 1.3rem;
-            }
-
-            .btn-dapatkan {
-                padding: 0.9rem 1.5rem;
-                font-size: 1rem;
-            }
-
-            .noxa-store {
-                font-size: 3rem;
-            }
-
-            .judul-web-kanan h1 {
-                font-size: 1.8rem;
-            }
-        }
-
-        /* ================================================================ */
-        /* AKSESIBILITAS */
-        /* ================================================================ */
+        /* Touch target size untuk semua perangkat mobile */
         @media (max-width: 767px) {
 
             .btn-refresh-neon,
@@ -1054,9 +1763,17 @@
 
             #searchInput {
                 font-size: 16px;
+                /* Mencegah zoom otomatis di iOS */
             }
         }
 
+        /* Focus visible untuk aksesibilitas keyboard */
+        *:focus-visible {
+            outline: 3px solid var(--biru-7);
+            outline-offset: 2px;
+        }
+
+        /* Reduced motion - fallback untuk pengguna yang sensitif terhadap animasi */
         @media (prefers-reduced-motion: reduce) {
             * {
                 animation-duration: 0.01ms !important;
@@ -1067,14 +1784,164 @@
             body,
             .materi-card,
             .btn-dapatkan,
-            .noxa-store {
+            .noxa-store,
+            .materi-card:hover {
                 animation: none !important;
+                transform: none !important;
+            }
+
+            .materi-card:hover {
+                transform: none !important;
+                transition: none !important;
             }
         }
 
+        /* Dark mode fallback */
         @media (prefers-color-scheme: dark) {
             .footer {
                 background: rgba(0, 0, 0, 0.7);
+            }
+
+            .app-container {
+                background: rgba(0, 0, 0, 0.7);
+            }
+
+            .materi-card {
+                background: linear-gradient(145deg, rgba(20, 40, 80, 0.95), rgba(5, 10, 25, 0.95));
+            }
+        }
+
+        /* Print styles - fallback untuk cetak */
+        @media print {
+            body {
+                background: #fff !important;
+                padding: 0.5in !important;
+                animation: none !important;
+            }
+
+            .app-container {
+                background: #fff !important;
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                box-shadow: none !important;
+                border: 1px solid #ddd !important;
+            }
+
+            .noxa-store {
+                background: #000 !important;
+                -webkit-background-clip: unset !important;
+                background-clip: unset !important;
+                color: #000 !important;
+                text-shadow: none !important;
+            }
+
+            .materi-card {
+                break-inside: avoid;
+                box-shadow: none !important;
+                border: 1px solid #ddd !important;
+                background: #f9f9f9 !important;
+            }
+
+            .btn-dapatkan {
+                background: #333 !important;
+                color: #fff !important;
+            }
+
+            .footer {
+                background: #f0f0f0 !important;
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                border: 1px solid #ddd !important;
+            }
+
+            .footer-brand {
+                background: #000 !important;
+                -webkit-background-clip: unset !important;
+                background-clip: unset !important;
+                color: #000 !important;
+            }
+
+            #searchInput {
+                border: 1px solid #ccc !important;
+                color: #000 !important;
+                background: #fff !important;
+            }
+
+            .btn-refresh-neon,
+            .btn-back-neon {
+                border: 1px solid #ccc !important;
+                color: #000 !important;
+                background: #f0f0f0 !important;
+            }
+
+            .stats-bar {
+                border: 1px solid #ddd !important;
+                background: #f5f5f5 !important;
+            }
+
+            .card-price {
+                color: #b8860b !important;
+            }
+
+            .status-active {
+                background: #e8f5e9 !important;
+                color: #2e7d32 !important;
+                border-color: #a5d6a7 !important;
+            }
+
+            .status-soon {
+                background: #fff3e0 !important;
+                color: #e65100 !important;
+                border-color: #ffcc80 !important;
+            }
+
+            .total-stats-box {
+                border: 1px solid #ddd !important;
+                background: #f5f5f5 !important;
+            }
+
+            .total-stats-box span {
+                color: #333 !important;
+                background: #e8e8e8 !important;
+            }
+
+            .total-stats-box span strong {
+                color: #000 !important;
+            }
+
+            .no-result,
+            .empty-state {
+                border: 1px solid #ddd !important;
+                background: #f9f9f9 !important;
+                color: #333 !important;
+            }
+
+            /* Sembunyikan elemen yang tidak perlu saat print */
+            .btn-refresh-neon,
+            .btn-back-neon,
+            .search-icon,
+            .clear-btn,
+            .shortcut-msg {
+                display: none !important;
+            }
+        }
+
+        /* High contrast mode fallback */
+        @media (forced-colors: active) {
+            .materi-card {
+                border: 2px solid CanvasText !important;
+            }
+
+            .btn-dapatkan {
+                border: 2px solid CanvasText !important;
+            }
+
+            .btn-dapatkan.disabled {
+                opacity: 0.5 !important;
+            }
+
+            .card-status {
+                border: 1px solid CanvasText !important;
             }
         }
     </style>
