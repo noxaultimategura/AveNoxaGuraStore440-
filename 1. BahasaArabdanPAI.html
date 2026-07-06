@@ -326,15 +326,15 @@
         }
 
         /* ================================================================ */
-        /* CARD MATERI - DIPERBAIKI */
+        /* CARD MATERI - DIPERBAIKI DENGAN PAI BADGE DI ATAS & KECIL */
         /* ================================================================ */
         .materi-card {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            gap: 0.4rem;
-            padding: 1.2rem 1rem;
+            justify-content: flex-start;
+            gap: 0.3rem;
+            padding: 1.2rem 0.8rem 1rem;
             text-align: center;
             text-decoration: none;
             cursor: pointer;
@@ -345,7 +345,7 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
-            min-height: 180px;
+            min-height: 170px;
         }
 
         .materi-card::before {
@@ -366,17 +366,18 @@
             box-shadow: 0 12px 40px rgba(42, 74, 138, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
-        /* BADGE / ICON - LEBIH PROPORSIONAL */
+        /* BADGE / ICON - DIPERKECIL & DI ATAS */
         .mapel-badge {
-            font-size: clamp(2rem, 5vw, 3.2rem);
-            line-height: 1.1;
+            font-size: clamp(1.4rem, 3vw, 2.2rem);
+            line-height: 1.2;
             margin-bottom: 0.1rem;
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
             position: relative;
             z-index: 1;
+            order: 0;
         }
 
-        /* TITLE - LEBIH RAPIH */
+        /* TITLE - RAPIH & PROPORSIONAL */
         .card-title {
             font-size: clamp(0.85rem, 2vw, 1.1rem);
             font-weight: 700;
@@ -385,20 +386,22 @@
             position: relative;
             z-index: 1;
             line-height: 1.3;
-            min-height: 2.6rem;
+            min-height: 2.4rem;
             display: flex;
             align-items: center;
             justify-content: center;
+            order: 1;
         }
 
-        /* SUBTITLE */
+        /* SUBTITLE - TETAP ADA TAPI KECIL */
         .card-subtitle {
-            font-size: clamp(0.55rem, 1vw, 0.65rem);
+            font-size: clamp(0.5rem, 0.9vw, 0.6rem);
             color: #8899bb;
             font-weight: 400;
             margin-top: -0.1rem;
             position: relative;
             z-index: 1;
+            order: 2;
         }
 
         /* STATUS WRAPPER */
@@ -410,15 +413,16 @@
             margin: 0.1rem 0;
             position: relative;
             z-index: 1;
+            order: 3;
         }
 
         /* STATUS BADGE */
         .card-status {
-            font-size: clamp(0.5rem, 1vw, 0.65rem);
+            font-size: clamp(0.5rem, 0.9vw, 0.6rem);
             font-weight: 700;
-            padding: 0.2rem 0.8rem;
+            padding: 0.15rem 0.7rem;
             border-radius: 30px;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
             text-transform: uppercase;
             position: relative;
             z-index: 1;
@@ -452,7 +456,7 @@
 
         /* HARGA */
         .card-price {
-            font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+            font-size: clamp(0.7rem, 1.3vw, 0.85rem);
             font-weight: 800;
             color: var(--gold);
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
@@ -460,6 +464,7 @@
             z-index: 1;
             padding: 0.1rem 0;
             letter-spacing: 0.5px;
+            order: 4;
         }
 
         .card-price::before {
@@ -472,15 +477,16 @@
             width: 100%;
             position: relative;
             z-index: 1;
-            margin-top: 0.2rem;
+            margin-top: 0.1rem;
+            order: 5;
         }
 
         /* BUTTON DAPATKAN */
         .btn-dapatkan {
             display: inline-block;
             width: 100%;
-            padding: 0.6rem 1rem;
-            font-size: clamp(0.65rem, 1.5vw, 0.8rem);
+            padding: 0.55rem 1rem;
+            font-size: clamp(0.6rem, 1.3vw, 0.75rem);
             font-weight: 700;
             text-align: center;
             color: #fff;
@@ -628,35 +634,35 @@
             }
 
             .materi-card {
-                padding: 0.9rem 0.7rem;
-                min-height: 150px;
+                padding: 0.8rem 0.6rem 0.8rem;
+                min-height: 140px;
             }
 
             .mapel-badge {
-                font-size: 1.8rem;
+                font-size: 1.4rem;
             }
 
             .card-title {
-                font-size: 0.8rem;
-                min-height: 2.2rem;
+                font-size: 0.75rem;
+                min-height: 2rem;
             }
 
             .card-subtitle {
-                font-size: 0.5rem;
+                font-size: 0.45rem;
             }
 
             .card-status {
-                font-size: 0.5rem;
-                padding: 0.15rem 0.6rem;
+                font-size: 0.45rem;
+                padding: 0.1rem 0.5rem;
             }
 
             .card-price {
-                font-size: 0.7rem;
+                font-size: 0.65rem;
             }
 
             .btn-dapatkan {
-                padding: 0.5rem 0.8rem;
-                font-size: 0.65rem;
+                padding: 0.45rem 0.7rem;
+                font-size: 0.6rem;
             }
 
             .footer {
@@ -760,39 +766,39 @@
 
             #materiContainer {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 0.8rem;
+                gap: 0.7rem;
             }
 
             .materi-card {
-                padding: 0.8rem 0.6rem;
-                min-height: 140px;
+                padding: 0.7rem 0.5rem 0.7rem;
+                min-height: 130px;
             }
 
             .mapel-badge {
-                font-size: 1.8rem;
+                font-size: 1.4rem;
             }
 
             .card-title {
-                font-size: 0.75rem;
-                min-height: 2rem;
+                font-size: 0.7rem;
+                min-height: 1.8rem;
             }
 
             .card-subtitle {
-                font-size: 0.5rem;
+                font-size: 0.45rem;
             }
 
             .card-status {
-                font-size: 0.5rem;
-                padding: 0.15rem 0.5rem;
+                font-size: 0.45rem;
+                padding: 0.1rem 0.5rem;
             }
 
             .card-price {
-                font-size: 0.65rem;
+                font-size: 0.6rem;
             }
 
             .btn-dapatkan {
-                padding: 0.4rem 0.7rem;
-                font-size: 0.6rem;
+                padding: 0.4rem 0.6rem;
+                font-size: 0.55rem;
             }
 
             .footer {
@@ -906,35 +912,35 @@
             }
 
             .materi-card {
-                padding: 1rem 0.8rem;
-                min-height: 155px;
+                padding: 0.9rem 0.7rem 0.9rem;
+                min-height: 150px;
             }
 
             .mapel-badge {
-                font-size: 2.2rem;
+                font-size: 1.8rem;
             }
 
             .card-title {
-                font-size: 0.85rem;
-                min-height: 2.4rem;
+                font-size: 0.8rem;
+                min-height: 2.2rem;
             }
 
             .card-subtitle {
-                font-size: 0.55rem;
+                font-size: 0.5rem;
             }
 
             .card-status {
-                font-size: 0.55rem;
-                padding: 0.2rem 0.7rem;
+                font-size: 0.5rem;
+                padding: 0.15rem 0.6rem;
             }
 
             .card-price {
-                font-size: 0.75rem;
+                font-size: 0.7rem;
             }
 
             .btn-dapatkan {
-                padding: 0.6rem 1rem;
-                font-size: 0.7rem;
+                padding: 0.5rem 0.8rem;
+                font-size: 0.65rem;
             }
 
             .footer {
@@ -1040,35 +1046,35 @@
             }
 
             .materi-card {
-                padding: 1.1rem 0.9rem;
-                min-height: 165px;
+                padding: 1rem 0.8rem 1rem;
+                min-height: 160px;
             }
 
             .mapel-badge {
-                font-size: 2.4rem;
+                font-size: 2rem;
             }
 
             .card-title {
-                font-size: 0.9rem;
-                min-height: 2.4rem;
+                font-size: 0.85rem;
+                min-height: 2.2rem;
             }
 
             .card-subtitle {
-                font-size: 0.6rem;
+                font-size: 0.55rem;
             }
 
             .card-status {
-                font-size: 0.6rem;
-                padding: 0.2rem 0.7rem;
+                font-size: 0.55rem;
+                padding: 0.15rem 0.6rem;
             }
 
             .card-price {
-                font-size: 0.8rem;
+                font-size: 0.75rem;
             }
 
             .btn-dapatkan {
-                padding: 0.6rem 1rem;
-                font-size: 0.7rem;
+                padding: 0.55rem 0.9rem;
+                font-size: 0.65rem;
             }
 
             .footer {
@@ -1153,34 +1159,34 @@
             }
 
             .materi-card {
-                padding: 1.2rem 0.9rem;
-                min-height: 170px;
+                padding: 1.1rem 0.8rem 1.1rem;
+                min-height: 165px;
             }
 
             .mapel-badge {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
 
             .card-title {
-                font-size: 0.95rem;
-                min-height: 2.5rem;
+                font-size: 0.9rem;
+                min-height: 2.4rem;
             }
 
             .card-subtitle {
-                font-size: 0.6rem;
+                font-size: 0.55rem;
             }
 
             .card-status {
-                font-size: 0.6rem;
+                font-size: 0.55rem;
             }
 
             .card-price {
-                font-size: 0.8rem;
+                font-size: 0.75rem;
             }
 
             .btn-dapatkan {
-                padding: 0.6rem 1rem;
-                font-size: 0.75rem;
+                padding: 0.55rem 0.9rem;
+                font-size: 0.7rem;
             }
 
             .footer {
@@ -1236,34 +1242,34 @@
             }
 
             .materi-card {
-                padding: 1.2rem 0.9rem;
-                min-height: 170px;
+                padding: 1.1rem 0.8rem 1.1rem;
+                min-height: 165px;
             }
 
             .mapel-badge {
-                font-size: 2.6rem;
+                font-size: 2.2rem;
             }
 
             .card-title {
-                font-size: 0.95rem;
-                min-height: 2.5rem;
+                font-size: 0.9rem;
+                min-height: 2.4rem;
             }
 
             .card-subtitle {
-                font-size: 0.6rem;
+                font-size: 0.55rem;
             }
 
             .card-status {
-                font-size: 0.6rem;
+                font-size: 0.55rem;
             }
 
             .card-price {
-                font-size: 0.85rem;
+                font-size: 0.8rem;
             }
 
             .btn-dapatkan {
-                padding: 0.65rem 1.1rem;
-                font-size: 0.75rem;
+                padding: 0.6rem 1rem;
+                font-size: 0.7rem;
             }
 
             .footer {
@@ -1317,34 +1323,34 @@
             }
 
             .materi-card {
-                padding: 1.3rem 1rem;
-                min-height: 175px;
+                padding: 1.2rem 0.9rem 1.2rem;
+                min-height: 170px;
             }
 
             .mapel-badge {
-                font-size: 2.8rem;
+                font-size: 2.4rem;
             }
 
             .card-title {
-                font-size: 1rem;
-                min-height: 2.6rem;
+                font-size: 0.95rem;
+                min-height: 2.5rem;
             }
 
             .card-subtitle {
-                font-size: 0.65rem;
+                font-size: 0.6rem;
             }
 
             .card-status {
-                font-size: 0.65rem;
+                font-size: 0.6rem;
             }
 
             .card-price {
-                font-size: 0.85rem;
+                font-size: 0.8rem;
             }
 
             .btn-dapatkan {
-                padding: 0.7rem 1.2rem;
-                font-size: 0.8rem;
+                padding: 0.65rem 1.1rem;
+                font-size: 0.75rem;
             }
 
             .footer {
@@ -1394,34 +1400,34 @@
             }
 
             .materi-card {
-                padding: 1.4rem 1rem;
-                min-height: 180px;
+                padding: 1.3rem 0.9rem 1.3rem;
+                min-height: 175px;
             }
 
             .mapel-badge {
-                font-size: 3rem;
+                font-size: 2.6rem;
             }
 
             .card-title {
-                font-size: 1.05rem;
+                font-size: 1rem;
                 min-height: 2.6rem;
             }
 
             .card-subtitle {
-                font-size: 0.65rem;
+                font-size: 0.6rem;
             }
 
             .card-status {
-                font-size: 0.65rem;
+                font-size: 0.6rem;
             }
 
             .card-price {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
             }
 
             .btn-dapatkan {
-                padding: 0.7rem 1.2rem;
-                font-size: 0.8rem;
+                padding: 0.65rem 1.1rem;
+                font-size: 0.75rem;
             }
 
             .footer {
@@ -1489,35 +1495,35 @@
             }
 
             .materi-card {
-                padding: 1.5rem 1.1rem;
-                min-height: 190px;
+                padding: 1.4rem 1rem 1.4rem;
+                min-height: 185px;
             }
 
             .mapel-badge {
-                font-size: 3.2rem;
+                font-size: 2.8rem;
             }
 
             .card-title {
-                font-size: 1.1rem;
-                min-height: 2.8rem;
+                font-size: 1.05rem;
+                min-height: 2.6rem;
             }
 
             .card-subtitle {
-                font-size: 0.7rem;
+                font-size: 0.65rem;
             }
 
             .card-status {
-                font-size: 0.7rem;
-                padding: 0.25rem 0.8rem;
+                font-size: 0.65rem;
+                padding: 0.2rem 0.8rem;
             }
 
             .card-price {
-                font-size: 0.95rem;
+                font-size: 0.9rem;
             }
 
             .btn-dapatkan {
-                padding: 0.75rem 1.3rem;
-                font-size: 0.85rem;
+                padding: 0.7rem 1.2rem;
+                font-size: 0.8rem;
             }
 
             .footer {
@@ -1588,36 +1594,36 @@
             }
 
             .materi-card {
-                padding: 2rem 1.5rem;
-                min-height: 220px;
+                padding: 1.8rem 1.2rem 1.8rem;
+                min-height: 210px;
                 border-radius: 1.5rem;
             }
 
             .mapel-badge {
-                font-size: 4rem;
+                font-size: 3.2rem;
             }
 
             .card-title {
-                font-size: 1.3rem;
-                min-height: 3rem;
+                font-size: 1.2rem;
+                min-height: 2.8rem;
             }
 
             .card-subtitle {
-                font-size: 0.75rem;
+                font-size: 0.7rem;
             }
 
             .card-status {
-                font-size: 0.75rem;
-                padding: 0.3rem 1rem;
+                font-size: 0.7rem;
+                padding: 0.25rem 0.9rem;
             }
 
             .card-price {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
 
             .btn-dapatkan {
-                padding: 0.9rem 1.5rem;
-                font-size: 1rem;
+                padding: 0.8rem 1.4rem;
+                font-size: 0.9rem;
                 border-radius: 60px;
             }
 
