@@ -13,39 +13,21 @@
     <style>
         /* ================================================================ */
         /* NOXA STORE - MASTER CSS                                           */
-        /* Digunakan untuk semua file HTML di Noxa Store                    */
-        /* ================================================================ */
-        /* Cara pakai: <link rel="stylesheet" href="style.css">            */
+        /* 50 TEMA WARNA - RESPONSIVE SEMUA PERANGKAT                       */
         /* ================================================================ */
 
         /* ================================================================ */
-        /* ROOT VARIABLES - KOSONGKAN WARNA (ISI SENDIRI)                   */
+        /* ROOT VARIABLES                                                   */
         /* ================================================================ */
 
         :root {
-            /* ====== Warna Utama (Isi sesuai keinginan) ====== */
-            --primary-red: #C8102E;
-            --primary-blue: #012169;
-            --primary-white: #FFFFFF;
-
-            /* ====== Warna Sekunder (Isi sesuai keinginan) ====== */
-            --secondary-red: #B22234;
-            --secondary-blue: #3C3B6E;
-
-            /* ====== Warna Netral ====== */
-            --dark-bg: #0a0a2a;
-            --dark-card: rgba(10, 10, 42, 0.85);
-            --dark-card2: rgba(20, 20, 60, 0.7);
-            --text-white: #F0ECF5;
-            --text-muted: #9988bb;
-            --text-gold: #ffd700;
-            --text-green: #2ecc71;
-            --text-orange: #ffa500;
-
-            /* ====== Ukuran ====== */
+            /* Ukuran */
             --radius-card: 1rem;
             --radius-container: 2rem;
             --shadow-heavy: 0 25px 45px rgba(0, 0, 0, 0.8);
+
+            /* Default Text */
+            --text-color: #FFFFFF;
         }
 
         /* ================================================================ */
@@ -66,56 +48,312 @@
             font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, 'Roboto', sans-serif;
             padding: 1.5rem;
             min-height: 100vh;
-            background: radial-gradient(circle at 30% 20%, var(--primary-blue), var(--dark-bg));
-            transition: background 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            transition: background 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1), color 0.8s ease;
+            color: var(--text-color);
         }
 
         /* ================================================================ */
-        /* THEME UK (United Kingdom)                                        */
+        /* 50 THEMES - WARNA DIACAK SETIAP 10 DETIK                         */
         /* ================================================================ */
 
-        body.theme-uk-1 {
-            background: radial-gradient(circle at 30% 20%, var(--primary-blue), var(--dark-bg));
+        /* 1. Hijau Cristal - Teks Hitam */
+        body.theme-1 {
+            background: linear-gradient(135deg, #00E5A0, #00B894, #00A381, #008D6E, #00775B, #006148, #004B35);
+            color: #111111;
         }
 
-        body.theme-uk-2 {
-            background: radial-gradient(circle at 50% 40%, var(--primary-red), #5a0a14);
+        /* 2. Hijau Bambu - Teks Hitam */
+        body.theme-2 {
+            background: linear-gradient(135deg, #E8F5E9, #C8E6C9, #A5D6A7, #81C784, #66BB6A, #4CAF50, #388E3C);
+            color: #111111;
         }
 
-        body.theme-uk-3 {
-            background: radial-gradient(circle at 70% 30%, var(--primary-white), #2a2a3a);
+        /* 3. Merah Cristal - Teks Putih */
+        body.theme-3 {
+            background: linear-gradient(135deg, #FF6B6B, #E74C3C, #D63031, #C0392B, #A93226, #8E1F1A, #6B1A12);
+            color: #FFFFFF;
         }
 
-        body.theme-uk-4 {
-            background: radial-gradient(circle at 40% 70%, var(--primary-blue), var(--dark-bg));
+        /* 4. Pink Putih Hitam - Teks Hitam */
+        body.theme-4 {
+            background: linear-gradient(135deg, #FF9FF3, #F368E0, #F8A5C2, #FFFFFF, #DFE6E9, #636E72, #2D3436);
+            color: #111111;
         }
 
-        body.theme-uk-5 {
-            background: radial-gradient(circle at 60% 50%, var(--primary-red), #5a0a14);
+        /* 5. Hitam Biru Ungu - Teks Putih */
+        body.theme-5 {
+            background: linear-gradient(135deg, #0C0C0C, #1A1A2E, #16213E, #0F3460, #533483, #6C3082, #8B2F97);
+            color: #FFFFFF;
         }
 
-        /* ================================================================ */
-        /* THEME US (United States)                                         */
-        /* ================================================================ */
-
-        body.theme-us-1 {
-            background: radial-gradient(circle at 30% 20%, var(--secondary-blue), var(--dark-bg));
+        /* 6. Pelangi - Teks Hitam */
+        body.theme-6 {
+            background: linear-gradient(135deg, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #8B00FF);
+            color: #111111;
         }
 
-        body.theme-us-2 {
-            background: radial-gradient(circle at 50% 40%, var(--secondary-red), #4a0a14);
+        /* 7. Ungu Hitam Metalik Chrome - Teks Putih */
+        body.theme-7 {
+            background: linear-gradient(135deg, #1A1A2E, #2D1B69, #3D1F7A, #4B2A8A, #6B3FA0, #8A5AB8, #A87CD4);
+            color: #FFFFFF;
         }
 
-        body.theme-us-3 {
-            background: radial-gradient(circle at 70% 30%, var(--primary-white), #2a2a3a);
+        /* 8. Hitam Metalik - Teks Putih */
+        body.theme-8 {
+            background: linear-gradient(135deg, #1A1A1A, #2D2D2D, #404040, #555555, #6A6A6A, #808080, #999999);
+            color: #FFFFFF;
         }
 
-        body.theme-us-4 {
-            background: radial-gradient(circle at 40% 70%, var(--secondary-blue), var(--dark-bg));
+        /* 9. Biru Laut - Teks Putih */
+        body.theme-9 {
+            background: linear-gradient(135deg, #001B3A, #002B5C, #003B7E, #004B9F, #005BC0, #006BE1, #007BFF);
+            color: #FFFFFF;
         }
 
-        body.theme-us-5 {
-            background: radial-gradient(circle at 60% 50%, var(--secondary-red), #4a0a14);
+        /* 10. Biru Langit - Teks Hitam */
+        body.theme-10 {
+            background: linear-gradient(135deg, #E3F2FD, #BBDEFB, #90CAF9, #64B5F6, #42A5F5, #2196F3, #1E88E5);
+            color: #111111;
+        }
+
+        /* 11. Biru Navy - Teks Putih */
+        body.theme-11 {
+            background: linear-gradient(135deg, #0A1128, #0F1B3D, #142652, #1A3166, #1F3D7A, #25488E, #2A54A2);
+            color: #FFFFFF;
+        }
+
+        /* 12. Biru Elektrik - Teks Putih */
+        body.theme-12 {
+            background: linear-gradient(135deg, #0D47A1, #1565C0, #1E88E5, #42A5F5, #64B5F6, #90CAF9, #BBDEFB);
+            color: #FFFFFF;
+        }
+
+        /* 13. Kuning Lemon - Teks Hitam */
+        body.theme-13 {
+            background: linear-gradient(135deg, #FFF9C4, #FFF59D, #FFEE58, #FFEB3B, #FDD835, #FBC02D, #F9A825);
+            color: #111111;
+        }
+
+        /* 14. Kuning Emas - Teks Hitam */
+        body.theme-14 {
+            background: linear-gradient(135deg, #F9A825, #F57F17, #FBC02D, #FDD835, #FFEB3B, #FFEE58, #FFF9C4);
+            color: #111111;
+        }
+
+        /* 15. Oranye Sunset - Teks Hitam */
+        body.theme-15 {
+            background: linear-gradient(135deg, #FF6F00, #E65100, #F57C00, #FB8C00, #FFA726, #FFB74D, #FFCC80);
+            color: #111111;
+        }
+
+        /* 16. Oranye Terakota - Teks Putih */
+        body.theme-16 {
+            background: linear-gradient(135deg, #5D2E1A, #7A3B22, #97482A, #B45532, #D1623A, #E87A4A, #F0935A);
+            color: #FFFFFF;
+        }
+
+        /* 17. Ungu Lavender - Teks Hitam */
+        body.theme-17 {
+            background: linear-gradient(135deg, #EDE7F6, #D1C4E9, #B39DDB, #9575CD, #7E57C2, #673AB7, #5E35B1);
+            color: #111111;
+        }
+
+        /* 18. Ungu Royal - Teks Putih */
+        body.theme-18 {
+            background: linear-gradient(135deg, #1A0A2E, #2D1B69, #3D1F7A, #4B2A8A, #6B3FA0, #8A5AB8, #A87CD4);
+            color: #FFFFFF;
+        }
+
+        /* 19. Ungu Galaxy - Teks Putih */
+        body.theme-19 {
+            background: linear-gradient(135deg, #0D0221, #1A0A3E, #2D1B69, #3D1F7A, #6B3FA0, #9B6FC0, #C9A0DC);
+            color: #FFFFFF;
+        }
+
+        /* 20. Pink Pastel - Teks Hitam */
+        body.theme-20 {
+            background: linear-gradient(135deg, #FCE4EC, #F8BBD0, #F48FB1, #F06292, #EC407A, #E91E63, #D81B60);
+            color: #111111;
+        }
+
+        /* 21. Pink Fuchsia - Teks Putih */
+        body.theme-21 {
+            background: linear-gradient(135deg, #880E4F, #AD1457, #C2185B, #D81B60, #E91E63, #EC407A, #F06292);
+            color: #FFFFFF;
+        }
+
+        /* 22. Merah Marun - Teks Putih */
+        body.theme-22 {
+            background: linear-gradient(135deg, #4A0A0A, #6B0F0F, #8C1414, #AD1919, #CE1E1E, #EF2323, #FF3D3D);
+            color: #FFFFFF;
+        }
+
+        /* 23. Merah Scarlet - Teks Putih */
+        body.theme-23 {
+            background: linear-gradient(135deg, #660000, #880000, #AA0000, #CC0000, #EE0000, #FF1A1A, #FF4444);
+            color: #FFFFFF;
+        }
+
+        /* 24. Cokelat Kayu - Teks Putih */
+        body.theme-24 {
+            background: linear-gradient(135deg, #2C1810, #3E2316, #502E1C, #623922, #744428, #864F2E, #985A34);
+            color: #FFFFFF;
+        }
+
+        /* 25. Cokelat Kopi - Teks Putih */
+        body.theme-25 {
+            background: linear-gradient(135deg, #1A0A05, #2D140A, #401E0F, #532814, #663219, #793C1E, #8C4623);
+            color: #FFFFFF;
+        }
+
+        /* 26. Abu-Abu Muda - Teks Hitam */
+        body.theme-26 {
+            background: linear-gradient(135deg, #F5F5F5, #EEEEEE, #E0E0E0, #BDBDBD, #9E9E9E, #757575, #616161);
+            color: #111111;
+        }
+
+        /* 27. Abu-Abu Tua - Teks Putih */
+        body.theme-27 {
+            background: linear-gradient(135deg, #212121, #2C2C2C, #383838, #444444, #505050, #5C5C5C, #686868);
+            color: #FFFFFF;
+        }
+
+        /* 28. Silver Metalik - Teks Hitam */
+        body.theme-28 {
+            background: linear-gradient(135deg, #B0BEC5, #90A4AE, #78909C, #607D8B, #546E7A, #455A64, #37474F);
+            color: #111111;
+        }
+
+        /* 29. Putih Mutiara - Teks Hitam */
+        body.theme-29 {
+            background: linear-gradient(135deg, #FFFFFF, #F5F5F5, #EEEEEE, #E8E8E8, #E0E0E0, #D5D5D5, #CCCCCC);
+            color: #111111;
+        }
+
+        /* 30. Putih Gading - Teks Hitam */
+        body.theme-30 {
+            background: linear-gradient(135deg, #FFFFF0, #FEFCE8, #FDFAE0, #FCF8D8, #FBF6D0, #FAF4C8, #F9F2C0);
+            color: #111111;
+        }
+
+        /* 31. Tosca - Teks Hitam */
+        body.theme-31 {
+            background: linear-gradient(135deg, #00BCD4, #26C6DA, #4DD0E1, #80DEEA, #B2EBF2, #E0F7FA, #B2DFDB);
+            color: #111111;
+        }
+
+        /* 32. Turquoise - Teks Hitam */
+        body.theme-32 {
+            background: linear-gradient(135deg, #00695C, #00897B, #26A69A, #4DB6AC, #80CBC4, #B2DFDB, #E0F2F1);
+            color: #111111;
+        }
+
+        /* 33. Hijau Mint - Teks Hitam */
+        body.theme-33 {
+            background: linear-gradient(135deg, #E0F7FA, #B2DFDB, #80CBC4, #4DB6AC, #26A69A, #00897B, #00695C);
+            color: #111111;
+        }
+
+        /* 34. Hijau Emerald - Teks Putih */
+        body.theme-34 {
+            background: linear-gradient(135deg, #004D40, #00695C, #00897B, #26A69A, #4DB6AC, #80CBC4, #B2DFDB);
+            color: #FFFFFF;
+        }
+
+        /* 35. Biru Putih Silver - Teks Hitam */
+        body.theme-35 {
+            background: linear-gradient(135deg, #E3F2FD, #BBDEFB, #90CAF9, #FFFFFF, #ECEFF1, #CFD8DC, #B0BEC5);
+            color: #111111;
+        }
+
+        /* 36. Merah Hitam Emas - Teks Putih */
+        body.theme-36 {
+            background: linear-gradient(135deg, #1A0A0A, #2D0A0A, #4A0A0A, #8B0000, #CC0000, #FFD700, #FFC107);
+            color: #FFFFFF;
+        }
+
+        /* 37. Hijau Kuning Putih - Teks Hitam */
+        body.theme-37 {
+            background: linear-gradient(135deg, #1B5E20, #2E7D32, #388E3C, #4CAF50, #66BB6A, #FDD835, #FFFFFF);
+            color: #111111;
+        }
+
+        /* 38. Biru Ungu Pink - Teks Putih */
+        body.theme-38 {
+            background: linear-gradient(135deg, #0D47A1, #1A237E, #311B92, #4A148C, #6A1B9A, #8E24AA, #D81B60);
+            color: #FFFFFF;
+        }
+
+        /* 39. Hijau Zaitun - Teks Hitam */
+        body.theme-39 {
+            background: linear-gradient(135deg, #3E2723, #4E342E, #5D4037, #6D4C41, #795548, #8D6E63, #A1887F);
+            color: #111111;
+        }
+
+        /* 40. Hijau Neon - Teks Hitam */
+        body.theme-40 {
+            background: linear-gradient(135deg, #00E676, #00C853, #00B248, #009E3A, #008A2C, #00761E, #006210);
+            color: #111111;
+        }
+
+        /* 41. Biru Safir - Teks Putih */
+        body.theme-41 {
+            background: linear-gradient(135deg, #0A1A3A, #0F284A, #14365A, #19446A, #1E527A, #23608A, #286E9A);
+            color: #FFFFFF;
+        }
+
+        /* 42. Biru Es - Teks Hitam */
+        body.theme-42 {
+            background: linear-gradient(135deg, #E1F5FE, #B3E5FC, #81D4FA, #4FC3F7, #29B6F6, #0288D1, #01579B);
+            color: #111111;
+        }
+
+        /* 43. Merah Putih Biru - Teks Hitam */
+        body.theme-43 {
+            background: linear-gradient(135deg, #D32F2F, #E53935, #EF5350, #FFFFFF, #E3F2FD, #64B5F6, #1976D2);
+            color: #111111;
+        }
+
+        /* 44. Hijau Hitam Silver - Teks Putih */
+        body.theme-44 {
+            background: linear-gradient(135deg, #0A0A0A, #1A1A1A, #2D2D2D, #4CAF50, #66BB6A, #81C784, #A5D6A7);
+            color: #FFFFFF;
+        }
+
+        /* 45. Pink Ungu Putih - Teks Hitam */
+        body.theme-45 {
+            background: linear-gradient(135deg, #F8BBD0, #F48FB1, #F06292, #CE93D8, #BA68C8, #AB47BC, #FFFFFF);
+            color: #111111;
+        }
+
+        /* 46. Biru Tosca Putih - Teks Hitam */
+        body.theme-46 {
+            background: linear-gradient(135deg, #0D47A1, #1976D2, #42A5F5, #26C6DA, #00BCD4, #80DEEA, #FFFFFF);
+            color: #111111;
+        }
+
+        /* 47. Emas Hitam Merah - Teks Putih */
+        body.theme-47 {
+            background: linear-gradient(135deg, #0A0A0A, #1A0A0A, #4A0A0A, #8B0000, #FFD700, #FFC107, #FFB300);
+            color: #FFFFFF;
+        }
+
+        /* 48. Silver Biru Hitam - Teks Putih */
+        body.theme-48 {
+            background: linear-gradient(135deg, #0A0A0A, #1A1A2E, #2D2D3A, #455A64, #607D8B, #90A4AE, #B0BEC5);
+            color: #FFFFFF;
+        }
+
+        /* 49. Hijau Emerald Emas - Teks Putih */
+        body.theme-49 {
+            background: linear-gradient(135deg, #004D40, #00695C, #00897B, #26A69A, #4DB6AC, #FFD700, #FFC107);
+            color: #FFFFFF;
+        }
+
+        /* 50. Putih Abu-Abu Silver - Teks Hitam */
+        body.theme-50 {
+            background: linear-gradient(135deg, #FFFFFF, #F5F5F5, #EEEEEE, #E0E0E0, #BDBDBD, #9E9E9E, #757575);
+            color: #111111;
         }
 
         /* ================================================================ */
@@ -125,42 +363,14 @@
         .app-container {
             max-width: 1800px;
             margin: 0 auto;
-            background: rgba(0, 0, 0, 0.65);
+            background: rgba(0, 0, 0, 0.55);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
             border-radius: var(--radius-container);
             padding: 1.5rem;
             box-shadow: var(--shadow-heavy);
-            border: 1px solid rgba(1, 33, 105, 0.3);
-            transition: border-color 0.8s ease;
-        }
-
-        body.theme-uk-1 .app-container,
-        body.theme-uk-4 .app-container {
-            border-color: rgba(1, 33, 105, 0.5);
-        }
-
-        body.theme-uk-2 .app-container,
-        body.theme-uk-5 .app-container {
-            border-color: rgba(200, 16, 46, 0.5);
-        }
-
-        body.theme-uk-3 .app-container {
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        body.theme-us-1 .app-container,
-        body.theme-us-4 .app-container {
-            border-color: rgba(60, 59, 110, 0.5);
-        }
-
-        body.theme-us-2 .app-container,
-        body.theme-us-5 .app-container {
-            border-color: rgba(178, 34, 52, 0.5);
-        }
-
-        body.theme-us-3 .app-container {
-            border-color: rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.8s ease;
         }
 
         /* ================================================================ */
@@ -174,65 +384,38 @@
             flex-wrap: wrap;
             gap: 1rem;
             margin-bottom: 1.5rem;
-            border-bottom: 2px solid rgba(200, 16, 46, 0.3);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.15);
             padding-bottom: 1rem;
-            transition: border-color 0.8s ease;
-        }
-
-        body.theme-uk-1 .top-brand-bar,
-        body.theme-uk-4 .top-brand-bar,
-        body.theme-us-1 .top-brand-bar,
-        body.theme-us-4 .top-brand-bar {
-            border-bottom-color: rgba(1, 33, 105, 0.4);
-        }
-
-        body.theme-uk-2 .top-brand-bar,
-        body.theme-uk-5 .top-brand-bar,
-        body.theme-us-2 .top-brand-bar,
-        body.theme-us-5 .top-brand-bar {
-            border-bottom-color: rgba(200, 16, 46, 0.4);
-        }
-
-        body.theme-uk-3 .top-brand-bar,
-        body.theme-us-3 .top-brand-bar {
-            border-bottom-color: rgba(255, 255, 255, 0.2);
+            transition: all 0.8s ease;
         }
 
         .noxa-store {
             font-size: clamp(1.5rem, 5vw, 2.8rem);
             font-weight: 800;
-            background: linear-gradient(135deg, var(--primary-red), var(--primary-blue));
+            background: linear-gradient(135deg, #FF6B6B, #FFD93D, #6BCB77, #4D96FF, #9B59B6);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 0 12px rgba(200, 16, 46, 0.4);
+            text-shadow: none;
             animation: softPulse 2.5s infinite alternate;
-            transition: all 0.8s ease;
-        }
-
-        body.theme-uk-3 .noxa-store,
-        body.theme-us-3 .noxa-store {
-            background: linear-gradient(135deg, var(--primary-blue), var(--primary-red));
-            -webkit-background-clip: text;
-            background-clip: text;
         }
 
         @keyframes softPulse {
             0% {
-                text-shadow: 0 0 4px var(--primary-red);
                 opacity: 0.95;
+                transform: scale(1);
             }
 
             100% {
-                text-shadow: 0 0 20px var(--primary-blue);
                 opacity: 1;
+                transform: scale(1.02);
             }
         }
 
         .judul-web-kanan h1 {
             font-size: clamp(1rem, 3.5vw, 1.6rem);
             font-weight: 700;
-            background: linear-gradient(120deg, var(--primary-red), var(--primary-blue));
+            background: linear-gradient(120deg, #FF6B6B, #FFD93D);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -240,23 +423,40 @@
             transition: all 0.8s ease;
         }
 
-        body.theme-uk-3 .judul-web-kanan h1,
-        body.theme-us-3 .judul-web-kanan h1 {
-            background: linear-gradient(120deg, var(--primary-blue), var(--primary-red));
-            -webkit-background-clip: text;
-            background-clip: text;
-        }
-
         .judul-web-kanan p {
             font-size: clamp(0.6rem, 1.5vw, 0.8rem);
-            color: var(--primary-red);
+            color: rgba(255, 255, 255, 0.7);
             text-align: right;
             transition: color 0.8s ease;
         }
 
-        body.theme-uk-3 .judul-web-kanan p,
-        body.theme-us-3 .judul-web-kanan p {
-            color: var(--primary-blue);
+        body.theme-1 .judul-web-kanan p,
+        body.theme-2 .judul-web-kanan p,
+        body.theme-4 .judul-web-kanan p,
+        body.theme-6 .judul-web-kanan p,
+        body.theme-10 .judul-web-kanan p,
+        body.theme-13 .judul-web-kanan p,
+        body.theme-14 .judul-web-kanan p,
+        body.theme-15 .judul-web-kanan p,
+        body.theme-17 .judul-web-kanan p,
+        body.theme-20 .judul-web-kanan p,
+        body.theme-26 .judul-web-kanan p,
+        body.theme-28 .judul-web-kanan p,
+        body.theme-29 .judul-web-kanan p,
+        body.theme-30 .judul-web-kanan p,
+        body.theme-31 .judul-web-kanan p,
+        body.theme-32 .judul-web-kanan p,
+        body.theme-33 .judul-web-kanan p,
+        body.theme-35 .judul-web-kanan p,
+        body.theme-37 .judul-web-kanan p,
+        body.theme-39 .judul-web-kanan p,
+        body.theme-40 .judul-web-kanan p,
+        body.theme-42 .judul-web-kanan p,
+        body.theme-43 .judul-web-kanan p,
+        body.theme-45 .judul-web-kanan p,
+        body.theme-46 .judul-web-kanan p,
+        body.theme-50 .judul-web-kanan p {
+            color: rgba(0, 0, 0, 0.7);
         }
 
         /* ================================================================ */
@@ -276,70 +476,27 @@
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.4);
             padding: 0.5rem 1rem;
             border-radius: 2rem;
-            border: 1px solid rgba(1, 33, 105, 0.3);
-            transition: border-color 0.8s ease;
-        }
-
-        body.theme-uk-2 .total-stats-box,
-        body.theme-uk-5 .total-stats-box,
-        body.theme-us-2 .total-stats-box,
-        body.theme-us-5 .total-stats-box {
-            border-color: rgba(200, 16, 46, 0.4);
-        }
-
-        body.theme-uk-3 .total-stats-box,
-        body.theme-us-3 .total-stats-box {
-            border-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.8s ease;
         }
 
         .total-stats-box span {
             font-size: clamp(0.65rem, 1.5vw, 0.8rem);
-            color: var(--primary-white);
-            background: rgba(1, 33, 105, 0.25);
+            color: inherit;
+            background: rgba(255, 255, 255, 0.1);
             padding: 0.2rem 0.8rem;
             border-radius: 2rem;
-            transition: background 0.8s ease;
-        }
-
-        body.theme-uk-2 .total-stats-box span,
-        body.theme-uk-5 .total-stats-box span,
-        body.theme-us-2 .total-stats-box span,
-        body.theme-us-5 .total-stats-box span {
-            background: rgba(200, 16, 46, 0.25);
-        }
-
-        body.theme-uk-3 .total-stats-box span,
-        body.theme-us-3 .total-stats-box span {
-            background: rgba(255, 255, 255, 0.15);
+            transition: all 0.8s ease;
         }
 
         .total-stats-box span strong {
-            color: var(--primary-red);
-            transition: color 0.8s ease;
-        }
-
-        body.theme-uk-1 .total-stats-box span strong,
-        body.theme-uk-4 .total-stats-box span strong,
-        body.theme-us-1 .total-stats-box span strong,
-        body.theme-us-4 .total-stats-box span strong {
-            color: var(--primary-blue);
-        }
-
-        body.theme-uk-3 .total-stats-box span strong,
-        body.theme-us-3 .total-stats-box span strong {
-            color: var(--primary-red);
+            font-weight: 700;
         }
 
         /* ====== SEARCH ====== */
-
-        .search-section {
-            max-width: 100%;
-            flex: 1;
-            min-width: 200px;
-        }
 
         .search-row-flex {
             display: flex;
@@ -360,28 +517,57 @@
             top: 50%;
             transform: translateY(-50%);
             font-size: 1rem;
-            opacity: 0.8;
+            opacity: 0.7;
         }
 
         #searchInput {
             width: 100%;
             padding: 0.7rem 2.2rem 0.7rem 2.8rem;
             font-size: clamp(0.75rem, 2vw, 0.85rem);
-            color: #fff;
-            background: rgba(0, 0, 0, 0.6);
-            border: 1.5px solid rgba(42, 74, 138, 0.5);
+            color: inherit;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1.5px solid rgba(255, 255, 255, 0.15);
             border-radius: 60px;
             outline: none;
             transition: border-color 0.3s, box-shadow 0.3s;
         }
 
         #searchInput:focus {
-            border-color: var(--primary-red);
-            box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
         }
 
         #searchInput::placeholder {
-            color: #6688aa;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        body.theme-1 #searchInput::placeholder,
+        body.theme-2 #searchInput::placeholder,
+        body.theme-4 #searchInput::placeholder,
+        body.theme-6 #searchInput::placeholder,
+        body.theme-10 #searchInput::placeholder,
+        body.theme-13 #searchInput::placeholder,
+        body.theme-14 #searchInput::placeholder,
+        body.theme-15 #searchInput::placeholder,
+        body.theme-17 #searchInput::placeholder,
+        body.theme-20 #searchInput::placeholder,
+        body.theme-26 #searchInput::placeholder,
+        body.theme-28 #searchInput::placeholder,
+        body.theme-29 #searchInput::placeholder,
+        body.theme-30 #searchInput::placeholder,
+        body.theme-31 #searchInput::placeholder,
+        body.theme-32 #searchInput::placeholder,
+        body.theme-33 #searchInput::placeholder,
+        body.theme-35 #searchInput::placeholder,
+        body.theme-37 #searchInput::placeholder,
+        body.theme-39 #searchInput::placeholder,
+        body.theme-40 #searchInput::placeholder,
+        body.theme-42 #searchInput::placeholder,
+        body.theme-43 #searchInput::placeholder,
+        body.theme-45 #searchInput::placeholder,
+        body.theme-46 #searchInput::placeholder,
+        body.theme-50 #searchInput::placeholder {
+            color: rgba(0, 0, 0, 0.4);
         }
 
         .clear-btn {
@@ -389,9 +575,9 @@
             right: 12px;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
             border: none;
-            color: var(--primary-white);
+            color: inherit;
             border-radius: 50%;
             width: 26px;
             height: 26px;
@@ -404,7 +590,7 @@
         }
 
         .clear-btn:hover {
-            background: var(--primary-red);
+            background: rgba(255, 255, 255, 0.3);
         }
 
         /* ====== BUTTON GROUP ====== */
@@ -425,10 +611,10 @@
             font-size: clamp(0.7rem, 1.5vw, 0.8rem);
             font-weight: 600;
             font-family: inherit;
-            color: var(--primary-red);
+            color: inherit;
             white-space: nowrap;
-            background: rgba(1, 33, 105, 0.25);
-            border: 1px solid rgba(1, 33, 105, 0.4);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 3rem;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -437,9 +623,8 @@
 
         .btn-refresh-neon:hover,
         .btn-back-neon:hover {
-            background: rgba(200, 16, 46, 0.25);
+            background: rgba(255, 255, 255, 0.2);
             transform: scale(1.02);
-            color: #fff;
         }
 
         /* ================================================================ */
@@ -452,57 +637,29 @@
             align-items: center;
             padding: 0.4rem 1rem;
             margin: 0.5rem 0 1.5rem;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.4);
             border-radius: 60px;
             font-size: clamp(0.65rem, 1.5vw, 0.75rem);
             flex-wrap: wrap;
             gap: 0.4rem;
-            border: 1px solid rgba(1, 33, 105, 0.3);
-            transition: border-color 0.8s ease;
-        }
-
-        body.theme-uk-2 .stats-bar,
-        body.theme-uk-5 .stats-bar,
-        body.theme-us-2 .stats-bar,
-        body.theme-us-5 .stats-bar {
-            border-color: rgba(200, 16, 46, 0.4);
-        }
-
-        body.theme-uk-3 .stats-bar,
-        body.theme-us-3 .stats-bar {
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .shortcut-msg {
-            background: var(--primary-red);
-            padding: 0.15rem 0.7rem;
-            border-radius: 30px;
-            color: #FFFFFF;
-            font-weight: bold;
-            font-size: clamp(0.55rem, 1.2vw, 0.65rem);
-            box-shadow: 0 0 6px rgba(200, 16, 46, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             transition: all 0.8s ease;
         }
 
-        body.theme-uk-1 .shortcut-msg,
-        body.theme-uk-4 .shortcut-msg,
-        body.theme-us-1 .shortcut-msg,
-        body.theme-us-4 .shortcut-msg {
-            background: var(--primary-blue);
-            box-shadow: 0 0 6px rgba(1, 33, 105, 0.4);
-        }
-
-        body.theme-uk-3 .shortcut-msg,
-        body.theme-us-3 .shortcut-msg {
-            background: var(--primary-blue);
-            color: #fff;
+        .shortcut-msg {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.15rem 0.7rem;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: clamp(0.55rem, 1.2vw, 0.65rem);
+            transition: all 0.8s ease;
         }
 
         #shortcutNotif {
             min-width: 100px;
             font-size: clamp(0.55rem, 1.2vw, 0.65rem);
-            color: var(--primary-red);
             text-align: center;
+            opacity: 0.8;
         }
 
         /* ================================================================ */
@@ -523,10 +680,7 @@
             border-radius: var(--radius-card);
             padding: 1.2rem 0.8rem 1rem;
             transition: all 0.5s ease;
-            border-left: 4px solid var(--primary-blue);
-            border-right: 1px solid rgba(1, 33, 105, 0.2);
-            border-top: 1px solid rgba(1, 33, 105, 0.2);
-            border-bottom: 1px solid rgba(1, 33, 105, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -534,7 +688,7 @@
             gap: 0.3rem;
             text-decoration: none;
             cursor: pointer;
-            background: linear-gradient(135deg, var(--dark-card), var(--dark-card2));
+            background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);
             min-height: 170px;
@@ -545,62 +699,30 @@
 
         .materi-card:hover {
             transform: translateY(-4px);
-            border-left-color: var(--primary-red);
-            box-shadow: 0 12px 25px -8px rgba(200, 16, 46, 0.3);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 12px 25px -8px rgba(0, 0, 0, 0.4);
         }
 
-        /* ====== GRADIEN UK ====== */
+        /* ====== CARD GRADIEN ====== */
 
-        .materi-card.uk-gradien-0 {
-            background: linear-gradient(135deg, rgba(1, 33, 105, 0.85), var(--dark-card2));
-            border-left-color: var(--primary-blue);
+        .materi-card.gradien-0 {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0.3));
         }
 
-        .materi-card.uk-gradien-1 {
-            background: linear-gradient(135deg, rgba(200, 16, 46, 0.85), rgba(1, 33, 105, 0.7));
-            border-left-color: var(--primary-red);
+        .materi-card.gradien-1 {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.4));
         }
 
-        .materi-card.uk-gradien-2 {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(1, 33, 105, 0.7));
-            border-left-color: #888;
+        .materi-card.gradien-2 {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.5));
         }
 
-        .materi-card.uk-gradien-3 {
-            background: linear-gradient(135deg, rgba(1, 33, 105, 0.85), rgba(200, 16, 46, 0.7));
-            border-left-color: var(--primary-blue);
+        .materi-card.gradien-3 {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(0, 0, 0, 0.35));
         }
 
-        .materi-card.uk-gradien-4 {
-            background: linear-gradient(135deg, rgba(200, 16, 46, 0.85), var(--dark-card2));
-            border-left-color: var(--primary-red);
-        }
-
-        /* ====== GRADIEN US ====== */
-
-        .materi-card.us-gradien-0 {
-            background: linear-gradient(135deg, rgba(60, 59, 110, 0.85), var(--dark-card2));
-            border-left-color: var(--secondary-blue);
-        }
-
-        .materi-card.us-gradien-1 {
-            background: linear-gradient(135deg, rgba(178, 34, 52, 0.85), rgba(60, 59, 110, 0.7));
-            border-left-color: var(--secondary-red);
-        }
-
-        .materi-card.us-gradien-2 {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(60, 59, 110, 0.7));
-            border-left-color: #888;
-        }
-
-        .materi-card.us-gradien-3 {
-            background: linear-gradient(135deg, rgba(60, 59, 110, 0.85), rgba(178, 34, 52, 0.7));
-            border-left-color: var(--secondary-blue);
-        }
-
-        .materi-card.us-gradien-4 {
-            background: linear-gradient(135deg, rgba(178, 34, 52, 0.85), var(--dark-card2));
-            border-left-color: var(--secondary-red);
+        .materi-card.gradien-4 {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.45));
         }
 
         /* ================================================================ */
@@ -614,7 +736,7 @@
             font-size: clamp(0.6rem, 1vw, 0.8rem);
             line-height: 1.2;
             padding: 0.2rem 0.6rem;
-            background: rgba(0, 0, 0, 0.55);
+            background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);
             border-radius: 20px;
@@ -630,25 +752,14 @@
             max-width: 90%;
         }
 
-        .mapel-badge .badge-emoji {
-            font-size: 0.8em;
-        }
-
-        .mapel-badge .badge-text {
-            font-size: 0.7em;
-            letter-spacing: 0.3px;
-            white-space: nowrap;
-        }
-
         /* ================================================================ */
         /* CARD CONTENT                                                     */
         /* ================================================================ */
 
         .card-title {
-            color: var(--text-white);
             font-size: clamp(0.85rem, 2vw, 1.1rem);
             font-weight: 700;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
             min-height: 2.4rem;
             display: flex;
             align-items: center;
@@ -658,11 +769,12 @@
             padding-right: 0.5rem;
             position: relative;
             z-index: 1;
+            color: inherit;
         }
 
         .card-subtitle {
             font-size: clamp(0.5rem, 0.9vw, 0.6rem);
-            color: var(--text-muted);
+            opacity: 0.7;
             font-weight: 400;
             margin-top: -0.1rem;
             position: relative;
@@ -693,8 +805,8 @@
         }
 
         .status-soon {
-            background: rgba(255, 165, 0, 0.15);
-            color: var(--text-orange);
+            background: rgba(255, 165, 0, 0.2);
+            color: #FFA500;
             border: 1px solid rgba(255, 165, 0, 0.3);
         }
 
@@ -703,8 +815,8 @@
         }
 
         .status-active {
-            background: rgba(46, 204, 113, 0.15);
-            color: var(--text-green);
+            background: rgba(46, 204, 113, 0.2);
+            color: #2ECC71;
             border: 1px solid rgba(46, 204, 113, 0.3);
         }
 
@@ -715,7 +827,7 @@
         .card-price {
             font-size: clamp(0.7rem, 1.3vw, 0.85rem);
             font-weight: 800;
-            color: var(--text-gold);
+            color: #FFD700;
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
             padding: 0.1rem 0;
             letter-spacing: 0.5px;
@@ -757,27 +869,26 @@
         }
 
         .btn-dapatkan:not(.disabled) {
-            background: var(--primary-red);
+            background: linear-gradient(135deg, #FF6B6B, #FF4757);
             color: #FFFFFF;
-            box-shadow: 0 2px 6px rgba(200, 16, 46, 0.4);
+            box-shadow: 0 2px 6px rgba(255, 71, 87, 0.4);
         }
 
         .btn-dapatkan:not(.disabled):hover {
-            background: #e01a3e;
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.5);
         }
 
         .btn-dapatkan.disabled {
-            background: #2a2a3a;
-            color: #6a6a8a;
-            border: 1px solid #4a4a6a;
+            background: rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             cursor: not-allowed;
             opacity: 0.7;
         }
 
         .btn-dapatkan.disabled:hover {
             transform: none;
-            filter: none;
         }
 
         /* ================================================================ */
@@ -788,20 +899,19 @@
             grid-column: 1 / -1;
             text-align: center;
             padding: 2rem;
-            color: var(--primary-red);
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.5);
             border-radius: var(--radius-card);
             margin-top: 1.5rem;
-            border: 1px solid rgba(200, 16, 46, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .empty-state {
             grid-column: 1 / -1;
             text-align: center;
             padding: 3rem 1.5rem;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.4);
             border-radius: var(--radius-card);
-            border: 1px solid rgba(1, 33, 105, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         /* ================================================================ */
@@ -813,16 +923,16 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: var(--dark-bg);
+            background: rgba(0, 0, 0, 0.3);
         }
 
         ::-webkit-scrollbar-thumb {
-            background: var(--primary-red);
+            background: rgba(255, 255, 255, 0.3);
             border-radius: 10px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-blue);
+            background: rgba(255, 255, 255, 0.5);
         }
 
         /* ================================================================ */
@@ -834,24 +944,12 @@
             max-width: 1800px;
             margin: 1.2rem auto 0;
             padding: 1rem 1.5rem;
-            background: rgba(0, 0, 0, 0.55);
+            background: rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-radius: 1.5rem;
-            border: 1px solid rgba(1, 33, 105, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             transition: all 0.3s ease;
-        }
-
-        body.theme-uk-2 .footer,
-        body.theme-uk-5 .footer,
-        body.theme-us-2 .footer,
-        body.theme-us-5 .footer {
-            border-color: rgba(200, 16, 46, 0.3);
-        }
-
-        body.theme-uk-3 .footer,
-        body.theme-us-3 .footer {
-            border-color: rgba(255, 255, 255, 0.15);
         }
 
         .footer-container {
@@ -873,43 +971,19 @@
             font-size: 1.1rem;
             font-weight: 700;
             letter-spacing: 0.5px;
-            background: linear-gradient(135deg, var(--primary-red), var(--primary-blue));
+            background: linear-gradient(135deg, #FF6B6B, #FFD93D, #6BCB77, #4D96FF);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
 
-        body.theme-uk-3 .footer-brand,
-        body.theme-us-3 .footer-brand {
-            background: linear-gradient(135deg, var(--primary-blue), var(--primary-red));
-            -webkit-background-clip: text;
-            background-clip: text;
-        }
-
         .footer-tagline {
             font-size: 0.7rem;
-            color: var(--primary-red);
             padding: 0.15rem 0.7rem;
-            background: rgba(200, 16, 46, 0.15);
+            background: rgba(255, 255, 255, 0.08);
             border-radius: 20px;
-            border: 1px solid rgba(200, 16, 46, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             transition: all 0.8s ease;
-        }
-
-        body.theme-uk-1 .footer-tagline,
-        body.theme-uk-4 .footer-tagline,
-        body.theme-us-1 .footer-tagline,
-        body.theme-us-4 .footer-tagline {
-            color: var(--primary-blue);
-            background: rgba(1, 33, 105, 0.2);
-            border-color: rgba(1, 33, 105, 0.2);
-        }
-
-        body.theme-uk-3 .footer-tagline,
-        body.theme-us-3 .footer-tagline {
-            color: var(--primary-blue);
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.15);
         }
 
         .footer-info {
@@ -918,20 +992,8 @@
             flex-wrap: wrap;
             gap: 0.4rem;
             font-size: 0.8rem;
-            color: var(--primary-red);
-            transition: color 0.8s ease;
-        }
-
-        body.theme-uk-1 .footer-info,
-        body.theme-uk-4 .footer-info,
-        body.theme-us-1 .footer-info,
-        body.theme-us-4 .footer-info {
-            color: var(--primary-blue);
-        }
-
-        body.theme-uk-3 .footer-info,
-        body.theme-us-3 .footer-info {
-            color: var(--primary-blue);
+            opacity: 0.7;
+            transition: all 0.8s ease;
         }
 
         .footer-info span {
@@ -940,20 +1002,15 @@
 
         .footer-dot {
             font-size: 0.5rem;
-            color: rgba(255, 255, 255, 0.12);
+            opacity: 0.2;
             margin: 0 0.2rem;
         }
 
         /* ================================================================ */
-        /* ================================================================ */
-        /*                   RESPONSIVE BREAKPOINTS                          */
-        /* ================================================================ */
+        /* RESPONSIVE - SEMUA BREAKPOINT                                    */
         /* ================================================================ */
 
-        /* ================================================================ */
-        /* 1. HP KECIL POTRAIT (<= 420px) - 1 KOLOM                        */
-        /* ================================================================ */
-
+        /* ---------- HP Kecil Potrait (<= 420px) - 1 grid ---------- */
         @media (max-width: 420px) {
             body {
                 padding: 0.5rem;
@@ -1109,10 +1166,7 @@
             }
         }
 
-        /* ================================================================ */
-        /* 2. HP KECIL LANDSCAPE (421px - 575px) - 2 KOLOM                 */
-        /* ================================================================ */
-
+        /* ---------- HP Kecil Landscape (421px - 575px) - 2 grid ---------- */
         @media (min-width: 421px) and (max-width: 575px) {
             body {
                 padding: 0.6rem;
@@ -1251,10 +1305,7 @@
             }
         }
 
-        /* ================================================================ */
-        /* 3. HP BIASA POTRAIT (576px - 767px) - 2 KOLOM                   */
-        /* ================================================================ */
-
+        /* ---------- HP Biasa Potrait (576px - 767px) - 2 grid ---------- */
         @media (min-width: 576px) and (max-width: 767px) {
             body {
                 padding: 0.8rem;
@@ -1403,10 +1454,7 @@
             }
         }
 
-        /* ================================================================ */
-        /* 4. HP BIASA LANDSCAPE (768px - 991px) - 3 KOLOM                 */
-        /* ================================================================ */
-
+        /* ---------- HP Biasa Landscape (768px - 991px) - 3 grid ---------- */
         @media (min-width: 768px) and (max-width: 991px) {
             body {
                 padding: 0.8rem;
@@ -1539,10 +1587,7 @@
             }
         }
 
-        /* ================================================================ */
-        /* 5. TABLET POTRAIT (992px - 1024px) - 3 KOLOM                    */
-        /* ================================================================ */
-
+        /* ---------- Tablet Potrait (992px - 1024px) - 3 grid ---------- */
         @media (min-width: 992px) and (max-width: 1024px) {
             body {
                 padding: 1rem;
@@ -1650,10 +1695,7 @@
             }
         }
 
-        /* ================================================================ */
-        /* 6. TABLET LANDSCAPE (1025px - 1199px) - 4 KOLOM                 */
-        /* ================================================================ */
-
+        /* ---------- Tablet Landscape (1025px - 1199px) - 4 grid ---------- */
         @media (min-width: 1025px) and (max-width: 1199px) {
             body {
                 padding: 1.2rem;
@@ -1745,10 +1787,7 @@
             }
         }
 
-        /* ================================================================ */
-        /* 7. LAPTOP POTRAIT (1200px - 1365px) - 3 KOLOM                   */
-        /* ================================================================ */
-
+        /* ---------- Laptop Potrait (1200px - 1365px) - 3 grid ---------- */
         @media (min-width: 1200px) and (max-width: 1365px) {
             body {
                 padding: 1.2rem;
@@ -1830,10 +1869,7 @@
             }
         }
 
-        /* ================================================================ */
-        /* 8. LAPTOP LANDSCAPE (1366px - 1599px) - 5 KOLOM                 */
-        /* ================================================================ */
-
+        /* ---------- Laptop Landscape (1366px - 1599px) - 5 grid ---------- */
         @media (min-width: 1366px) and (max-width: 1599px) {
             body {
                 padding: 1.5rem;
@@ -1915,10 +1951,7 @@
             }
         }
 
-        /* ================================================================ */
-        /* 9. DESKTOP PC (1600px - 1919px) - 6 KOLOM                       */
-        /* ================================================================ */
-
+        /* ---------- Desktop PC (1600px - 1919px) - 6 grid ---------- */
         @media (min-width: 1600px) and (max-width: 1919px) {
             body {
                 padding: 1.5rem;
@@ -2019,10 +2052,7 @@
             }
         }
 
-        /* ================================================================ */
-        /* 10. MONITOR BESAR (>= 1920px) - 6 KOLOM                         */
-        /* ================================================================ */
-
+        /* ---------- Monitor Besar (>= 1920px) - 6 grid ---------- */
         @media (min-width: 1920px) {
             body {
                 padding: 2rem;
@@ -2149,7 +2179,6 @@
         /* AKSESIBILITAS                                                    */
         /* ================================================================ */
 
-        /* Touch target size untuk mobile */
         @media (max-width: 767px) {
 
             .btn-refresh-neon,
@@ -2165,15 +2194,10 @@
             }
         }
 
-        /* Focus visible untuk keyboard */
         *:focus-visible {
-            outline: 3px solid var(--primary-red);
+            outline: 3px solid rgba(255, 255, 255, 0.5);
             outline-offset: 2px;
         }
-
-        /* ================================================================ */
-        /* REDUCED MOTION                                                   */
-        /* ================================================================ */
 
         @media (prefers-reduced-motion: reduce) {
             * {
@@ -2197,35 +2221,16 @@
             }
         }
 
-        /* ================================================================ */
-        /* DARK MODE PREFERENCE                                             */
-        /* ================================================================ */
-
-        @media (prefers-color-scheme: dark) {
-            .footer {
-                background: rgba(0, 0, 0, 0.7);
-            }
-
-            .app-container {
-                background: rgba(0, 0, 0, 0.7);
-            }
-        }
-
-        /* ================================================================ */
-        /* PRINT STYLES                                                     */
-        /* ================================================================ */
-
         @media print {
             body {
                 background: #fff !important;
                 padding: 0.5in !important;
-                animation: none !important;
+                color: #000 !important;
             }
 
             .app-container {
                 background: #fff !important;
                 backdrop-filter: none !important;
-                -webkit-backdrop-filter: none !important;
                 box-shadow: none !important;
                 border: 1px solid #ddd !important;
             }
@@ -2243,6 +2248,7 @@
                 box-shadow: none !important;
                 border: 1px solid #ddd !important;
                 background: #f9f9f9 !important;
+                color: #000 !important;
             }
 
             .btn-dapatkan {
@@ -2253,7 +2259,6 @@
             .footer {
                 background: #f0f0f0 !important;
                 backdrop-filter: none !important;
-                -webkit-backdrop-filter: none !important;
                 border: 1px solid #ddd !important;
             }
 
@@ -2325,28 +2330,6 @@
             .clear-btn,
             .shortcut-msg {
                 display: none !important;
-            }
-        }
-
-        /* ================================================================ */
-        /* HIGH CONTRAST MODE                                               */
-        /* ================================================================ */
-
-        @media (forced-colors: active) {
-            .materi-card {
-                border: 2px solid CanvasText !important;
-            }
-
-            .btn-dapatkan {
-                border: 2px solid CanvasText !important;
-            }
-
-            .btn-dapatkan.disabled {
-                opacity: 0.5 !important;
-            }
-
-            .card-status {
-                border: 1px solid CanvasText !important;
             }
         }
     </style>
