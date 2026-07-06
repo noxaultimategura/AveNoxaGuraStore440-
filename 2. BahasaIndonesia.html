@@ -1216,7 +1216,7 @@
         </div>
 
         <div class="materi-grid" id="materiContainer">
-            
+
             <div class="materi-card" data-title="Afiksasi">
                 <div class="mapel-badge">🇮🇩 B. Indonesia</div>
                 <div class="card-title">Afiksasi</div>
@@ -8484,33 +8484,7 @@
         (function () {
             'use strict';
 
-            const colorThemes = ['theme-indo-primary', 'theme-indo-dark', 'theme-indo-red', 'theme-indo-yellow', 'theme-indo-green'];
-            let currentThemeIndex = 0;
-            const bodyEl = document.body;
-
-            function applyNextTheme() {
-                if (!bodyEl) return;
-                colorThemes.forEach(theme => bodyEl.classList.remove(theme));
-                currentThemeIndex = (currentThemeIndex + 1) % colorThemes.length;
-                bodyEl.classList.add(colorThemes[currentThemeIndex]);
-            }
-            setInterval(applyNextTheme, 5000);
-
-            const indoGradien = ['indo-gradien-0', 'indo-gradien-1', 'indo-gradien-2'];
-            let indoIndex = 0;
-            let gradientInterval = null;
-
-            function rotateIndoGradient() {
-                const indoCards = document.querySelectorAll('.indo-card, .materi-card');
-                if (indoCards.length === 0) return;
-                indoIndex = (indoIndex + 1) % indoGradien.length;
-                indoCards.forEach(card => {
-                    indoGradien.forEach(gc => card.classList.remove(gc));
-                    card.classList.add(indoGradien[indoIndex]);
-                });
-            }
-            gradientInterval = setInterval(rotateIndoGradient, 3000);
-
+            // ========== GLOBAL ELEMENTS ==========
             const searchInput = document.getElementById('searchInput');
             const materiContainer = document.getElementById('materiContainer');
             const resultCounterSpan = document.getElementById('resultCounter');
@@ -8518,6 +8492,7 @@
             const shortcutNotifSpan = document.getElementById('shortcutNotif');
             const refreshBtn = document.getElementById('refreshButton');
 
+            // ========== HELPER FUNCTIONS ==========
             function getAllCards() {
                 return Array.from(document.querySelectorAll('.materi-card'));
             }
@@ -8525,19 +8500,81 @@
             function cardHasLink(card) {
                 const links = card.querySelectorAll('.button-group .materi-link');
                 let hasLink = false;
+
                 links.forEach(link => {
                     const href = link.getAttribute('href');
-                    if (href && href !== '' && href !== '#' && href !== '#!') {
+                    if (href && href.trim() !== '' && href.trim() !== '#' && href.trim() !== '#!') {
                         hasLink = true;
                     }
                 });
                 return hasLink;
             }
 
+            function isDesktop() {
+                return window.innerWidth >= 992;
+            }
+
+            // ========== FUNGSI UTAMA ==========
+            function processCards() {
+                const cards = getAllCards();
+
+                cards.forEach(card => {
+                    let statusDiv = card.querySelector('.card-status');
+                    let priceDiv = card.querySelector('.card-price');
+                    let btn = card.querySelector('.btn-dapatkan');
+                    let link = card.querySelector('.materi-link');
+
+                    if (statusDiv) {
+                        let rawStatus = statusDiv.getAttribute('data-status') || statusDiv.textContent.trim();
+                        let hasValidLink = false;
+
+                        if (link) {
+                            const href = link.getAttribute('href');
+                            if (href && href.trim() !== '' && href.trim() !== '#' && href.trim() !== '#!') {
+                                hasValidLink = true;
+                            }
+                        }
+
+                        statusDiv.className = 'card-status';
+                        statusDiv.style.display = '';
+
+                        if (rawStatus === '0') {
+                            statusDiv.textContent = '';
+                            statusDiv.classList.add('status-empty');
+                            statusDiv.style.display = 'none';
+                            if (btn) btn.classList.add('disabled');
+                        } else if (rawStatus === '1') {
+                            statusDiv.textContent = 'Coming Soon';
+                            statusDiv.classList.add('status-soon');
+                            if (btn) btn.classList.add('disabled');
+                        } else if (rawStatus === '2') {
+                            if (hasValidLink) {
+                                statusDiv.textContent = 'Tersedia';
+                                statusDiv.classList.add('status-active');
+                                if (btn) btn.classList.remove('disabled');
+                            } else {
+                                statusDiv.textContent = 'Coming Soon';
+                                statusDiv.classList.add('status-soon');
+                                if (btn) btn.classList.add('disabled');
+                            }
+                        } else {
+                            statusDiv.textContent = 'Coming Soon';
+                            statusDiv.classList.add('status-soon');
+                            if (btn) btn.classList.add('disabled');
+                        }
+                    }
+
+                    if (priceDiv && !priceDiv.textContent.trim()) {
+                        priceDiv.textContent = 'Rp 0';
+                    }
+                });
+            }
+
             function updateStatistik() {
                 const allCards = getAllCards();
                 let sudahAda = 0;
                 let belumAda = 0;
+
                 allCards.forEach(card => {
                     if (cardHasLink(card)) {
                         sudahAda++;
@@ -8545,9 +8582,11 @@
                         belumAda++;
                     }
                 });
+
                 const totalMateri = document.getElementById('totalMateriCount');
                 const materiSudahAda = document.getElementById('materiSudahAda');
                 const materiBelumAda = document.getElementById('materiBelumAda');
+
                 if (totalMateri) totalMateri.innerText = allCards.length;
                 if (materiSudahAda) materiSudahAda.innerText = sudahAda;
                 if (materiBelumAda) materiBelumAda.innerText = belumAda;
@@ -8557,17 +8596,16 @@
                 const searchTerm = searchInput ? searchInput.value.trim().toLowerCase() : '';
                 const allCards = getAllCards();
 
-                let hasAnyLink = false;
-                allCards.forEach(card => {
-                    if (cardHasLink(card)) {
-                        hasAnyLink = true;
-                    }
-                });
-
                 const oldEmptyState = document.querySelector('.empty-state');
                 if (oldEmptyState) oldEmptyState.remove();
+
                 const oldNoResult = document.getElementById('customNoResultMsg');
                 if (oldNoResult) oldNoResult.remove();
+
+                let hasAnyLink = false;
+                allCards.forEach(card => {
+                    if (cardHasLink(card)) hasAnyLink = true;
+                });
 
                 if (!hasAnyLink) {
                     allCards.forEach(card => {
@@ -8575,18 +8613,17 @@
                     });
                     if (resultCounterSpan) {
                         resultCounterSpan.innerHTML = '📚 Belum ada materi tersedia';
-                        resultCounterSpan.style.color = '#FFEE88';
+                        resultCounterSpan.style.color = '#CCE2A3';
                     }
+
                     const emptyDiv = document.createElement('div');
                     emptyDiv.className = 'empty-state';
-                    emptyDiv.style.gridColumn = '1 / -1';
-                    emptyDiv.style.textAlign = 'center';
-                    emptyDiv.style.padding = '3rem 1.5rem';
-                    emptyDiv.style.background = 'rgba(0,0,0,0.5)';
-                    emptyDiv.style.borderRadius = '1rem';
-                    emptyDiv.style.border = '1px solid rgba(136,0,68,0.3)';
-                    emptyDiv.innerHTML = '<div style="font-size: 3rem; margin-bottom: 1rem;">📭</div><div style="font-size: 1.2rem; font-weight: 700; color: #F5E8EE; margin-bottom: 0.5rem;">Materi belum tersedia</div><div style="font-size: 0.9rem; color: #99A1A6;">Belum ada materi yang tersedia saat ini.<br>Silakan cek kembali nanti.</div>';
-                    materiContainer.appendChild(emptyDiv);
+                    emptyDiv.innerHTML = `
+                <div style="font-size: 3rem; margin-bottom: 1rem;">📭</div>
+                <div style="font-size: 1.2rem; font-weight: 700; color: #F0ECF5; margin-bottom: 0.5rem;">Materi belum tersedia</div>
+                <div style="font-size: 0.9rem; color: #99A1A6;">Belum ada materi yang tersedia saat ini.<br>Silakan cek kembali nanti.</div>
+            `;
+                    if (materiContainer) materiContainer.appendChild(emptyDiv);
                     return;
                 }
 
@@ -8596,12 +8633,14 @@
                     const titleAttr = card.getAttribute('data-title');
                     const titleH3 = card.querySelector('.card-title');
                     let title = '';
+
                     if (titleAttr) title = titleAttr;
                     else if (titleH3) title = titleH3.innerText || '';
                     title = title.toLowerCase();
 
                     const isMatch = searchTerm === '' || title.includes(searchTerm);
                     const shouldShow = hasLink && isMatch;
+
                     card.style.display = shouldShow ? '' : 'none';
                     if (shouldShow) visibleCount++;
                 });
@@ -8609,40 +8648,21 @@
                 if (searchTerm !== '' && visibleCount === 0) {
                     if (resultCounterSpan) {
                         resultCounterSpan.innerHTML = '❌ Materi tidak ditemukan';
-                        resultCounterSpan.style.color = '#FFEE88';
+                        resultCounterSpan.style.color = '#CCE2A3';
                     }
                     const msgDiv = document.createElement('div');
                     msgDiv.id = 'customNoResultMsg';
                     msgDiv.className = 'no-result';
                     msgDiv.innerHTML = '📚 Materi tidak ditemukan<br><span style="font-size:0.8rem;">Coba kata kunci lain</span>';
-                    materiContainer.appendChild(msgDiv);
+                    if (materiContainer) materiContainer.appendChild(msgDiv);
                 } else {
                     if (resultCounterSpan) {
-                        resultCounterSpan.innerHTML = searchTerm !== '' ? '✨ Ditemukan ' + visibleCount + ' materi' : '📚 ' + visibleCount + ' materi Bahasa Indonesia';
-                        resultCounterSpan.style.color = '#DD1155';
+                        resultCounterSpan.innerHTML = searchTerm !== '' ? '✨ Ditemukan ' + visibleCount + ' materi' : '📚 ' +
+                            visibleCount + ' materi';
+                        resultCounterSpan.style.color = '#F0ECF5';
                     }
                 }
                 updateStatistik();
-            }
-
-            let debounceTimer;
-            if (searchInput) {
-                searchInput.addEventListener('input', function () {
-                    clearTimeout(debounceTimer);
-                    debounceTimer = setTimeout(filterMateri, 200);
-                });
-            }
-
-            if (clearBtn) {
-                clearBtn.addEventListener('click', function () {
-                    if (searchInput) searchInput.value = '';
-                    filterMateri();
-                    if (searchInput) searchInput.focus();
-                    if (shortcutNotifSpan) {
-                        shortcutNotifSpan.innerText = '⌨️ Pencarian dihapus';
-                        setTimeout(function () { shortcutNotifSpan.innerText = ''; }, 1200);
-                    }
-                });
             }
 
             function updateButtonsState() {
@@ -8670,8 +8690,34 @@
                 updateStatistik();
             }
 
+            // ========== EVENT LISTENERS ==========
+            let debounceTimer;
+            if (searchInput) {
+                searchInput.addEventListener('input', function () {
+                    clearTimeout(debounceTimer);
+                    debounceTimer = setTimeout(filterMateri, 200);
+                });
+            }
+
+            if (clearBtn) {
+                clearBtn.addEventListener('click', function () {
+                    if (searchInput) searchInput.value = '';
+                    filterMateri();
+                    if (searchInput) searchInput.focus();
+                    if (shortcutNotifSpan) {
+                        shortcutNotifSpan.innerText = '⌨️ Pencarian dihapus';
+                        setTimeout(function () { shortcutNotifSpan.innerText = ''; }, 1200);
+                    }
+                });
+            }
+
+            // Keyboard Shortcuts - HANYA UNTUK DESKTOP (>= 992px)
             window.addEventListener('keydown', function (e) {
                 if (!searchInput) return;
+
+                // Hanya aktif jika layar >= 992px (desktop)
+                if (!isDesktop()) return;
+
                 if ((e.ctrlKey && e.key === 'k') || (e.ctrlKey && e.key === 'K')) {
                     e.preventDefault();
                     searchInput.focus();
@@ -8680,6 +8726,7 @@
                         setTimeout(function () { shortcutNotifSpan.innerText = ''; }, 1500);
                     }
                 }
+
                 if (e.shiftKey && (e.key === 'F' || e.key === 'f')) {
                     e.preventDefault();
                     searchInput.focus();
@@ -8688,6 +8735,7 @@
                         setTimeout(function () { shortcutNotifSpan.innerText = ''; }, 1500);
                     }
                 }
+
                 if (e.key === 'Escape') {
                     if (searchInput.value !== '') {
                         searchInput.value = '';
@@ -8706,22 +8754,20 @@
                 refreshBtn.addEventListener('click', function () {
                     if (searchInput) searchInput.value = '';
                     filterMateri();
+
                     const refreshIcon = refreshBtn.querySelector('span');
                     if (refreshIcon) {
                         refreshIcon.style.animation = 'spin 0.5s ease';
-                        setTimeout(function () {
-                            refreshIcon.style.animation = '';
-                        }, 500);
+                        setTimeout(function () { refreshIcon.style.animation = ''; }, 500);
                     }
                     if (shortcutNotifSpan) {
                         shortcutNotifSpan.innerText = '⟳ Halaman disegarkan';
                         setTimeout(function () { shortcutNotifSpan.innerText = ''; }, 1200);
                     }
+
                     getAllCards().forEach(function (card) {
                         card.style.transform = 'scale(0.98)';
-                        setTimeout(function () {
-                            card.style.transform = '';
-                        }, 200);
+                        setTimeout(function () { card.style.transform = ''; }, 200);
                     });
                     updateButtonsState();
                 });
@@ -8730,27 +8776,85 @@
             if (!document.querySelector('#refreshSpinKeyframe')) {
                 const spinStyle = document.createElement('style');
                 spinStyle.id = 'refreshSpinKeyframe';
-                spinStyle.textContent = '@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }';
+                spinStyle.textContent =
+                    '@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }';
                 document.head.appendChild(spinStyle);
             }
 
-            function initIndoGradient() {
-                const indoCards = document.querySelectorAll('.indo-card, .materi-card');
-                if (indoCards.length === 0) return;
-                indoCards.forEach(function (card) {
-                    indoGradien.forEach(function (gc) { card.classList.remove(gc); });
-                    card.classList.add(indoGradien[0]);
-                });
-                indoIndex = 0;
+            // ========== EVENT DELEGASI ==========
+            document.addEventListener('click', function (e) {
+                const btn = e.target.closest('.btn-dapatkan');
+                if (btn && !btn.classList.contains('disabled')) {
+                    const link = btn.closest('.materi-link');
+                    const href = link ? link.getAttribute('href') : null;
+                    const card = btn.closest('.materi-card');
+                    const title = card ? card.getAttribute('data-title') || 'Materi' : 'Materi';
+
+                    if (href && href !== '' && href !== '#' && href !== '#!') {
+                        window.open(href, '_blank');
+                    } else {
+                        e.preventDefault();
+                        alert('📘 Materi "' + title + '" belum tersedia.');
+                    }
+                }
+            });
+
+            document.addEventListener('click', function (e) {
+                const card = e.target.closest('.materi-card');
+                if (card && !e.target.closest('.btn-dapatkan') && !e.target.closest('a')) {
+                    const links = card.querySelectorAll('.button-group .materi-link');
+                    let linkHref = '';
+
+                    links.forEach(function (l) {
+                        const href = l.getAttribute('href');
+                        if (href && href !== '' && href !== '#' && href !== '#!') {
+                            linkHref = href;
+                        }
+                    });
+
+                    const title = card.getAttribute('data-title') || 'Materi';
+                    if (linkHref && linkHref !== '' && linkHref !== '#' && linkHref !== '#!') {
+                        window.open(linkHref, '_blank');
+                        if (shortcutNotifSpan) {
+                            shortcutNotifSpan.innerText = '🔗 Membuka: ' + title;
+                            setTimeout(function () { shortcutNotifSpan.innerText = ''; }, 2000);
+                        }
+                    } else {
+                        alert('🔗 Link untuk "' + title + '" belum tersedia.');
+                    }
+                }
+            });
+
+            // ========== RESIZE HANDLER ==========
+            let resizeTimer;
+            window.addEventListener('resize', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function () {
+                    // Update tampilan jika diperlukan
+                }, 250);
+            });
+
+            // ========== INISIALISASI ==========
+            function init() {
+                processCards();
+                setTimeout(function () {
+                    updateButtonsState();
+                    filterMateri();
+                }, 100);
+
+                const footerYearEl = document.getElementById('footerYear');
+                if (footerYearEl) {
+                    footerYearEl.textContent = new Date().getFullYear();
+                }
+
+                console.log('✅ Noxa Store | Bahasa Indonesia - Active');
             }
 
-            setTimeout(function () {
-                initIndoGradient();
-                updateButtonsState();
-                filterMateri();
-            }, 100);
-
-            console.log('✅ Noxa Store | Bahasa Indonesia - Theme Active');
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
         })();
     </script>
 </body>
