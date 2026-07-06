@@ -10410,6 +10410,9 @@
             }
             gradientInterval = setInterval(rotateRedGradient, 3000);
 
+            // ================================================================
+            // ELEMENTS
+            // ================================================================
             const searchInput = document.getElementById('searchInput');
             const materiContainer = document.getElementById('materiContainer');
             const resultCounterSpan = document.getElementById('resultCounter');
@@ -10417,6 +10420,9 @@
             const shortcutNotifSpan = document.getElementById('shortcutNotif');
             const refreshBtn = document.getElementById('refreshButton');
 
+            // ================================================================
+            // HELPER FUNCTIONS
+            // ================================================================
             function getAllCards() {
                 return Array.from(document.querySelectorAll('.materi-card'));
             }
@@ -10433,6 +10439,13 @@
                 return hasLink;
             }
 
+            function isDesktop() {
+                return window.innerWidth >= 992;
+            }
+
+            // ================================================================
+            // UPDATE STATISTIK
+            // ================================================================
             function updateStatistik() {
                 const allCards = getAllCards();
                 let sudahAda = 0;
@@ -10452,6 +10465,9 @@
                 if (materiBelumAda) materiBelumAda.innerText = belumAda;
             }
 
+            // ================================================================
+            // FILTER MATERI
+            // ================================================================
             function filterMateri() {
                 const searchTerm = searchInput ? searchInput.value.trim().toLowerCase() : '';
                 const allCards = getAllCards();
@@ -10511,33 +10527,16 @@
                     materiContainer.appendChild(msgDiv);
                 } else {
                     if (resultCounterSpan) {
-                        resultCounterSpan.innerHTML = searchTerm !== '' ? '✨ Ditemukan ' + visibleCount + ' materi' : '📚 ' + visibleCount + ' materi IPA';
+                        resultCounterSpan.innerHTML = searchTerm !== '' ? '✨ Ditemukan ' + visibleCount + ' materi' : '📚 ' + visibleCount + ' materi';
                         resultCounterSpan.style.color = '#ba2a2a';
                     }
                 }
                 updateStatistik();
             }
 
-            let debounceTimer;
-            if (searchInput) {
-                searchInput.addEventListener('input', function () {
-                    clearTimeout(debounceTimer);
-                    debounceTimer = setTimeout(filterMateri, 200);
-                });
-            }
-
-            if (clearBtn) {
-                clearBtn.addEventListener('click', function () {
-                    if (searchInput) searchInput.value = '';
-                    filterMateri();
-                    if (searchInput) searchInput.focus();
-                    if (shortcutNotifSpan) {
-                        shortcutNotifSpan.innerText = '⌨️ Pencarian dihapus';
-                        setTimeout(function () { shortcutNotifSpan.innerText = ''; }, 1200);
-                    }
-                });
-            }
-
+            // ================================================================
+            // UPDATE BUTTONS STATE
+            // ================================================================
             function updateButtonsState() {
                 document.querySelectorAll('.button-group .materi-link').forEach(function (link) {
                     const href = link.getAttribute('href');
@@ -10563,8 +10562,50 @@
                 updateStatistik();
             }
 
+            // ================================================================
+            // INISIALISASI GRADIENT
+            // ================================================================
+            function initRedGradient() {
+                const redCards = document.querySelectorAll('.materi-card');
+                if (redCards.length === 0) return;
+                redCards.forEach(function (card) {
+                    redGradien.forEach(function (gc) { card.classList.remove(gc); });
+                    card.classList.add(redGradien[0]);
+                });
+                redIndex = 0;
+            }
+
+            // ================================================================
+            // EVENT LISTENERS
+            // ================================================================
+
+            // SEARCH INPUT
+            let debounceTimer;
+            if (searchInput) {
+                searchInput.addEventListener('input', function () {
+                    clearTimeout(debounceTimer);
+                    debounceTimer = setTimeout(filterMateri, 200);
+                });
+            }
+
+            // CLEAR BUTTON
+            if (clearBtn) {
+                clearBtn.addEventListener('click', function () {
+                    if (searchInput) searchInput.value = '';
+                    filterMateri();
+                    if (searchInput) searchInput.focus();
+                    if (shortcutNotifSpan) {
+                        shortcutNotifSpan.innerText = '⌨️ Pencarian dihapus';
+                        setTimeout(function () { shortcutNotifSpan.innerText = ''; }, 1200);
+                    }
+                });
+            }
+
+            // KEYBOARD SHORTCUTS - HANYA UNTUK DESKTOP (>= 992px)
             window.addEventListener('keydown', function (e) {
                 if (!searchInput) return;
+                if (!isDesktop()) return;
+
                 if ((e.ctrlKey && e.key === 'k') || (e.ctrlKey && e.key === 'K')) {
                     e.preventDefault();
                     searchInput.focus();
@@ -10573,6 +10614,7 @@
                         setTimeout(function () { shortcutNotifSpan.innerText = ''; }, 1500);
                     }
                 }
+
                 if (e.shiftKey && (e.key === 'F' || e.key === 'f')) {
                     e.preventDefault();
                     searchInput.focus();
@@ -10581,6 +10623,7 @@
                         setTimeout(function () { shortcutNotifSpan.innerText = ''; }, 1500);
                     }
                 }
+
                 if (e.key === 'Escape') {
                     if (searchInput.value !== '') {
                         searchInput.value = '';
@@ -10595,10 +10638,12 @@
                 }
             });
 
+            // REFRESH BUTTON
             if (refreshBtn) {
                 refreshBtn.addEventListener('click', function () {
                     if (searchInput) searchInput.value = '';
                     filterMateri();
+
                     const refreshIcon = refreshBtn.querySelector('span');
                     if (refreshIcon) {
                         refreshIcon.style.animation = 'spin 0.5s ease';
@@ -10610,6 +10655,7 @@
                         shortcutNotifSpan.innerText = '⟳ Halaman disegarkan';
                         setTimeout(function () { shortcutNotifSpan.innerText = ''; }, 1200);
                     }
+
                     getAllCards().forEach(function (card) {
                         card.style.transform = 'scale(0.98)';
                         setTimeout(function () {
@@ -10620,6 +10666,7 @@
                 });
             }
 
+            // SPIN KEYFRAME
             if (!document.querySelector('#refreshSpinKeyframe')) {
                 const spinStyle = document.createElement('style');
                 spinStyle.id = 'refreshSpinKeyframe';
@@ -10627,21 +10674,80 @@
                 document.head.appendChild(spinStyle);
             }
 
-            function initRedGradient() {
-                const redCards = document.querySelectorAll('.materi-card');
-                if (redCards.length === 0) return;
-                redCards.forEach(function (card) {
-                    redGradien.forEach(function (gc) { card.classList.remove(gc); });
-                    card.classList.add(redGradien[0]);
-                });
-                redIndex = 0;
-            }
+            // ================================================================
+            // EVENT DELEGASI
+            // ================================================================
 
+            // Klik tombol Dapatkan
+            document.addEventListener('click', function (e) {
+                const btn = e.target.closest('.btn-dapatkan');
+                if (btn && !btn.classList.contains('disabled')) {
+                    const link = btn.closest('.materi-link');
+                    const href = link ? link.getAttribute('href') : null;
+                    const card = btn.closest('.materi-card');
+                    const title = card ? card.getAttribute('data-title') || 'Materi' : 'Materi';
+
+                    if (href && href !== '' && href !== '#' && href !== '#!') {
+                        window.open(href, '_blank');
+                    } else {
+                        e.preventDefault();
+                        alert('📘 Materi "' + title + '" belum tersedia.');
+                    }
+                }
+            });
+
+            // Klik card (area luar tombol)
+            document.addEventListener('click', function (e) {
+                const card = e.target.closest('.materi-card');
+                if (card && !e.target.closest('.btn-dapatkan') && !e.target.closest('a')) {
+                    const links = card.querySelectorAll('.button-group .materi-link');
+                    let linkHref = '';
+
+                    links.forEach(function (l) {
+                        const href = l.getAttribute('href');
+                        if (href && href !== '' && href !== '#' && href !== '#!') {
+                            linkHref = href;
+                        }
+                    });
+
+                    const title = card.getAttribute('data-title') || 'Materi';
+                    if (linkHref && linkHref !== '' && linkHref !== '#' && linkHref !== '#!') {
+                        window.open(linkHref, '_blank');
+                        if (shortcutNotifSpan) {
+                            shortcutNotifSpan.innerText = '🔗 Membuka: ' + title;
+                            setTimeout(function () { shortcutNotifSpan.innerText = ''; }, 2000);
+                        }
+                    } else {
+                        alert('🔗 Link untuk "' + title + '" belum tersedia.');
+                    }
+                }
+            });
+
+            // ================================================================
+            // RESIZE HANDLER
+            // ================================================================
+            let resizeTimer;
+            window.addEventListener('resize', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function () {
+                    // Update tampilan jika diperlukan
+                }, 250);
+            });
+
+            // ================================================================
+            // INISIALISASI
+            // ================================================================
             setTimeout(function () {
                 initRedGradient();
                 updateButtonsState();
                 filterMateri();
             }, 100);
+
+            // Set tahun di footer
+            const footerYearEl = document.getElementById('footerYear');
+            if (footerYearEl) {
+                footerYearEl.textContent = new Date().getFullYear();
+            }
 
             console.log('✅ NOXA STORE | 🔴 Merah-Hitam Theme | 7 warna elegan');
         })();
