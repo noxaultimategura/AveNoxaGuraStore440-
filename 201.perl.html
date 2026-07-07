@@ -4,34 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Noxa Store - MySQL | Materi Pembelajaran</title>
+    <title>Noxa Store - C++ | Materi Pembelajaran</title>
     <link rel="stylesheet" href="mapel.css">
-    <script src="mapel.js"></script>
 </head>
 
-<body class="theme-mysql-primary">
+<body class="theme-cpp-primary">
     <div class="app-container">
-        <!-- HEADER -->
         <div class="top-brand-bar">
             <div class="noxa-store">🏬 NOXA STORE</div>
             <div class="judul-web-kanan">
-                <h1>🗄️ MySQL Database</h1>
-                <p>Pilih Materi, Kuasai Database SQL!</p>
+                <h1>⚡ C++ Programming</h1>
+                <p>Pilih Materi, Kuasai Pemrograman Performa Tinggi!</p>
             </div>
         </div>
 
-        <!-- STATS & SEARCH -->
         <div class="top-stats-search">
             <div class="total-stats-box">
                 <span>📊 <strong>Total Materi:</strong> <span id="totalMateriCount">0</span></span>
-                <span>✅ <strong>Tersedia:</strong> <span id="materiSudahAda">0</span></span>
-                <span>⏳ <strong>Coming Soon:</strong> <span id="materiBelumAda">0</span></span>
+                <span>✅ <strong>Materi Sudah Ada:</strong> <span id="materiSudahAda">0</span></span>
+                <span>⏳ <strong>Materi Belum Ada:</strong> <span id="materiBelumAda">0</span></span>
             </div>
             <div class="search-section">
                 <div class="search-row-flex" style="margin-bottom: 0.8rem;">
                     <div class="search-wrapper">
                         <div class="search-icon">🔍</div>
-                        <input type="text" id="searchInput" placeholder="Cari materi MySQL..." autocomplete="off">
+                        <input type="text" id="searchInput" placeholder="Cari materi C++..." autocomplete="off">
                         <button id="clearSearchBtn" class="clear-btn">✖</button>
                     </div>
                 </div>
@@ -43,19 +40,15 @@
             </div>
         </div>
 
-        <!-- STATS BAR -->
         <div class="stats-bar">
             <span id="resultCounter">📚 Menampilkan 0 materi</span>
             <span class="shortcut-msg">⌨️ Ctrl+K / Shift+F / ESC</span>
             <span id="shortcutNotif" style="font-size:0.7rem;"></span>
         </div>
 
-        <!-- MATERI GRID - DIKOSONGKAN -->
-        <div id="materiContainer">
-            <!-- Cards akan di-generate oleh JavaScript dari bapem.js -->
+        <!-- MATERI GRID DIKOSONGKAN -->
+        <div class="materi-grid" id="materiContainer">
         </div>
-
-        <!-- FOOTER -->
         <footer class="footer">
             <div class="footer-container">
                 <div class="footer-brand-section">
@@ -72,6 +65,8 @@
             </div>
         </footer>
     </div>
+
+    <script src="mapel.js"></script>
 </body>
 
 </html>
