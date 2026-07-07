@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Noxa Store - Hack | Materi Pembelajaran</title>
+    <link rel="stylesheet" href="mapel.css">
+    <script src="mapel.js"></script>
+</head>
+
+<body class="theme-hack-primary">
+    <div class="app-container">
+        <div class="top-brand-bar">
+            <div class="noxa-store">🏬 NOXA STORE</div>
+            <div class="judul-web-kanan">
+                <h1>🔓 Hack Programming</h1>
+                <p>Pilih Materi, Kuasai Pemrograman Hack!</p>
+            </div>
+        </div>
+
+        <div class="top-stats-search">
+            <div class="total-stats-box">
+                <span>📊 <strong>Total Materi:</strong> <span id="totalMateriCount">0</span></span>
+                <span>✅ <strong>Materi Sudah Ada:</strong> <span id="materiSudahAda">0</span></span>
+                <span>⏳ <strong>Materi Belum Ada:</strong> <span id="materiBelumAda">0</span></span>
+            </div>
+            <div class="search-section">
+                <div class="search-row-flex" style="margin-bottom: 0.8rem;">
+                    <div class="search-wrapper">
+                        <div class="search-icon">🔍</div>
+                        <input type="text" id="searchInput" placeholder="Cari materi Hack..." autocomplete="off">
+                        <button id="clearSearchBtn" class="clear-btn">✖</button>
+                    </div>
+                </div>
+                <div class="search-row-flex">
+                    <button id="refreshButton" class="btn-refresh-neon"><span>⟳</span> Refresh</button>
+                    <a href="44. AllProgramming.html" class="btn-refresh-neon"
+                        style="text-decoration: none;">Kembali</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-bar">
+            <span id="resultCounter">📚 Menampilkan 0 materi</span>
+            <span class="shortcut-msg">⌨️ Ctrl+K / Shift+F / ESC</span>
+            <span id="shortcutNotif" style="font-size:0.7rem;"></span>
+        </div>
+
+        <div class="materi-grid" id="materiContainer">
+            <!-- Cards akan di-generate oleh JavaScript dari mapel.js -->
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand-section">
+                <span class="footer-brand">🏬 Noxa Store</span>
+                <span class="footer-tagline">Belajar Tanpa Batas</span>
+            </div>
+            <div class="footer-info">
+                <span>© <span id="footerYear">2026</span></span>
+                <span class="footer-dot">•</span>
+                <span>Dibangun untuk pembelajaran</span>
+                <span class="footer-dot">•</span>
+                <span>v1.0</span>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
