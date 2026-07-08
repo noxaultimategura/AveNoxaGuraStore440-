@@ -1,6 +1,15 @@
 (function () {
     'use strict';
 
+    // ========== 1100 THEMES ==========
+    const THEMES = [];
+    for (let i = 1; i <= 1100; i++) {
+        THEMES.push('theme-' + i);
+    }
+
+    let currentThemeIndex = -1;
+    let themeInterval = null;
+
     // ========== GLOBAL ELEMENTS ==========
     const searchInput = document.getElementById('searchInput');
     const materiContainer = document.getElementById('materiContainer');
@@ -8,15 +17,6 @@
     const clearBtn = document.getElementById('clearSearchBtn');
     const shortcutNotifSpan = document.getElementById('shortcutNotif');
     const refreshBtn = document.getElementById('refreshButton');
-
-    // ========== 550 THEMES ==========
-    const THEMES = [];
-    for (let i = 1; i <= 550; i++) {
-        THEMES.push('theme-' + i);
-    }
-
-    let currentThemeIndex = -1;
-    let themeInterval = null;
 
     // ========== HELPER FUNCTIONS ==========
     function getAllCards() {
@@ -146,7 +146,7 @@
             emptyDiv.className = 'empty-state';
             emptyDiv.innerHTML = `
                 <div style="font-size: 3rem; margin-bottom: 1rem;">📭</div>
-                <div style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem;">Materi belum tersedia</div>
+                <div style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; color: inherit;">Materi belum tersedia</div>
                 <div style="font-size: 0.9rem; opacity: 0.7;">Belum ada materi yang tersedia saat ini.<br>Silakan cek kembali nanti.</div>
             `;
             if (materiContainer) materiContainer.appendChild(emptyDiv);
@@ -216,7 +216,7 @@
         updateStatistik();
     }
 
-    // ========== THEME SYSTEM - 550 WARNA ==========
+    // ========== THEME SYSTEM - 1100 WARNA ==========
     function getRandomThemeIndex() {
         let newIndex;
         do {
@@ -244,7 +244,7 @@
 
         // Simpan ke localStorage
         try {
-            localStorage.setItem('noxa-theme-550', themeName);
+            localStorage.setItem('noxa-theme-1100', themeName);
             localStorage.setItem('noxa-theme-index', String(currentThemeIndex));
         } catch (e) { }
     }
@@ -255,7 +255,7 @@
         applyTheme(THEMES[newIndex]);
 
         if (shortcutNotifSpan) {
-            shortcutNotifSpan.innerText = '🎨 Tema ' + (newIndex + 1) + ' dari 550';
+            shortcutNotifSpan.innerText = '🎨 Tema ' + (newIndex + 1) + ' dari 1100';
             setTimeout(function () {
                 if (!shortcutNotifSpan.dataset.manual) {
                     shortcutNotifSpan.innerText = '';
@@ -287,7 +287,7 @@
         let savedIndex = -1;
 
         try {
-            savedTheme = localStorage.getItem('noxa-theme-550');
+            savedTheme = localStorage.getItem('noxa-theme-1100');
             const idx = localStorage.getItem('noxa-theme-index');
             if (idx !== null) savedIndex = parseInt(idx, 10);
         } catch (e) { }
@@ -395,7 +395,7 @@
             }
             if (shortcutNotifSpan) {
                 shortcutNotifSpan.dataset.manual = 'true';
-                shortcutNotifSpan.innerText = '⟳ Refresh + Tema Baru';
+                shortcutNotifSpan.innerText = '⟳ Refresh + Tema Baru (1100 Tema)';
                 setTimeout(function () {
                     shortcutNotifSpan.dataset.manual = '';
                     shortcutNotifSpan.innerText = '';
@@ -492,9 +492,10 @@
             footerYearEl.textContent = new Date().getFullYear();
         }
 
-        console.log('✅ Noxa Store | 550 Themes Active');
+        console.log('✅ Noxa Store | 1100 Themes Active');
         console.log('🎨 Tema berganti otomatis setiap 10 detik');
         console.log('🔄 Klik Refresh untuk ganti tema manual');
+        console.log('📊 Total tema: ' + THEMES.length);
     }
 
     if (document.readyState === 'loading') {
