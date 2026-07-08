@@ -18,9 +18,9 @@
     const shortcutNotifSpan = document.getElementById('shortcutNotif');
     const refreshBtn = document.getElementById('refreshButton');
 
-    // ========== TRACKING WARNA YANG SUDAH DIGUNAKAN ==========
+    // ========== TRACKING WARNA ==========
     let usedThemeIndices = new Set();
-    let allCardThemeIndices = {}; // { cardId: themeIndex }
+    let allCardThemeIndices = {};
 
     // ========== HELPER FUNCTIONS ==========
     function getAllCards() {
@@ -224,9 +224,8 @@
         updateStatistik();
     }
 
-    // ========== THEME SYSTEM - 2240 WARNA UNIK PER MAPEL ==========
+    // ========== THEME SYSTEM - UNIK PER MAPEL ==========
 
-    // Fungsi untuk mendapatkan tema unik yang belum pernah digunakan
     function getUniqueThemeIndex(avoidIndices = new Set()) {
         const availableIndices = [];
         for (let i = 0; i < THEMES.length; i++) {
@@ -236,13 +235,10 @@
         }
 
         if (availableIndices.length === 0) {
-            // Jika semua tema sudah digunakan, reset usedThemeIndices
             usedThemeIndices = new Set();
-            // Kecualikan indeks saat ini
             if (currentThemeIndex >= 0) {
                 usedThemeIndices.add(currentThemeIndex);
             }
-            // Ambil ulang
             return getUniqueThemeIndex(avoidIndices);
         }
 
@@ -250,90 +246,119 @@
         return availableIndices[randomIndex];
     }
 
-    // Fungsi untuk mengaplikasikan tema ke card tertentu
-    function applyThemeToCard(card, themeIndex) {
+    // ========== TERAPKAN TEMA KE BODY DAN CARD ==========
+    function applyThemeToAll(themeIndex) {
+        const body = document.body;
         const themeName = THEMES[themeIndex];
-        const cardId = getCardId(card);
 
-        // Hapus semua theme class dari card (jika ada)
-        THEMES.forEach(t => card.classList.remove(t));
+        // Hapus semua theme class dari body
+        THEMES.forEach(t => body.classList.remove(t));
 
-        // Apply theme ke card
-        card.classList.add(themeName);
+        // Apply theme ke BODY (untuk background)
+        body.classList.add(themeName);
 
-        // Simpan mapping
-        allCardThemeIndices[cardId] = themeIndex;
-        usedThemeIndices.add(themeIndex);
+        // Update current theme index
+        currentThemeIndex = themeIndex;
 
-        // Apply gradien acak
-        card.classList.remove('gradien-0', 'gradien-1', 'gradien-2', 'gradien-3', 'gradien-4');
-        const gradIndex = Math.floor(Math.random() * 5);
-        card.classList.add('gradien-' + gradIndex);
+        // Simpan ke localStorage
+        try {
+            localStorage.setItem('noxa-theme-2240', themeName);
+            localStorage.setItem('noxa-theme-index', String(currentThemeIndex));
+        } catch (e) { }
     }
 
-    // Fungsi untuk memberi tema unik ke semua card
+    // ========== BERI WARNA UNIK KE SETIAP CARD ==========
     function assignUniqueThemesToCards() {
         const cards = getAllCards();
-        const assignedIndices = new Set();
-
-        cards.forEach((card, index) => {
-            const cardId = getCardId(card);
-
-            // Jika card sudah punya tema di session ini, skip
-            if (allCardThemeIndices[cardId] !== undefined) {
-                assignedIndices.add(allCardThemeIndices[cardId]);
-                return;
-            }
-
-            // Dapatkan tema unik
-            const themeIndex = getUniqueThemeIndex(assignedIndices);
-            assignedIndices.add(themeIndex);
-            applyThemeToCard(card, themeIndex);
-
-            // Update currentThemeIndex
-            currentThemeIndex = themeIndex;
-        });
-
-        // Update usedThemeIndices
-        assignedIndices.forEach(idx => usedThemeIndices.add(idx));
-
-        return assignedIndices.size;
-    }
-
-    // Fungsi untuk mengacak semua tema card (tanpa mengulang)
-    function reshuffleAllThemes() {
-        const cards = getAllCards();
+        const usedIndices = new Set();
 
         // Reset tracking
         usedThemeIndices = new Set();
         allCardThemeIndices = {};
 
-        // Pastikan tidak ada duplikasi
+        // Pilih satu tema untuk BODY (global)
+        const bodyThemeIndex = Math.floor(Math.random() * THEMES.length);
+        applyThemeToAll(bodyThemeIndex);
+        usedIndices.add(bodyThemeIndex);
+        usedThemeIndices.add(bodyThemeIndex);
+
+        // Beri tema unik ke setiap CARD
+        cards.forEach((card, index) => {
+            const cardId = getCardId(card);
+
+            // Dapatkan tema unik yang belum digunakan
+            const themeIndex = getUniqueThemeIndex(usedIndices);
+            usedIndices.add(themeIndex);
+            usedThemeIndices.add(themeIndex);
+
+            const themeName = THEMES[themeIndex];
+
+            // Hapus semua theme class dari card
+            THEMES.forEach(t => card.classList.remove(t));
+
+            // Apply tema ke CARD (untuk background card)
+            card.classList.add(themeName);
+
+            // Simpan mapping
+            allCardThemeIndices[cardId] = themeIndex;
+
+            // Apply gradien acak
+            card.classList.remove('gradien-0', 'gradien-1', 'gradien-2', 'gradien-3', 'gradien-4');
+            const gradIndex = Math.floor(Math.random() * 5);
+            card.classList.add('gradien-' + gradIndex);
+        });
+
+        // Simpan state card themes
+        try {
+            localStorage.setItem('noxa-card-themes-2240', JSON.stringify(allCardThemeIndices));
+        } catch (e) { }
+
+        return cards.length;
+    }
+
+    // ========== ACAK SEMUA TEMA ==========
+    function reshuffleAllThemes() {
+        const cards = getAllCards();
         const usedIndices = new Set();
 
+        // Reset tracking
+        usedThemeIndices = new Set();
+        allCardThemeIndices = {};
+
+        // Pilih tema baru untuk BODY
+        const bodyThemeIndex = Math.floor(Math.random() * THEMES.length);
+        applyThemeToAll(bodyThemeIndex);
+        usedIndices.add(bodyThemeIndex);
+        usedThemeIndices.add(bodyThemeIndex);
+
+        // Beri tema unik ke setiap CARD
         cards.forEach((card) => {
             const cardId = getCardId(card);
 
-            // Dapatkan tema unik
             const themeIndex = getUniqueThemeIndex(usedIndices);
             usedIndices.add(themeIndex);
-            applyThemeToCard(card, themeIndex);
+            usedThemeIndices.add(themeIndex);
+
+            const themeName = THEMES[themeIndex];
+
+            THEMES.forEach(t => card.classList.remove(t));
+            card.classList.add(themeName);
+
             allCardThemeIndices[cardId] = themeIndex;
+
+            card.classList.remove('gradien-0', 'gradien-1', 'gradien-2', 'gradien-3', 'gradien-4');
+            const gradIndex = Math.floor(Math.random() * 5);
+            card.classList.add('gradien-' + gradIndex);
         });
 
-        // Update usedThemeIndices
-        usedIndices.forEach(idx => usedThemeIndices.add(idx));
-
-        // Update currentThemeIndex
-        if (cards.length > 0) {
-            const lastCard = cards[cards.length - 1];
-            const lastCardId = getCardId(lastCard);
-            currentThemeIndex = allCardThemeIndices[lastCardId] || 0;
-        }
+        // Simpan state
+        try {
+            localStorage.setItem('noxa-card-themes-2240', JSON.stringify(allCardThemeIndices));
+        } catch (e) { }
 
         if (shortcutNotifSpan) {
             shortcutNotifSpan.dataset.manual = 'true';
-            shortcutNotifSpan.innerText = '🔄 ' + cards.length + ' tema unik diacak ulang!';
+            shortcutNotifSpan.innerText = '🔄 ' + cards.length + ' tema unik diacak!';
             setTimeout(function () {
                 shortcutNotifSpan.dataset.manual = '';
                 shortcutNotifSpan.innerText = '';
@@ -343,64 +368,7 @@
         return cards.length;
     }
 
-    // ========== THEME SYSTEM - GLOBAL ==========
-
-    function applyGlobalTheme(themeName) {
-        // Hanya untuk notifikasi, tidak mengubah semua card
-        const body = document.body;
-        THEMES.forEach(t => body.classList.remove(t));
-        body.classList.add(themeName);
-    }
-
-    function getRandomThemeIndexGlobal() {
-        let newIndex;
-        do {
-            newIndex = Math.floor(Math.random() * THEMES.length);
-        } while (newIndex === currentThemeIndex && THEMES.length > 1);
-        return newIndex;
-    }
-
-    function toggleTheme() {
-        // Jika ada card, gunakan random tema baru untuk semua card
-        const cards = getAllCards();
-        if (cards.length > 0) {
-            reshuffleAllThemes();
-            return THEMES[currentThemeIndex];
-        }
-
-        // Fallback: global theme
-        const newIndex = getRandomThemeIndexGlobal();
-        currentThemeIndex = newIndex;
-        applyGlobalTheme(THEMES[newIndex]);
-
-        if (shortcutNotifSpan) {
-            shortcutNotifSpan.innerText = '🎨 Tema ' + (newIndex + 1) + ' dari 2240';
-            setTimeout(function () {
-                if (!shortcutNotifSpan.dataset.manual) {
-                    shortcutNotifSpan.innerText = '';
-                }
-            }, 2000);
-        }
-
-        return THEMES[newIndex];
-    }
-
-    function startAutoTheme() {
-        if (themeInterval) {
-            clearInterval(themeInterval);
-        }
-        themeInterval = setInterval(function () {
-            toggleTheme();
-        }, 5000); // 5 detik
-    }
-
-    function stopAutoTheme() {
-        if (themeInterval) {
-            clearInterval(themeInterval);
-            themeInterval = null;
-        }
-    }
-
+    // ========== LOAD SAVED THEMES ==========
     function loadSavedTheme() {
         let savedTheme = null;
         let savedIndex = -1;
@@ -411,7 +379,6 @@
             if (idx !== null) savedIndex = parseInt(idx, 10);
         } catch (e) { }
 
-        // Load unique themes per card dari localStorage
         let savedCardThemes = null;
         try {
             const saved = localStorage.getItem('noxa-card-themes-2240');
@@ -420,32 +387,51 @@
             }
         } catch (e) { }
 
+        const cards = getAllCards();
+
         if (savedCardThemes && typeof savedCardThemes === 'object') {
+            // Restore BODY theme
+            if (savedTheme && THEMES.includes(savedTheme)) {
+                applyThemeToAll(THEMES.indexOf(savedTheme));
+            } else {
+                const newIndex = Math.floor(Math.random() * THEMES.length);
+                applyThemeToAll(newIndex);
+            }
+
             // Restore card themes
-            allCardThemeIndices = savedCardThemes;
-            const cards = getAllCards();
             let maxIndex = 0;
+            const usedIndices = new Set();
+            usedIndices.add(currentThemeIndex);
 
             cards.forEach(card => {
                 const cardId = getCardId(card);
-                const themeIndex = allCardThemeIndices[cardId];
-                if (themeIndex !== undefined && themeIndex >= 0 && themeIndex < THEMES.length) {
+                const themeIndex = savedCardThemes[cardId];
+
+                if (themeIndex !== undefined && themeIndex >= 0 && themeIndex < THEMES.length && !usedIndices.has(themeIndex)) {
                     const themeName = THEMES[themeIndex];
                     card.classList.add(themeName);
+                    allCardThemeIndices[cardId] = themeIndex;
+                    usedIndices.add(themeIndex);
                     usedThemeIndices.add(themeIndex);
-                    if (themeIndex > maxIndex) maxIndex = themeIndex;
 
-                    // Apply gradien
                     card.classList.remove('gradien-0', 'gradien-1', 'gradien-2', 'gradien-3', 'gradien-4');
                     const gradIndex = Math.floor(Math.random() * 5);
                     card.classList.add('gradien-' + gradIndex);
-                } else {
-                    // Assign new unique theme
-                    const newIndex = getUniqueThemeIndex();
-                    allCardThemeIndices[cardId] = newIndex;
+
+                    if (themeIndex > maxIndex) maxIndex = themeIndex;
+                }
+            });
+
+            // Jika ada card yang belum mendapat tema
+            cards.forEach(card => {
+                const cardId = getCardId(card);
+                if (allCardThemeIndices[cardId] === undefined) {
+                    const newIndex = getUniqueThemeIndex(usedIndices);
+                    usedIndices.add(newIndex);
                     usedThemeIndices.add(newIndex);
                     const themeName = THEMES[newIndex];
                     card.classList.add(themeName);
+                    allCardThemeIndices[cardId] = newIndex;
 
                     card.classList.remove('gradien-0', 'gradien-1', 'gradien-2', 'gradien-3', 'gradien-4');
                     const gradIndex = Math.floor(Math.random() * 5);
@@ -457,40 +443,29 @@
 
             currentThemeIndex = maxIndex;
 
-            // Validate no duplicates
-            const usedSet = new Set();
-            let hasDuplicate = false;
-            for (const key in allCardThemeIndices) {
-                const val = allCardThemeIndices[key];
-                if (usedSet.has(val)) {
-                    hasDuplicate = true;
-                    break;
-                }
-                usedSet.add(val);
-            }
-
-            if (hasDuplicate) {
-                // Reshuffle if duplicates found
-                reshuffleAllThemes();
-            }
-
-            return savedTheme;
         } else {
-            // First time - assign unique themes
-            const assigned = assignUniqueThemesToCards();
-            // Save card themes
-            try {
-                localStorage.setItem('noxa-card-themes-2240', JSON.stringify(allCardThemeIndices));
-            } catch (e) { }
-            return THEMES[0];
+            // First time - assign all
+            assignUniqueThemesToCards();
         }
+
+        return savedTheme;
     }
 
-    // ========== SAVE STATE ==========
-    function saveCardThemesState() {
-        try {
-            localStorage.setItem('noxa-card-themes-2240', JSON.stringify(allCardThemeIndices));
-        } catch (e) { }
+    // ========== AUTO THEME ==========
+    function startAutoTheme() {
+        if (themeInterval) {
+            clearInterval(themeInterval);
+        }
+        themeInterval = setInterval(function () {
+            reshuffleAllThemes();
+        }, 10000);
+    }
+
+    function stopAutoTheme() {
+        if (themeInterval) {
+            clearInterval(themeInterval);
+            themeInterval = null;
+        }
     }
 
     // ========== EVENT LISTENERS ==========
@@ -571,13 +546,8 @@
             if (searchInput) searchInput.value = '';
             filterMateri();
 
-            // Ganti tema manual - acak semua card dengan tema unik
             reshuffleAllThemes();
 
-            // Simpan state
-            saveCardThemesState();
-
-            // Restart auto theme
             startAutoTheme();
 
             const refreshIcon = refreshBtn.querySelector('span');
@@ -587,11 +557,11 @@
             }
             if (shortcutNotifSpan) {
                 shortcutNotifSpan.dataset.manual = 'true';
-                shortcutNotifSpan.innerText = '⟳ Refresh + Tema Unik (2240 Tema)';
+                shortcutNotifSpan.innerText = '⟳ Refresh + Tema Unik';
                 setTimeout(function () {
                     shortcutNotifSpan.dataset.manual = '';
                     shortcutNotifSpan.innerText = '';
-                }, 2240);
+                }, 2000);
             }
 
             getAllCards().forEach(function (card) {
@@ -667,10 +637,8 @@
 
     // ========== INISIALISASI ==========
     function init() {
-        // Load tema tersimpan
         loadSavedTheme();
 
-        // Mulai auto ganti tema setiap 10 detik
         startAutoTheme();
 
         processCards();
@@ -684,13 +652,6 @@
             footerYearEl.textContent = new Date().getFullYear();
         }
 
-        console.log('✅ Noxa Store | 2240 Themes Active');
-        console.log('🎨 Setiap mapel memiliki tema UNIK (tidak ada yang sama)');
-        console.log('📊 Total tema: ' + THEMES.length);
-        console.log('🔄 Tema berganti otomatis setiap 10 detik');
-        console.log('💾 Tema tersimpan di localStorage');
-
-        // Log jumlah card dan tema unik
         const cards = getAllCards();
         const uniqueThemes = new Set();
         cards.forEach(card => {
@@ -699,7 +660,11 @@
                 uniqueThemes.add(allCardThemeIndices[cardId]);
             }
         });
-        console.log('📌 ' + cards.length + ' card dengan ' + uniqueThemes.size + ' tema unik (0% duplikasi)');
+
+        console.log('✅ Noxa Store | 2240 Themes Active');
+        console.log('🎨 Body & setiap Card punya tema UNIK (0% duplikasi)');
+        console.log('📌 ' + cards.length + ' card dengan ' + uniqueThemes.size + ' tema unik');
+        console.log('🔄 Tema berganti otomatis setiap 10 detik');
     }
 
     if (document.readyState === 'loading') {
