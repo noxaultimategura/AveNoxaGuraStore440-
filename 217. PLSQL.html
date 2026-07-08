@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Noxa Store - PL/SQL | Materi Pembelajaran</title>
+    <link rel="stylesheet" href="mapel.css">
+    <script src="mapel.js"></script>
+</head>
+
+<body class="theme-plsql-primary">
+    <div class="app-container">
+        <div class="top-brand-bar">
+            <div class="noxa-store">🏬 NOXA STORE</div>
+            <div class="judul-web-kanan">
+                <h1>📊 PL/SQL Programming</h1>
+                <p>Pilih Materi, Kuasai Pemrograman Database PL/SQL!</p>
+            </div>
+        </div>
+
+        <div class="top-stats-search">
+            <div class="total-stats-box">
+                <span>📊 <strong>Total Materi:</strong> <span id="totalMateriCount">0</span></span>
+                <span>✅ <strong>Materi Sudah Ada:</strong> <span id="materiSudahAda">0</span></span>
+                <span>⏳ <strong>Materi Belum Ada:</strong> <span id="materiBelumAda">0</span></span>
+            </div>
+            <div class="search-section">
+                <div class="search-row-flex" style="margin-bottom: 0.8rem;">
+                    <div class="search-wrapper">
+                        <div class="search-icon">🔍</div>
+                        <input type="text" id="searchInput" placeholder="Cari materi PL/SQL..." autocomplete="off">
+                        <button id="clearSearchBtn" class="clear-btn">✖</button>
+                    </div>
+                </div>
+                <div class="search-row-flex">
+                    <button id="refreshButton" class="btn-refresh-neon"><span>⟳</span> Refresh</button>
+                    <a href="44. AllProgramming.html" class="btn-refresh-neon"
+                        style="text-decoration: none;">Kembali</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-bar">
+            <span id="resultCounter">📚 Menampilkan 0 materi</span>
+            <span class="shortcut-msg">⌨️ Ctrl+K / Shift+F / ESC</span>
+            <span id="shortcutNotif" style="font-size:0.7rem;"></span>
+        </div>
+
+        <div class="materi-grid" id="materiContainer">
+            <!-- Cards akan di-generate oleh JavaScript dari mapel.js -->
+            <!-- PL/SQL -->
+            <div class="materi-card" data-title="Pengenalan PL/SQL">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Pengenalan PL/SQL</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Sejarah PL/SQL">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Sejarah PL/SQL</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Oracle Database">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Oracle Database</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Instalasi Oracle Database">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Instalasi Oracle Database</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Oracle SQL Developer">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Oracle SQL Developer</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Struktur Blok PL/SQL">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Struktur Blok PL/SQL</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Sintaks Dasar">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Sintaks Dasar</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Variabel">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Variabel</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Konstanta">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Konstanta</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Tipe Data">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Tipe Data</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Operator">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Operator</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="SQL dalam PL/SQL">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">SQL dalam PL/SQL</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="SELECT INTO">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">SELECT INTO</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="INSERT">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">INSERT</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="UPDATE">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">UPDATE</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="DELETE">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">DELETE</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="COMMIT">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">COMMIT</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="ROLLBACK">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">ROLLBACK</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="SAVEPOINT">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">SAVEPOINT</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="IF">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">IF</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="CASE">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">CASE</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="LOOP">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">LOOP</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="WHILE LOOP">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">WHILE LOOP</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="FOR LOOP">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">FOR LOOP</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Cursor">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Cursor</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Explicit Cursor">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Explicit Cursor</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Implicit Cursor">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Implicit Cursor</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Cursor FOR Loop">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Cursor FOR Loop</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Exception Handling">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Exception Handling</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="User Defined Exception">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">User Defined Exception</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Procedure">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Procedure</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Function">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Function</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Package">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Package</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Package Body">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Package Body</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Trigger">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Trigger</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="BEFORE Trigger">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">BEFORE Trigger</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="AFTER Trigger">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">AFTER Trigger</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="INSTEAD OF Trigger">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">INSTEAD OF Trigger</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Sequence">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Sequence</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="View">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">View</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Synonym">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Synonym</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Collection">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Collection</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Record">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Record</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Associative Array">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Associative Array</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Nested Table">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Nested Table</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="VARRAY">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">VARRAY</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Dynamic SQL">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Dynamic SQL</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="EXECUTE IMMEDIATE">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">EXECUTE IMMEDIATE</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Bulk Collect">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Bulk Collect</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="FORALL">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">FORALL</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Transaction">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Transaction</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Locking">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Locking</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Performance Tuning">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Performance Tuning</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Index">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Index</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Partition">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Partition</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="LOB">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">LOB</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="XMLType">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">XMLType</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="JSON">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">JSON</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Scheduler">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Scheduler</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Security">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Security</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Privilege">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Privilege</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Role">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Role</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Auditing">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Auditing</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Backup Dasar">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Backup Dasar</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Restore Dasar">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Restore Dasar</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Debugging">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Debugging</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Best Practice">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Best Practice</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Optimasi Query">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Optimasi Query</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Studi Kasus Database">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Studi Kasus Database</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Proyek Akhir PL/SQL">
+                <div class="mapel-badge">🗄️ PL/SQL</div>
+                <div class="card-title">Proyek Akhir PL/SQL</div>
+                <div class="card-subtitle">PL/SQL</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand-section">
+                <span class="footer-brand">🏬 Noxa Store</span>
+                <span class="footer-tagline">Belajar Tanpa Batas</span>
+            </div>
+            <div class="footer-info">
+                <span>© <span id="footerYear">2026</span></span>
+                <span class="footer-dot">•</span>
+                <span>Dibangun untuk pembelajaran</span>
+                <span class="footer-dot">•</span>
+                <span>v1.0</span>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
