@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Noxa Store - PowerShell | Materi Pembelajaran</title>
+    <link rel="stylesheet" href="mapel.css">
+    <script src="mapel.js"></script>
+</head>
+
+<body class="theme-powershell-primary">
+    <div class="app-container">
+        <div class="top-brand-bar">
+            <div class="noxa-store">🏬 NOXA STORE</div>
+            <div class="judul-web-kanan">
+                <h1>⚙️ PowerShell Scripting</h1>
+                <p>Pilih Materi, Kuasai Scripting PowerShell!</p>
+            </div>
+        </div>
+
+        <div class="top-stats-search">
+            <div class="total-stats-box">
+                <span>📊 <strong>Total Materi:</strong> <span id="totalMateriCount">0</span></span>
+                <span>✅ <strong>Materi Sudah Ada:</strong> <span id="materiSudahAda">0</span></span>
+                <span>⏳ <strong>Materi Belum Ada:</strong> <span id="materiBelumAda">0</span></span>
+            </div>
+            <div class="search-section">
+                <div class="search-row-flex" style="margin-bottom: 0.8rem;">
+                    <div class="search-wrapper">
+                        <div class="search-icon">🔍</div>
+                        <input type="text" id="searchInput" placeholder="Cari materi PowerShell..." autocomplete="off">
+                        <button id="clearSearchBtn" class="clear-btn">✖</button>
+                    </div>
+                </div>
+                <div class="search-row-flex">
+                    <button id="refreshButton" class="btn-refresh-neon"><span>⟳</span> Refresh</button>
+                    <a href="44. AllProgramming.html" class="btn-refresh-neon"
+                        style="text-decoration: none;">Kembali</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-bar">
+            <span id="resultCounter">📚 Menampilkan 0 materi</span>
+            <span class="shortcut-msg">⌨️ Ctrl+K / Shift+F / ESC</span>
+            <span id="shortcutNotif" style="font-size:0.7rem;"></span>
+        </div>
+
+        <div class="materi-grid" id="materiContainer">
+            <!-- Cards akan di-generate oleh JavaScript dari mapel.js -->
+            <!-- POWERSHELL -->
+            <div class="materi-card" data-title="Pengenalan PowerShell">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Pengenalan PowerShell</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Sejarah PowerShell">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Sejarah PowerShell</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Evolusi PowerShell">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Evolusi PowerShell</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Windows PowerShell dan PowerShell">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Windows PowerShell dan PowerShell</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Instalasi PowerShell">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Instalasi PowerShell</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Mengenal PowerShell Console">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Mengenal PowerShell Console</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="PowerShell ISE">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">PowerShell ISE</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Visual Studio Code untuk PowerShell">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Visual Studio Code untuk PowerShell</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Struktur Script PowerShell">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Struktur Script PowerShell</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Sintaks Dasar">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Sintaks Dasar</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Komentar">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Komentar</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Variabel">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Variabel</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Scope Variabel">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Scope Variabel</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Konstanta">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Konstanta</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Tipe Data">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Tipe Data</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Operator">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Operator</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="String">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">String</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Array">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Array</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Hashtable">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Hashtable</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Object">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Object</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Pipeline">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Pipeline</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Cmdlet">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Cmdlet</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Alias">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Alias</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Function">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Function</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Advanced Function">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Advanced Function</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Parameter">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Parameter</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Input dan Output">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Input dan Output</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Percabangan">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Percabangan</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Perulangan">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Perulangan</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Switch">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Switch</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Error Handling">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Error Handling</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Exception">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Exception</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Try Catch Finally">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Try Catch Finally</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Module">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Module</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Script Module">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Script Module</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Manifest Module">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Manifest Module</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Import Module">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Import Module</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Export Module">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Export Module</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="File Handling">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">File Handling</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Folder Handling">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Folder Handling</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Registry">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Registry</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Environment Variable">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Environment Variable</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Process Management">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Process Management</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Service Management">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Service Management</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Event Log">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Event Log</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Scheduled Task">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Scheduled Task</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Remote PowerShell">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Remote PowerShell</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="PowerShell Remoting">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">PowerShell Remoting</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="CIM dan WMI">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">CIM dan WMI</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Active Directory">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Active Directory</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Windows Management">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Windows Management</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Network Management">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Network Management</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="REST API">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">REST API</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="JSON">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">JSON</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="XML">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">XML</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="CSV">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">CSV</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="HTML Report">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">HTML Report</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Email Automation">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Email Automation</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Azure PowerShell">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Azure PowerShell</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Microsoft 365 Automation">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Microsoft 365 Automation</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Exchange Online">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Exchange Online</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="SharePoint Online">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">SharePoint Online</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Microsoft Graph">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Microsoft Graph</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Security Script">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Security Script</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Execution Policy">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Execution Policy</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Script Signing">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Script Signing</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Debugging">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Debugging</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Profiling Script">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Profiling Script</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Best Practice">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Best Practice</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Proyek Akhir PowerShell">
+                <div class="mapel-badge">🪟 PowerShell</div>
+                <div class="card-title">Proyek Akhir PowerShell</div>
+                <div class="card-subtitle">PowerShell</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand-section">
+                <span class="footer-brand">🏬 Noxa Store</span>
+                <span class="footer-tagline">Belajar Tanpa Batas</span>
+            </div>
+            <div class="footer-info">
+                <span>© <span id="footerYear">2026</span></span>
+                <span class="footer-dot">•</span>
+                <span>Dibangun untuk pembelajaran</span>
+                <span class="footer-dot">•</span>
+                <span>v1.0</span>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
