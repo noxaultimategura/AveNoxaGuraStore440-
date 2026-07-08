@@ -3,7 +3,7 @@
 
     // ========== 1100 THEMES ==========
     const THEMES = [];
-    for (let i = 1; i <= 1100; i++) {
+    for (let i = 1; i <= 1400; i++) {
         THEMES.push('theme-' + i);
     }
 
@@ -244,7 +244,7 @@
 
         // Simpan ke localStorage
         try {
-            localStorage.setItem('noxa-theme-1100', themeName);
+            localStorage.setItem('noxa-theme-1400', themeName);
             localStorage.setItem('noxa-theme-index', String(currentThemeIndex));
         } catch (e) { }
     }
@@ -492,7 +492,7 @@
             footerYearEl.textContent = new Date().getFullYear();
         }
 
-        console.log('✅ Noxa Store | 1100 Themes Active');
+        console.log('✅ Noxa Store | 1400 Themes Active');
         console.log('🎨 Tema berganti otomatis setiap 10 detik');
         console.log('🔄 Klik Refresh untuk ganti tema manual');
         console.log('📊 Total tema: ' + THEMES.length);
