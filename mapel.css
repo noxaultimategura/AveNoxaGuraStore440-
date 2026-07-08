@@ -14953,6 +14953,8 @@ body.theme-1397 #searchInput::placeholder,
 body.theme-1398 #searchInput::placeholder,
 body.theme-1399 #searchInput::placeholder,
 body.theme-1400 #searchInput::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+
 
     .clear-btn {
         position: absolute;
