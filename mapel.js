@@ -391,7 +391,7 @@
         }
         themeInterval = setInterval(function () {
             toggleTheme();
-        }, 5000); // 10 detik
+        }, 5000); // 5 detik
     }
 
     function stopAutoTheme() {
