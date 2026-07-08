@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Noxa Store - VB.NET | Materi Pembelajaran</title>
+    <link rel="stylesheet" href="mapel.css">
+    <script src="mapel.js"></script>
+</head>
+
+<body class="theme-vbnet-primary">
+    <div class="app-container">
+        <div class="top-brand-bar">
+            <div class="noxa-store">🏬 NOXA STORE</div>
+            <div class="judul-web-kanan">
+                <h1>🔄 VB.NET Programming</h1>
+                <p>Pilih Materi, Kuasai Pemrograman VB.NET!</p>
+            </div>
+        </div>
+
+        <div class="top-stats-search">
+            <div class="total-stats-box">
+                <span>📊 <strong>Total Materi:</strong> <span id="totalMateriCount">0</span></span>
+                <span>✅ <strong>Materi Sudah Ada:</strong> <span id="materiSudahAda">0</span></span>
+                <span>⏳ <strong>Materi Belum Ada:</strong> <span id="materiBelumAda">0</span></span>
+            </div>
+            <div class="search-section">
+                <div class="search-row-flex" style="margin-bottom: 0.8rem;">
+                    <div class="search-wrapper">
+                        <div class="search-icon">🔍</div>
+                        <input type="text" id="searchInput" placeholder="Cari materi VB.NET..." autocomplete="off">
+                        <button id="clearSearchBtn" class="clear-btn">✖</button>
+                    </div>
+                </div>
+                <div class="search-row-flex">
+                    <button id="refreshButton" class="btn-refresh-neon"><span>⟳</span> Refresh</button>
+                    <a href="44. AllProgramming.html" class="btn-refresh-neon"
+                        style="text-decoration: none;">Kembali</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-bar">
+            <span id="resultCounter">📚 Menampilkan 0 materi</span>
+            <span class="shortcut-msg">⌨️ Ctrl+K / Shift+F / ESC</span>
+            <span id="shortcutNotif" style="font-size:0.7rem;"></span>
+        </div>
+
+        <div class="materi-grid" id="materiContainer">
+            <!-- Cards akan di-generate oleh JavaScript dari mapel.js -->
+            <!-- VB.NET -->
+            <div class="materi-card" data-title="Pengenalan VB.NET">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Pengenalan VB.NET</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Sejarah VB.NET">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Sejarah VB.NET</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Framework .NET">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Framework .NET</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title=".NET Runtime">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">.NET Runtime</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Kelebihan dan Kekurangan VB.NET">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Kelebihan dan Kekurangan VB.NET</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Instalasi Visual Studio">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Instalasi Visual Studio</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Mengenal IDE Visual Studio">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Mengenal IDE Visual Studio</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Membuat Project VB.NET">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Membuat Project VB.NET</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Struktur Program">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Struktur Program</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Sintaks Dasar">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Sintaks Dasar</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Komentar">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Komentar</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Variabel">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Variabel</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Konstanta">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Konstanta</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Scope Variabel">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Scope Variabel</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Tipe Data">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Tipe Data</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Nullable Type">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Nullable Type</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Operator">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Operator</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Konversi Data">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Konversi Data</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="String">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">String</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="DateTime">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">DateTime</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Array">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Array</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="List">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">List</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Dictionary">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Dictionary</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Queue">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Queue</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Stack">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Stack</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Percabangan If">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Percabangan If</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Select Case">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Select Case</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="For Loop">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">For Loop</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="For Each">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">For Each</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="While Loop">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">While Loop</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Do Loop">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Do Loop</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Procedure">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Procedure</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Function">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Function</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Optional Parameter">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Optional Parameter</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Named Parameter">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Named Parameter</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Class">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Class</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Object">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Object</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Constructor">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Constructor</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Destructor">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Destructor</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Property">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Property</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Method">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Method</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Encapsulation">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Encapsulation</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Inheritance">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Inheritance</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Polymorphism">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Polymorphism</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Abstraction">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Abstraction</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Interface">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Interface</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Generic">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Generic</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Delegate">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Delegate</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Event">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Event</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Lambda Expression">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Lambda Expression</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="LINQ Dasar">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">LINQ Dasar</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="LINQ Query">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">LINQ Query</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Lambda LINQ">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Lambda LINQ</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Anonymous Type">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Anonymous Type</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Exception Handling">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Exception Handling</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Custom Exception">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Custom Exception</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="File Handling">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">File Handling</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Directory Handling">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Directory Handling</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="XML Processing">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">XML Processing</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="JSON Processing">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">JSON Processing</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Windows Forms">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Windows Forms</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="WPF Dasar">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">WPF Dasar</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Event Handling">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Event Handling</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Data Binding">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Data Binding</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Database ADO.NET">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Database ADO.NET</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="SQL Server">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">SQL Server</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Entity Framework">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Entity Framework</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Async Programming">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Async Programming</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Async dan Await">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Async dan Await</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Thread">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Thread</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Task Parallel Library">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Task Parallel Library</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Reflection">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Reflection</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Attribute">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Attribute</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Serialization">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Serialization</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Deserialization">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Deserialization</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="NuGet Package">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">NuGet Package</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="REST API">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">REST API</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="HTTP Client">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">HTTP Client</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Unit Testing">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Unit Testing</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Debugging">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Debugging</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Breakpoint">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Breakpoint</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Profiling">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Profiling</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Deployment">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Deployment</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Publish Aplikasi">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Publish Aplikasi</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Optimasi Program">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Optimasi Program</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Best Practice VB.NET">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Best Practice VB.NET</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Studi Kasus Desktop">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Studi Kasus Desktop</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Membuat Aplikasi CRUD">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Membuat Aplikasi CRUD</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Integrasi Database">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Integrasi Database</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Proyek Akhir VB.NET">
+                <div class="mapel-badge">💻 VB.NET</div>
+                <div class="card-title">Proyek Akhir VB.NET</div>
+                <div class="card-subtitle">VB.NET</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand-section">
+                <span class="footer-brand">🏬 Noxa Store</span>
+                <span class="footer-tagline">Belajar Tanpa Batas</span>
+            </div>
+            <div class="footer-info">
+                <span>© <span id="footerYear">2026</span></span>
+                <span class="footer-dot">•</span>
+                <span>Dibangun untuk pembelajaran</span>
+                <span class="footer-dot">•</span>
+                <span>v1.0</span>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
