@@ -1,9 +1,9 @@
 (function () {
     'use strict';
 
-    // ========== 1100 THEMES ==========
+    // ========== 2240 THEMES ==========
     const THEMES = [];
-    for (let i = 1; i <= 1400; i++) {
+    for (let i = 1; i <= 2240; i++) {
         THEMES.push('theme-' + i);
     }
 
@@ -216,7 +216,7 @@
         updateStatistik();
     }
 
-    // ========== THEME SYSTEM - 1100 WARNA ==========
+    // ========== THEME SYSTEM - 2240 WARNA ==========
     function getRandomThemeIndex() {
         let newIndex;
         do {
@@ -244,7 +244,7 @@
 
         // Simpan ke localStorage
         try {
-            localStorage.setItem('noxa-theme-1400', themeName);
+            localStorage.setItem('noxa-theme-2240', themeName);
             localStorage.setItem('noxa-theme-index', String(currentThemeIndex));
         } catch (e) { }
     }
@@ -395,11 +395,11 @@
             }
             if (shortcutNotifSpan) {
                 shortcutNotifSpan.dataset.manual = 'true';
-                shortcutNotifSpan.innerText = '⟳ Refresh + Tema Baru (1100 Tema)';
+                shortcutNotifSpan.innerText = '⟳ Refresh + Tema Baru (2240 Tema)';
                 setTimeout(function () {
                     shortcutNotifSpan.dataset.manual = '';
                     shortcutNotifSpan.innerText = '';
-                }, 1500);
+                }, 2240);
             }
 
             getAllCards().forEach(function (card) {
@@ -492,7 +492,7 @@
             footerYearEl.textContent = new Date().getFullYear();
         }
 
-        console.log('✅ Noxa Store | 1400 Themes Active');
+        console.log('✅ Noxa Store | 2240 Themes Active');
         console.log('🎨 Tema berganti otomatis setiap 10 detik');
         console.log('🔄 Klik Refresh untuk ganti tema manual');
         console.log('📊 Total tema: ' + THEMES.length);
