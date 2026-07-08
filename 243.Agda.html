@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Noxa Store - Agda | Materi Pembelajaran</title>
+    <link rel="stylesheet" href="mapel.css">
+    <script src="mapel.js"></script>
+</head>
+
+<body class="theme-agda-primary">
+    <div class="app-container">
+        <div class="top-brand-bar">
+            <div class="noxa-store">🏬 NOXA STORE</div>
+            <div class="judul-web-kanan">
+                <h1>📝 Agda Programming</h1>
+                <p>Pilih Materi, Kuasai Pemrograman Dependen Agda!</p>
+            </div>
+        </div>
+
+        <div class="top-stats-search">
+            <div class="total-stats-box">
+                <span>📊 <strong>Total Materi:</strong> <span id="totalMateriCount">0</span></span>
+                <span>✅ <strong>Materi Sudah Ada:</strong> <span id="materiSudahAda">0</span></span>
+                <span>⏳ <strong>Materi Belum Ada:</strong> <span id="materiBelumAda">0</span></span>
+            </div>
+            <div class="search-section">
+                <div class="search-row-flex" style="margin-bottom: 0.8rem;">
+                    <div class="search-wrapper">
+                        <div class="search-icon">🔍</div>
+                        <input type="text" id="searchInput" placeholder="Cari materi Agda..." autocomplete="off">
+                        <button id="clearSearchBtn" class="clear-btn">✖</button>
+                    </div>
+                </div>
+                <div class="search-row-flex">
+                    <button id="refreshButton" class="btn-refresh-neon"><span>⟳</span> Refresh</button>
+                    <a href="44. AllProgramming.html" class="btn-refresh-neon"
+                        style="text-decoration: none;">Kembali</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-bar">
+            <span id="resultCounter">📚 Menampilkan 0 materi</span>
+            <span class="shortcut-msg">⌨️ Ctrl+K / Shift+F / ESC</span>
+            <span id="shortcutNotif" style="font-size:0.7rem;"></span>
+        </div>
+
+        <div class="materi-grid" id="materiContainer">
+            <!-- Cards akan di-generate oleh JavaScript dari mapel.js -->
+            <!-- AGDA -->
+            <div class="materi-card" data-title="Pengenalan Agda">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Pengenalan Agda</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Sejarah Agda">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Sejarah Agda</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Evolusi Agda">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Evolusi Agda</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Instalasi Agda">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Instalasi Agda</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Agda Mode">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Agda Mode</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Struktur Program">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Struktur Program</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Sintaks Dasar">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Sintaks Dasar</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Variabel">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Variabel</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Konstanta">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Konstanta</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Tipe Data">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Tipe Data</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Dependent Type">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Dependent Type</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Function">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Function</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Pattern Matching">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Pattern Matching</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Rekursi">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Rekursi</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Total Function">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Total Function</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Proof">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Proof</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Equality">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Equality</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Proposition">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Proposition</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Logic">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Logic</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Natural Number">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Natural Number</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Integer">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Integer</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Boolean">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Boolean</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="List">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">List</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Vector">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Vector</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Tree">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Tree</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Record">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Record</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Module">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Module</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Parameterized Module">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Parameterized Module</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Import">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Import</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Export">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Export</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Universe">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Universe</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Type Level Programming">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Type Level Programming</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Implicit Argument">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Implicit Argument</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Explicit Argument">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Explicit Argument</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Lambda">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Lambda</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Higher Order Function">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Higher Order Function</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Generic Programming">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Generic Programming</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="IO">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">IO</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="File Handling">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">File Handling</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Reflection">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Reflection</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Meta Programming">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Meta Programming</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Library">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Library</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Package">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Package</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Debugging">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Debugging</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Unit Testing">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Unit Testing</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Benchmark">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Benchmark</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Build Project">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Build Project</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Dokumentasi">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Dokumentasi</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Formal Verification">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Formal Verification</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Functional Programming">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Functional Programming</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Verified Algorithm">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Verified Algorithm</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Compiler Dasar">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Compiler Dasar</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Parser">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Parser</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="DSL">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">DSL</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Optimasi Program">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Optimasi Program</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Best Practice">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Best Practice</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Studi Kasus Proof">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Studi Kasus Proof</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Integrasi Haskell">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Integrasi Haskell</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Advanced Type System">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Advanced Type System</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Proyek Akhir Agda">
+                <div class="mapel-badge">🔺 Agda</div>
+                <div class="card-title">Proyek Akhir Agda</div>
+                <div class="card-subtitle">Agda</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand-section">
+                <span class="footer-brand">🏬 Noxa Store</span>
+                <span class="footer-tagline">Belajar Tanpa Batas</span>
+            </div>
+            <div class="footer-info">
+                <span>© <span id="footerYear">2026</span></span>
+                <span class="footer-dot">•</span>
+                <span>Dibangun untuk pembelajaran</span>
+                <span class="footer-dot">•</span>
+                <span>v1.0</span>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
