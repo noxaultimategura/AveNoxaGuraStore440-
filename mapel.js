@@ -1,4 +1,3 @@
-
 (function () {
     'use strict';
 
@@ -10,9 +9,9 @@
     const shortcutNotifSpan = document.getElementById('shortcutNotif');
     const refreshBtn = document.getElementById('refreshButton');
 
-    // ========== 50 THEMES ==========
+    // ========== 550 THEMES ==========
     const THEMES = [];
-    for (let i = 1; i <= 50; i++) {
+    for (let i = 1; i <= 550; i++) {
         THEMES.push('theme-' + i);
     }
 
@@ -217,7 +216,7 @@
         updateStatistik();
     }
 
-    // ========== THEME SYSTEM - 50 WARNA ==========
+    // ========== THEME SYSTEM - 550 WARNA ==========
     function getRandomThemeIndex() {
         let newIndex;
         do {
@@ -245,7 +244,7 @@
 
         // Simpan ke localStorage
         try {
-            localStorage.setItem('noxa-theme-50', themeName);
+            localStorage.setItem('noxa-theme-550', themeName);
             localStorage.setItem('noxa-theme-index', String(currentThemeIndex));
         } catch (e) { }
     }
@@ -256,7 +255,7 @@
         applyTheme(THEMES[newIndex]);
 
         if (shortcutNotifSpan) {
-            shortcutNotifSpan.innerText = '🎨 Tema ' + (newIndex + 1) + ' dari 50';
+            shortcutNotifSpan.innerText = '🎨 Tema ' + (newIndex + 1) + ' dari 550';
             setTimeout(function () {
                 if (!shortcutNotifSpan.dataset.manual) {
                     shortcutNotifSpan.innerText = '';
@@ -288,7 +287,7 @@
         let savedIndex = -1;
 
         try {
-            savedTheme = localStorage.getItem('noxa-theme-50');
+            savedTheme = localStorage.getItem('noxa-theme-550');
             const idx = localStorage.getItem('noxa-theme-index');
             if (idx !== null) savedIndex = parseInt(idx, 10);
         } catch (e) { }
@@ -493,7 +492,7 @@
             footerYearEl.textContent = new Date().getFullYear();
         }
 
-        console.log('✅ Noxa Store | 50 Themes Active');
+        console.log('✅ Noxa Store | 550 Themes Active');
         console.log('🎨 Tema berganti otomatis setiap 10 detik');
         console.log('🔄 Klik Refresh untuk ganti tema manual');
     }
