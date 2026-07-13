@@ -115,9 +115,10 @@
             text-align: right;
         }
 
-        .judul-web- font-size: clamp(0.6rem, 1.5vw, 0.8rem);
-        color: var(--stiker-6);
-        text-align: right;
+        .judul-web-kanan p {
+            font-size: clamp(0.6rem, 1.5vw, 0.8rem);
+            color: var(--stiker-6);
+            text-align: right;
         }
 
         /* ================================================================ */
@@ -385,12 +386,6 @@
             font-weight: 700;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
             margin: 0;
-        }
-
-        .card-desc {
-            color: var(--stiker-7);
-            font-size: 0.85rem;
-            line-height: 1.5;
         }
 
         .card-price {
@@ -778,95 +773,96 @@
             }
 
             .judul-web-kanan h1,
-            .judul-web- text-align: center;
-        }
+            .judul-web-kanan p {
+                text-align: center;
+            }
 
-        .noxa-store {
-            white-space: normal;
-            text-align: center;
-        }
+            .noxa-store {
+                white-space: normal;
+                text-align: center;
+            }
 
-        .top-stats-search {
-            flex-direction: column;
-            align-items: stretch;
-        }
+            .top-stats-search {
+                flex-direction: column;
+                align-items: stretch;
+            }
 
-        .search-section {
-            width: 100%;
-            max-width: 100%;
-        }
+            .search-section {
+                width: 100%;
+                max-width: 100%;
+            }
 
-        .search-wrapper {
-            min-width: unset;
-        }
+            .search-wrapper {
+                min-width: unset;
+            }
 
-        .btn-group {
-            width: 100%;
-            flex-direction: row;
-        }
+            .btn-group {
+                width: 100%;
+                flex-direction: row;
+            }
 
-        .btn-refresh-neon,
-        .btn-back-neon {
-            flex: 1;
-            justify-content: center;
-            padding: 0.6rem 0.8rem;
-            font-size: 0.75rem;
-        }
+            .btn-refresh-neon,
+            .btn-back-neon {
+                flex: 1;
+                justify-content: center;
+                padding: 0.6rem 0.8rem;
+                font-size: 0.75rem;
+            }
 
-        .total-stats-box {
-            justify-content: center;
-        }
+            .total-stats-box {
+                justify-content: center;
+            }
 
-        .stats-bar {
-            justify-content: center;
-            text-align: center;
-            flex-direction: column;
-        }
+            .stats-bar {
+                justify-content: center;
+                text-align: center;
+                flex-direction: column;
+            }
 
-        #materiContainer {
-            grid-template-columns: 1fr;
-            gap: 0.9rem;
-        }
+            #materiContainer {
+                grid-template-columns: 1fr;
+                gap: 0.9rem;
+            }
 
-        .materi-card {
-            padding: 1rem;
-            min-height: 120px;
-        }
+            .materi-card {
+                padding: 1rem;
+                min-height: 120px;
+            }
 
-        .card-title {
-            font-size: 0.9rem;
-        }
+            .card-title {
+                font-size: 0.9rem;
+            }
 
-        .btn-beli {
-            padding: 0.55rem;
-            font-size: 0.75rem;
-        }
+            .btn-beli {
+                padding: 0.55rem;
+                font-size: 0.75rem;
+            }
 
-        .footer {
-            padding: 0.8rem 1rem;
-            width: 100%;
-            border-radius: 0.8rem;
-            margin-top: 0.8rem;
-        }
+            .footer {
+                padding: 0.8rem 1rem;
+                width: 100%;
+                border-radius: 0.8rem;
+                margin-top: 0.8rem;
+            }
 
-        .footer-container {
-            flex-direction: column;
-            text-align: center;
-            gap: 0.5rem;
-        }
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
 
-        .footer-brand-section {
-            justify-content: center;
-        }
+            .footer-brand-section {
+                justify-content: center;
+            }
 
-        .footer-brand {
-            font-size: 1rem;
-        }
+            .footer-brand {
+                font-size: 1rem;
+            }
 
-        .footer-info {
-            font-size: 0.7rem;
-            justify-content: center;
-        }
+            .footer-info {
+                font-size: 0.7rem;
+                justify-content: center;
+            }
         }
 
         @media (max-width: 575px) {
@@ -985,6 +981,7 @@
             <div class="noxa-store">🏬 NOXA STORE</div>
             <div class="judul-web-kanan">
                 <h1>🏷️ Produk Stiker</h1>
+                <p>Koleksi Stiker Digital Premium</p>
             </div>
         </div>
 
@@ -1051,8 +1048,6 @@
                     </a>
                 </div>
             </div>
-
-
         </div>
     </div>
 
@@ -1075,7 +1070,6 @@
             </div>
         </div>
     </footer>
-    </div>
 
     <script>
         (function () {
@@ -1292,27 +1286,10 @@
                 document.head.appendChild(spinStyle);
             }
 
-            // Hapus event listener yang mengganggu
-            document.removeEventListener('click', function (e) {
-                const btn = e.target.closest('.btn-beli');
-                if (btn) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    const card = btn.closest('.materi-card');
-                    if (card) {
-                        const title = card.getAttribute('data-title') || 'Produk';
-                        alert(`🛒 Pembelian untuk "${title}" belum tersedia.`);
-                    }
-                }
-            });
-
-            // Event listener untuk tombol beli yang baru
             document.addEventListener('click', function (e) {
                 const btn = e.target.closest('.btn-beli');
                 if (btn && !btn.disabled) {
                     // Biarkan link berfungsi normal
-                    // Tidak perlu preventDefault atau stopPropagation
-                    // Karena tombol ada di dalam tag <a>
                 }
             });
 
