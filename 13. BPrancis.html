@@ -9,8 +9,39 @@
     <script src="mapel.js" defer></script>
 </head>
 
-<body>
+<body class="theme-green">
+    <div class="app-container">
+        <div class="top-brand-bar">
+            <div class="noxa-store">🏬 NOXA STORE</div>
+            <div class="judul-web-kanan">
+                <h1>🎨 Seni</h1>
+                <p>Pilih Materi, Kuasai Pelajaran!</p>
+            </div>
+        </div>
 
-</body>
+        <div class="top-stats-search">
+            <div class="total-stats-box">
+                <span>📊 <strong>Total Materi:</strong> <span id="totalMateriCount">0</span></span>
+                <span>✅ <strong>Materi Sudah Ada:</strong> <span id="materiSudahAda">0</span></span>
+                <span>⏳ <strong>Materi Belum Ada:</strong> <span id="materiBelumAda">0</span></span>
+            </div>
+            <div class="search-section">
+                <div class="search-row-flex">
+                    <div class="search-wrapper">
+                        <div class="search-icon">🔍</div>
+                        <input type="text" id="searchInput" placeholder="Cari materi Seni..." autocomplete="off">
+                        <button id="clearSearchBtn" class="clear-btn">✖</button>
+                    </div>
+                    <button id="refreshButton" class="btn-refresh-neon"><span>⟳</span> Refresh</button>
+                    <a href="0. allmapel.html"><button class="btn-refresh-neon">Kembali</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-bar">
+            <span id="resultCounter">📚 Menampilkan 0 materi</span>
+            <span class="shortcut-msg">⌨️ Ctrl+K / Shift+F / ESC</span>
+            <span id="shortcutNotif" style="font-size:0.7rem;"></span>
+        </div>
 
 </html>
