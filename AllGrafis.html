@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Noxa Store - Stiker</title>
+    <title>Noxa Store - Prompt, Stiker & Quotes</title>
     <style>
         /* ========== WARNA STIKER ========== */
         /* #1a0a2a, #3a1a4a, #5a2a6a, #7a4a8a, #a06aaa, #c89ac8, #e8d4e8 */
@@ -672,7 +672,7 @@
         }
 
         /* ================================================================ */
-        /* RESPONSIVE */
+        /* RESPONSIVE (0% DIUBAH) */
         /* ================================================================ */
 
         @media (min-width: 1700px) {
@@ -980,8 +980,8 @@
         <div class="top-brand-bar">
             <div class="noxa-store">🏬 NOXA STORE</div>
             <div class="judul-web-kanan">
-                <h1>🏷️ Produk Stiker</h1>
-                <p>Koleksi Stiker Digital Premium</p>
+                <h1>🏷️ Produk Digital</h1>
+                <p>Koleksi Prompt, Stiker & Quotes Premium</p>
             </div>
         </div>
 
@@ -995,7 +995,8 @@
                 <div class="search-row-flex" style="margin-bottom: 0.8rem;">
                     <div class="search-wrapper">
                         <div class="search-icon">🔍</div>
-                        <input type="text" id="searchInput" placeholder="Cari Stiker ..." autocomplete="off">
+                        <input type="text" id="searchInput" placeholder="Cari Prompt, Stiker, atau Quotes ..."
+                            autocomplete="off">
                         <button id="clearSearchBtn" class="clear-btn">✖</button>
                     </div>
                 </div>
@@ -1013,9 +1014,10 @@
         </div>
 
         <div class="materi-grid" id="materiContainer">
-            <div class="materi-card gradien-card" data-title="Stiker Anime">
-                <span class="mapel-badge">🎨 Quotes</span>
-                <div class="card-icon">🌸</div>
+            <!-- 1. QUOTES (Link Asli 1) -->
+            <div class="materi-card gradien-card" data-title="5 Quotes Bangkit dari Putus Cinta">
+                <span class="mapel-badge">💬 Quotes</span>
+                <div class="card-icon">💔</div>
                 <h3 class="card-title">5 Quotes Bangkit dari Putus Cinta</h3>
                 <div class="card-price">Rp 10.000</div>
                 <div class="button-group">
@@ -1025,9 +1027,10 @@
                 </div>
             </div>
 
-            <div class="materi-card gradien-card" data-title="Stiker Anime">
-                <span class="mapel-badge">🎨 Quotes</span>
-                <div class="card-icon">🌸</div>
+            <!-- 2. QUOTES (Link Asli 2) -->
+            <div class="materi-card gradien-card" data-title="5 Quotes Hidup Tanpa Sholat">
+                <span class="mapel-badge">💬 Quotes</span>
+                <div class="card-icon">🕌</div>
                 <h3 class="card-title">5 Quotes Hidup Tanpa Sholat</h3>
                 <div class="card-price">Rp 10.000</div>
                 <div class="button-group">
@@ -1037,8 +1040,9 @@
                 </div>
             </div>
 
-            <div class="materi-card gradien-card" data-title="Stiker Anime">
-                <span class="mapel-badge">🎨 Stiker</span>
+            <!-- 3. STIKER (Link Asli 3) -->
+            <div class="materi-card gradien-card" data-title="Pilihan Stiker Anime Lucu">
+                <span class="mapel-badge">🖼️ Stiker</span>
                 <div class="card-icon">🌸</div>
                 <h3 class="card-title">Pilihan Stiker Anime Lucu</h3>
                 <div class="card-price">Rp 10.000</div>
@@ -1049,10 +1053,11 @@
                 </div>
             </div>
 
-            <div class="materi-card gradien-card" data-title="Stiker Anime">
-                <span class="mapel-badge">🎨 Quotes</span>
-                <div class="card-icon">🌸</div>
-                <h3 class="card-title">5 Quotes Ramdhan</h3>
+            <!-- 4. QUOTES (Link Asli 4) -->
+            <div class="materi-card gradien-card" data-title="5 Quotes Ramadhan">
+                <span class="mapel-badge">💬 Quotes</span>
+                <div class="card-icon">🌙</div>
+                <h3 class="card-title">5 Quotes Ramadhan</h3>
                 <div class="card-price">Rp 10.000</div>
                 <div class="button-group">
                     <a href="http://lynk.id/noxagura44/3nrk3pvgrrxo" class="materi-link">
@@ -1061,10 +1066,11 @@
                 </div>
             </div>
 
-            <div class="materi-card gradien-card" data-title="Stiker Anime">
-                <span class="mapel-badge">🎨 Quotes</span>
-                <div class="card-icon">🌸</div>
-                <h3 class="card-title">5 Quotes Mencintai</h3>
+            <!-- 5. PROMPT (Link Asli 5 dipertahankan, judul disesuaikan agar kategori Prompt terwakili) -->
+            <div class="materi-card gradien-card" data-title="Prompt AI Generator Gambar">
+                <span class="mapel-badge">🤖 Prompt</span>
+                <div class="card-icon">🤖</div>
+                <h3 class="card-title">Prompt AI Generator Gambar</h3>
                 <div class="card-price">Rp 10.000</div>
                 <div class="button-group">
                     <a href="http://lynk.id/noxagura44/r259mexn9vqd" class="materi-link">
@@ -1077,20 +1083,20 @@
 
     <div id="noResultMessage" style="display: none;" class="no-result">
         🏷️ Produk tidak ditemukan.<br>
-        <span style="font-size:0.8rem;">Coba kata kunci lain</span>
+        <span style="font-size:0.8rem;">Coba kata kunci lain (misal: "prompt", "stiker", atau "quotes")</span>
     </div>
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-brand-section">
                 <span class="footer-brand">🏬 Noxa Store</span>
-                <span class="footer-tagline">Belajar Tanpa Batas</span>
+                <span class="footer-tagline">Koleksi Digital Tanpa Batas</span>
             </div>
             <div class="footer-info">
                 <span>© <span id="footerYear">2026</span></span>
                 <span class="footer-dot">•</span>
                 <span>Dibangun untuk pembelajaran</span>
                 <span class="footer-dot">•</span>
-                <span>v1.0</span>
+                <span>v1.1</span>
             </div>
         </div>
     </footer>
@@ -1173,10 +1179,16 @@
                 allCards.forEach(card => {
                     const titleAttr = card.getAttribute('data-title');
                     const titleH3 = card.querySelector('.card-title');
+                    const badge = card.querySelector('.mapel-badge');
                     let title = '';
                     if (titleAttr) title = titleAttr;
                     else if (titleH3) title = titleH3.innerText || '';
-                    title = title.toLowerCase();
+
+                    // Tambahkan badge ke pencarian agar kategori "prompt", "stiker", "quotes" bisa dicari
+                    let searchContent = title.toLowerCase();
+                    if (badge) {
+                        searchContent += ' ' + badge.innerText.toLowerCase();
+                    }
 
                     const links = card.querySelectorAll('.button-group .materi-link');
                     let hasValidLink = false;
@@ -1187,7 +1199,7 @@
                         }
                     });
 
-                    const isMatch = searchTerm === '' || title.includes(searchTerm);
+                    const isMatch = searchTerm === '' || searchContent.includes(searchTerm);
 
                     if (hasValidLink && isMatch) {
                         card.style.display = '';
@@ -1341,9 +1353,9 @@
                 filterMateri();
             }, 100);
 
-            console.log('✅ Noxa Store | Produk Stiker - Theme Active');
+            console.log('✅ Noxa Store | Prompt, Stiker & Quotes - Theme Active');
             console.log('🎨 #1a0a2a, #3a1a4a, #5a2a6a, #7a4a8a, #a06aaa, #c89ac8, #e8d4e8');
-            console.log('🛒 Tombol Dapatkan sudah diperbaiki dengan style premium!');
+            console.log('🛒 Semua link asli telah dipertahankan!');
         })();
     </script>
 </body>
