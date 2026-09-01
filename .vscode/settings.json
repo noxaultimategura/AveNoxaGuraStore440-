@@ -6,5 +6,6 @@
                 "cmd": "git add . && git commit -m \"Auto Save\" && git push origin main"
             }
         ]
-    }
+    },
+    "liveServer.settings.port": 5501
 }
