@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noxa Store - PKKWU </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="mapel.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- HEADER -->
+        <div class="top-brand-bar">
+            <div class="noxa-store">🏬 NOXA STORE</div>
+            <div class="judul-web-kanan">
+                <h1>📖 PKKWU</h1>
+                <p>Pilih Materi, Kuasai Pelajaran!</p>
+            </div>
+        </div>
+
+        <!-- STATS & SEARCH -->
+        <div class="top-stats-search">
+            <div class="total-stats-box">
+                <span>📊 <strong>Total:</strong> <span id="totalMateriCount">0</span></span>
+                <span>✅ <strong>Tersedia:</strong> <span id="materiSudahAda">0</span></span>
+                <span>⏳ <strong>Coming Soon:</strong> <span id="materiBelumAda">0</span></span>
+            </div>
+            <div class="search-row-flex">
+                <div class="search-wrapper">
+                    <div class="search-icon">🔍</div>
+                    <input type="text" id="searchInput" placeholder="Cari Materi PKKWU..." autocomplete="off">
+                    <button id="clearSearchBtn" class="clear-btn">✖</button>
+                </div>
+                <div class="btn-group">
+                    <button id="refreshButton" class="btn-refresh-neon"><span>⟳</span> Refresh</button>
+                    <a href="0. allmapel.html" class="btn-back-neon">← Kembali</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- STATS BAR -->
+        <div class="stats-bar">
+            <span id="resultCounter">📚 Menampilkan 0 materi</span>
+            <span class="shortcut-msg">⌨️ Ctrl+K / Shift+F / ESC</span>
+            <span id="shortcutNotif"></span>
+        </div>
+
+        <div class="materi-grid" id="materiGrid">
+            <div class="materi-card" data-title="Konsep Dasar Kewirausahaan">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Konsep Dasar Kewirausahaan</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Karakteristik dan Jiwa Wirausahawan">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Karakteristik dan Jiwa Wirausahawan</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Etika dan Prinsip Kewirausahaan">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Etika dan Prinsip Kewirausahaan</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Mindset dan Motivasi Berwirausaha">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Mindset dan Motivasi Berwirausaha</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Kreativitas dan Inovasi">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Kreativitas dan Inovasi</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Ide dan Peluang Usaha">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Ide dan Peluang Usaha</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Identifikasi Kebutuhan dan Masalah Konsumen">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Identifikasi Kebutuhan dan Masalah Konsumen</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Analisis SWOT">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Analisis SWOT</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Analisis Pasar dan Konsumen">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Analisis Pasar dan Konsumen</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Analisis Pesaing">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Analisis Pesaing</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Analisis Kelayakan Usaha">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Analisis Kelayakan Usaha</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Perencanaan Usaha">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Perencanaan Usaha</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Business Plan">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Business Plan</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Business Model Canvas (BMC)">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Business Model Canvas (BMC)</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Pengembangan Produk">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Pengembangan Produk</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Prototype dan Modifikasi Produk">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Prototype dan Modifikasi Produk</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Jenis dan Karakteristik Produk Kreatif">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Jenis dan Karakteristik Produk Kreatif</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Perencanaan Produksi">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Perencanaan Produksi</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Proses dan Tahapan Produksi">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Proses dan Tahapan Produksi</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Bahan, Alat, Tenaga Kerja, dan Modal Produksi">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Bahan, Alat, Tenaga Kerja, dan Modal Produksi</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Produktivitas dan Efisiensi Produksi">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Produktivitas dan Efisiensi Produksi</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Pengendalian Kualitas Produk (QC/QA)">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Pengendalian Kualitas Produk (QC/QA)</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Kemasan dan Label Produk">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Kemasan dan Label Produk</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Branding dan Identitas Merek">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Branding dan Identitas Merek</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Segmentasi, Targeting, dan Positioning (STP)">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Segmentasi, Targeting, dan Positioning (STP)</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Strategi Pemasaran">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Strategi Pemasaran</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Marketing Mix (4P dan 7P)">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Marketing Mix (4P dan 7P)</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Promosi">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Promosi</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Digital Marketing">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Digital Marketing</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Social Media Marketing">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Social Media Marketing</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Content Marketing">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Content Marketing</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Copywriting dan Storytelling">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Copywriting dan Storytelling</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Marketplace dan E-Commerce">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Marketplace dan E-Commerce</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Foto, Video, dan Katalog Produk">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Foto, Video, dan Katalog Produk</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Teknik Penjualan">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Teknik Penjualan</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Negosiasi dan Closing">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Negosiasi dan Closing</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Pelayanan dan Kepuasan Pelanggan">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Pelayanan dan Kepuasan Pelanggan</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Penanganan Keluhan Konsumen">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Penanganan Keluhan Konsumen</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Penetapan Harga">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Penetapan Harga</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Biaya Produksi dan HPP">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Biaya Produksi dan HPP</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Markup dan Margin Keuntungan">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Markup dan Margin Keuntungan</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Laba dan Rugi">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Laba dan Rugi</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Break Even Point (BEP)">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Break Even Point (BEP)</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Modal dan Sumber Modal">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Modal dan Sumber Modal</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Pengelolaan Keuangan Usaha">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Pengelolaan Keuangan Usaha</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Pencatatan dan Laporan Keuangan">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Pencatatan dan Laporan Keuangan</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Administrasi Usaha">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Administrasi Usaha</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Manajemen Persediaan dan Stok">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Manajemen Persediaan dan Stok</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Distribusi dan Logistik">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Distribusi dan Logistik</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Legalitas dan Perizinan Usaha">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Legalitas dan Perizinan Usaha</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Hak Kekayaan Intelektual (HKI)">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Hak Kekayaan Intelektual (HKI)</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Risiko dan Manajemen Risiko Usaha">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Risiko dan Manajemen Risiko Usaha</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Evaluasi Kinerja Usaha">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Evaluasi Kinerja Usaha</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Pengembangan dan Ekspansi Usaha">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Pengembangan dan Ekspansi Usaha</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Praktik dan Simulasi Kewirausahaan">
+                <div class="mapel-badge">💼 PKWU</div>
+                <div class="card-title">Praktik dan Simulasi Kewirausahaan</div>
+                <div class="card-subtitle">PKKWU</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+        </div>
+        <script src="mapel.js"></script>
+    </div>
+</body>
+
+</html>

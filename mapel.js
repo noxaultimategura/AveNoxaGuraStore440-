@@ -1,7 +1,6 @@
 (function () {
     'use strict';
 
-    // ========== 2240 THEMES ==========
     const THEMES = [];
     for (let i = 1; i <= 2240; i++) {
         THEMES.push('theme-' + i);
@@ -10,7 +9,6 @@
     let currentThemeIndex = -1;
     let themeInterval = null;
 
-    // ========== GLOBAL ELEMENTS ==========
     const searchInput = document.getElementById('searchInput');
     const materiContainer = document.getElementById('materiContainer');
     const resultCounterSpan = document.getElementById('resultCounter');
@@ -18,11 +16,9 @@
     const shortcutNotifSpan = document.getElementById('shortcutNotif');
     const refreshBtn = document.getElementById('refreshButton');
 
-    // ========== TRACKING WARNA ==========
     let usedThemeIndices = new Set();
     let allCardThemeIndices = {};
 
-    // ========== HELPER FUNCTIONS ==========
     function getAllCards() {
         return Array.from(document.querySelectorAll('.materi-card'));
     }
@@ -48,7 +44,6 @@
         return window.innerWidth >= 992;
     }
 
-    // ========== FUNGSI UTAMA ==========
     function processCards() {
         const cards = getAllCards();
 
@@ -224,8 +219,6 @@
         updateStatistik();
     }
 
-    // ========== THEME SYSTEM - UNIK PER MAPEL ==========
-
     function getUniqueThemeIndex(avoidIndices = new Set()) {
         const availableIndices = [];
         for (let i = 0; i < THEMES.length; i++) {
@@ -246,69 +239,54 @@
         return availableIndices[randomIndex];
     }
 
-    // ========== TERAPKAN TEMA KE BODY DAN CARD ==========
     function applyThemeToAll(themeIndex) {
         const body = document.body;
         const themeName = THEMES[themeIndex];
 
-        // Hapus semua theme class dari body
         THEMES.forEach(t => body.classList.remove(t));
 
-        // Apply theme ke BODY (untuk background)
         body.classList.add(themeName);
 
-        // Update current theme index
         currentThemeIndex = themeIndex;
 
-        // Simpan ke localStorage
         try {
             localStorage.setItem('noxa-theme-2240', themeName);
             localStorage.setItem('noxa-theme-index', String(currentThemeIndex));
         } catch (e) { }
     }
 
-    // ========== BERI WARNA UNIK KE SETIAP CARD ==========
     function assignUniqueThemesToCards() {
         const cards = getAllCards();
         const usedIndices = new Set();
 
-        // Reset tracking
         usedThemeIndices = new Set();
         allCardThemeIndices = {};
 
-        // Pilih satu tema untuk BODY (global)
         const bodyThemeIndex = Math.floor(Math.random() * THEMES.length);
         applyThemeToAll(bodyThemeIndex);
         usedIndices.add(bodyThemeIndex);
         usedThemeIndices.add(bodyThemeIndex);
 
-        // Beri tema unik ke setiap CARD
         cards.forEach((card, index) => {
             const cardId = getCardId(card);
 
-            // Dapatkan tema unik yang belum digunakan
             const themeIndex = getUniqueThemeIndex(usedIndices);
             usedIndices.add(themeIndex);
             usedThemeIndices.add(themeIndex);
 
             const themeName = THEMES[themeIndex];
 
-            // Hapus semua theme class dari card
             THEMES.forEach(t => card.classList.remove(t));
 
-            // Apply tema ke CARD (untuk background card)
             card.classList.add(themeName);
 
-            // Simpan mapping
             allCardThemeIndices[cardId] = themeIndex;
 
-            // Apply gradien acak
             card.classList.remove('gradien-0', 'gradien-1', 'gradien-2', 'gradien-3', 'gradien-4');
             const gradIndex = Math.floor(Math.random() * 5);
             card.classList.add('gradien-' + gradIndex);
         });
 
-        // Simpan state card themes
         try {
             localStorage.setItem('noxa-card-themes-2240', JSON.stringify(allCardThemeIndices));
         } catch (e) { }
@@ -316,22 +294,18 @@
         return cards.length;
     }
 
-    // ========== ACAK SEMUA TEMA ==========
     function reshuffleAllThemes() {
         const cards = getAllCards();
         const usedIndices = new Set();
 
-        // Reset tracking
         usedThemeIndices = new Set();
         allCardThemeIndices = {};
 
-        // Pilih tema baru untuk BODY
         const bodyThemeIndex = Math.floor(Math.random() * THEMES.length);
         applyThemeToAll(bodyThemeIndex);
         usedIndices.add(bodyThemeIndex);
         usedThemeIndices.add(bodyThemeIndex);
 
-        // Beri tema unik ke setiap CARD
         cards.forEach((card) => {
             const cardId = getCardId(card);
 
@@ -351,7 +325,6 @@
             card.classList.add('gradien-' + gradIndex);
         });
 
-        // Simpan state
         try {
             localStorage.setItem('noxa-card-themes-2240', JSON.stringify(allCardThemeIndices));
         } catch (e) { }
@@ -368,7 +341,6 @@
         return cards.length;
     }
 
-    // ========== LOAD SAVED THEMES ==========
     function loadSavedTheme() {
         let savedTheme = null;
         let savedIndex = -1;
@@ -390,7 +362,6 @@
         const cards = getAllCards();
 
         if (savedCardThemes && typeof savedCardThemes === 'object') {
-            // Restore BODY theme
             if (savedTheme && THEMES.includes(savedTheme)) {
                 applyThemeToAll(THEMES.indexOf(savedTheme));
             } else {
@@ -398,7 +369,6 @@
                 applyThemeToAll(newIndex);
             }
 
-            // Restore card themes
             let maxIndex = 0;
             const usedIndices = new Set();
             usedIndices.add(currentThemeIndex);
@@ -422,7 +392,6 @@
                 }
             });
 
-            // Jika ada card yang belum mendapat tema
             cards.forEach(card => {
                 const cardId = getCardId(card);
                 if (allCardThemeIndices[cardId] === undefined) {
@@ -444,14 +413,12 @@
             currentThemeIndex = maxIndex;
 
         } else {
-            // First time - assign all
             assignUniqueThemesToCards();
         }
 
         return savedTheme;
     }
 
-    // ========== AUTO THEME ==========
     function startAutoTheme() {
         if (themeInterval) {
             clearInterval(themeInterval);
@@ -468,7 +435,6 @@
         }
     }
 
-    // ========== EVENT LISTENERS ==========
     let debounceTimer;
     if (searchInput) {
         searchInput.addEventListener('input', function () {
@@ -580,7 +546,6 @@
         document.head.appendChild(spinStyle);
     }
 
-    // ========== EVENT DELEGASI ==========
     document.addEventListener('click', function (e) {
         const btn = e.target.closest('.btn-dapatkan');
         if (btn && !btn.classList.contains('disabled')) {
@@ -628,14 +593,12 @@
         }
     });
 
-    // ========== RESIZE HANDLER ==========
     let resizeTimer;
     window.addEventListener('resize', function () {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(function () { }, 250);
     });
 
-    // ========== INISIALISASI ==========
     function init() {
         loadSavedTheme();
 

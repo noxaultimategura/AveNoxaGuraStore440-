@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noxa Store - Desain Grafis </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="mapel.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- HEADER -->
+        <div class="top-brand-bar">
+            <div class="noxa-store">🏬 NOXA STORE</div>
+            <div class="judul-web-kanan">
+                <h1>📖 Desain Grafis</h1>
+                <p>Pilih Materi, Kuasai Pelajaran!</p>
+            </div>
+        </div>
+
+        <!-- STATS & SEARCH -->
+        <div class="top-stats-search">
+            <div class="total-stats-box">
+                <span>📊 <strong>Total:</strong> <span id="totalMateriCount">0</span></span>
+                <span>✅ <strong>Tersedia:</strong> <span id="materiSudahAda">0</span></span>
+                <span>⏳ <strong>Coming Soon:</strong> <span id="materiBelumAda">0</span></span>
+            </div>
+            <div class="search-row-flex">
+                <div class="search-wrapper">
+                    <div class="search-icon">🔍</div>
+                    <input type="text" id="searchInput" placeholder="Cari Materi Desain Grafis..." autocomplete="off">
+                    <button id="clearSearchBtn" class="clear-btn">✖</button>
+                </div>
+                <div class="btn-group">
+                    <button id="refreshButton" class="btn-refresh-neon"><span>⟳</span> Refresh</button>
+                    <a href="0. allmapel.html" class="btn-back-neon">← Kembali</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- STATS BAR -->
+        <div class="stats-bar">
+            <span id="resultCounter">📚 Menampilkan 0 materi</span>
+            <span class="shortcut-msg">⌨️ Ctrl+K / Shift+F / ESC</span>
+            <span id="shortcutNotif"></span>
+        </div>
+
+        <div class="materi-grid" id="materiGrid">
+            <div class="materi-card" data-title="Konsep Dasar Desain Grafis">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Konsep Dasar Desain Grafis</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Sejarah dan Perkembangan Desain Grafis">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Sejarah dan Perkembangan Desain Grafis</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Fungsi dan Tujuan Desain Grafis">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Fungsi dan Tujuan Desain Grafis</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Prinsip-Prinsip Desain">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Prinsip-Prinsip Desain</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Unsur-Unsur Desain">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Unsur-Unsur Desain</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Teori dan Psikologi Warna">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Teori dan Psikologi Warna</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Tipografi dan Penggunaan Font">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Tipografi dan Penggunaan Font</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Komposisi dan Layout">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Komposisi dan Layout</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Keseimbangan, Proporsi, dan Skala">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Keseimbangan, Proporsi, dan Skala</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Kontras, Harmoni, dan Kesatuan">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Kontras, Harmoni, dan Kesatuan</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Ruang dan White Space">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Ruang dan White Space</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Grid dan Sistem Tata Letak">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Grid dan Sistem Tata Letak</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Identitas Visual dan Branding">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Identitas Visual dan Branding</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Logo dan Desain Identitas Merek">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Logo dan Desain Identitas Merek</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Desain Poster">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Desain Poster</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Desain Brosur, Flyer, dan Pamflet">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Desain Brosur, Flyer, dan Pamflet</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Desain Banner dan Spanduk">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Desain Banner dan Spanduk</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Desain Kartu Nama dan Stationery">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Desain Kartu Nama dan Stationery</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Desain Kemasan Produk">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Desain Kemasan Produk</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Desain Label Produk">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Desain Label Produk</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Desain Majalah, Katalog, dan Editorial">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Desain Majalah, Katalog, dan Editorial</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Desain Infografis">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Desain Infografis</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Desain Presentasi dan Media Visual">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Desain Presentasi dan Media Visual</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Desain Konten Media Sosial">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Desain Konten Media Sosial</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Desain UI dan Visual Website">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Desain UI dan Visual Website</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Desain Iklan dan Materi Promosi">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Desain Iklan dan Materi Promosi</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Ilustrasi Digital">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Ilustrasi Digital</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Fotografi dan Pengolahan Foto">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Fotografi dan Pengolahan Foto</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Manipulasi dan Retouching Foto">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Manipulasi dan Retouching Foto</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Vector dan Raster">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Vector dan Raster</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Pengolahan Gambar Digital">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Pengolahan Gambar Digital</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Editing dan Komposisi Gambar">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Editing dan Komposisi Gambar</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Digital Imaging">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Digital Imaging</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Mockup dan Visualisasi Produk">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Mockup dan Visualisasi Produk</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Desain 2D">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Desain 2D</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Dasar-Dasar Animasi dan Motion Graphic">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Dasar-Dasar Animasi dan Motion Graphic</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Dasar-Dasar Desain 3D">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Dasar-Dasar Desain 3D</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Software Desain Grafis">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Software Desain Grafis</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Adobe Photoshop">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Adobe Photoshop</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Adobe Illustrator">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Adobe Illustrator</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Adobe InDesign">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Adobe InDesign</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="CorelDRAW">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">CorelDRAW</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Figma">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Figma</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Canva">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Canva</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Format dan Ekstensi File Grafis">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Format dan Ekstensi File Grafis</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Resolusi, Ukuran, dan Kualitas Gambar">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Resolusi, Ukuran, dan Kualitas Gambar</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="RGB, CMYK, dan Sistem Warna Digital">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">RGB, CMYK, dan Sistem Warna Digital</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Teknik Persiapan File untuk Percetakan">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Teknik Persiapan File untuk Percetakan</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Teknik Percetakan dan Finishing">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Teknik Percetakan dan Finishing</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Hak Cipta dan Hak Kekayaan Intelektual dalam Desain">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Hak Cipta dan Hak Kekayaan Intelektual dalam Desain</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Etika Desain dan Penggunaan Aset Visual">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Etika Desain dan Penggunaan Aset Visual</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Lisensi Font, Gambar, dan Elemen Desain">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Lisensi Font, Gambar, dan Elemen Desain</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Creative Brief dan Konsep Desain">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Creative Brief dan Konsep Desain</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Riset dan Analisis Target Audiens">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Riset dan Analisis Target Audiens</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Proses dan Alur Kerja Desain">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Proses dan Alur Kerja Desain</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Sketsa dan Perancangan Konsep">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Sketsa dan Perancangan Konsep</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Moodboard dan Style Guide">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Moodboard dan Style Guide</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Presentasi dan Evaluasi Desain">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Presentasi dan Evaluasi Desain</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Revisi dan Pengembangan Desain">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Revisi dan Pengembangan Desain</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Portofolio Desain">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Portofolio Desain</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Freelance dan Jasa Desain Grafis">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Freelance dan Jasa Desain Grafis</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Branding dan Pemasaran Jasa Desain">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Branding dan Pemasaran Jasa Desain</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Manajemen Proyek Desain">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Manajemen Proyek Desain</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Penentuan Harga Jasa Desain">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Penentuan Harga Jasa Desain</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+            <div class="materi-card" data-title="Praktik dan Proyek Desain Grafis">
+                <div class="mapel-badge">🎨 DG</div>
+                <div class="card-title">Praktik dan Proyek Desain Grafis</div>
+                <div class="card-subtitle">Desain Grafis</div>
+                <div class="card-status-wrapper">
+                    <div class="card-status" data-status="0"></div>
+                </div>
+                <div class="card-price">Rp 30.000</div>
+                <div class="button-group"><a href="" class="materi-link"><button
+                            class="btn-dapatkan disabled">Dapatkan</button></a></div>
+            </div>
+        </div>
+        <script src="mapel.js"></script>
+    </div>
+</body>
+
+</html>

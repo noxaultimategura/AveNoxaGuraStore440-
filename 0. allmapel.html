@@ -21,6 +21,7 @@
         }
 
         /* ========= RESET ========= */
+
         * {
             margin: 0;
             padding: 0;
@@ -28,6 +29,7 @@
         }
 
         /* ========= BODY ========= */
+
         body {
             background: radial-gradient(circle at 20% 30%, var(--hijau-4), var(--hijau-1));
             animation: bgSlideshow 14s ease-in-out infinite;
@@ -75,19 +77,22 @@
         }
 
         /* ========= APP CONTAINER ========= */
+
         .app-container {
-            width: 98%;
-            max-width: 1800px;
-            margin: 0 auto;
+            width: calc(100% - 12px);
+            max-width: none;
+            margin: 6px auto 0;
             background: rgba(0, 0, 0, .65);
             backdrop-filter: blur(14px);
-            border-radius: 2rem;
-            padding: 1.5rem;
+            border-radius: 1.25rem;
+            padding: 1.25rem;
             border: 1px solid rgba(76, 175, 80, 0.15);
             flex: 1;
+            min-height: calc(100vh - 90px);
         }
 
-        /* ========= HEADER - TAMPAK DI SEMUA PERANGKAT ========= */
+        /* ========= HEADER ========= */
+
         .top-brand-bar {
             display: flex;
             justify-content: space-between;
@@ -148,6 +153,7 @@
         }
 
         /* ========= STATS + SEARCH ========= */
+
         .top-stats-search {
             display: flex;
             justify-content: space-between;
@@ -253,7 +259,8 @@
             color: #000;
         }
 
-        /* ========= TOMBOL REFRESH & KEMBALI BERSEMBELAHAN ========= */
+        /* ========= TOMBOL ========= */
+
         .btn-group {
             display: flex;
             align-items: center;
@@ -288,6 +295,7 @@
         }
 
         /* ========= STATS BAR ========= */
+
         .stats-bar {
             display: flex;
             justify-content: space-between;
@@ -320,21 +328,27 @@
         }
 
         /* ========= GRID MAPEL ========= */
+
         .mapel-grid {
             display: grid;
-            gap: 1.2rem;
-            margin-top: 1.5rem;
+            gap: 1rem;
+            margin-top: 1.1rem;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         }
 
         /* ========= KOTAK MAPEL ========= */
+
         .mapel-card {
-            border-radius: 1rem;
-            padding: 1.5rem;
+            grid-column: 1 / -1;
+            width: 100%;
+            min-height: 250px;
+            border-radius: 0.9rem;
+            padding: 2rem;
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             text-align: center;
             gap: 1rem;
             text-decoration: none;
@@ -405,6 +419,7 @@
         }
 
         /* ========= TOMBOL MASUK ========= */
+
         .btn-masuk {
             display: inline-block;
             width: 100%;
@@ -472,6 +487,7 @@
         }
 
         /* ========= NO RESULT ========= */
+
         .no-result {
             grid-column: 1 / -1;
             text-align: center;
@@ -483,6 +499,7 @@
         }
 
         /* ========= SCROLLBAR ========= */
+
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -501,10 +518,11 @@
         }
 
         /* ========= FOOTER ========= */
+
         .footer {
-            width: 98%;
-            max-width: 1800px;
-            margin: 1.2rem auto 0;
+            width: calc(100% - 12px);
+            max-width: none;
+            margin: 0.6rem auto 0;
             padding: 1.2rem 1.5rem;
             text-align: center;
             background: rgba(0, 0, 0, 0.6);
@@ -530,10 +548,9 @@
         }
 
         /* ================================================================ */
-        /*                    RESPONSIVE BREAKPOINT                          */
+        /*                    RESPONSIVE                                    */
         /* ================================================================ */
 
-        /* HP Portrait - 2 kolom */
         @media (max-width: 767px) and (orientation: portrait) {
             .mapel-grid {
                 grid-template-columns: repeat(2, 1fr) !important;
@@ -567,7 +584,6 @@
                 font-size: 0.6rem !important;
             }
 
-            /* Header tetap tampak di HP */
             .top-brand-bar {
                 flex-direction: column !important;
                 text-align: center !important;
@@ -621,7 +637,6 @@
             }
         }
 
-        /* HP Landscape - 2 kolom */
         @media (max-width: 767px) and (orientation: landscape) {
             .mapel-grid {
                 grid-template-columns: repeat(2, 1fr) !important;
@@ -673,7 +688,6 @@
             }
         }
 
-        /* Tablet Portrait - 3 kolom */
         @media (min-width: 768px) and (max-width: 991px) and (orientation: portrait) {
             .mapel-grid {
                 grid-template-columns: repeat(3, 1fr) !important;
@@ -685,7 +699,6 @@
             }
         }
 
-        /* Tablet Landscape - 4 kolom */
         @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
             .mapel-grid {
                 grid-template-columns: repeat(4, 1fr) !important;
@@ -713,7 +726,6 @@
             }
         }
 
-        /* HP Kecil - 1 kolom */
         @media (max-width: 400px) {
             .mapel-grid {
                 grid-template-columns: repeat(1, 1fr) !important;
@@ -743,7 +755,6 @@
             }
         }
 
-        /* ===== FOOTER DI HP ===== */
         @media (max-width: 767px) {
             .footer {
                 padding: 0.8rem !important;
@@ -755,13 +766,6 @@
             .footer p {
                 font-size: 0.65rem !important;
             }
-        }
-
-        /* ================================================================ */
-        /*              PERBAIKAN TAMBAHAN                                   */
-        /* ================================================================ */
-
-        @media (max-width: 767px) {
 
             .btn-refresh-neon,
             .btn-back-neon,
@@ -809,8 +813,8 @@
         <!-- STATS + SEARCH -->
         <div class="top-stats-search">
             <div class="total-stats-box">
-                <span>📊 <strong>Total Mapel:</strong> <span id="totalMateriCount">12</span></span>
-                <span>✅ <strong>Tersedia:</strong> <span id="materiSudahAda">12</span></span>
+                <span>📊 <strong>Total Mapel:</strong> <span id="totalMateriCount">16</span></span>
+                <span>✅ <strong>Tersedia:</strong> <span id="materiSudahAda">16</span></span>
                 <span>⏳ <strong>Belum Tersedia:</strong> <span id="materiBelumAda">0</span></span>
             </div>
             <div class="search-row-flex">
@@ -827,13 +831,13 @@
         </div>
 
         <div class="stats-bar">
-            <span id="resultCounter">📚 Menampilkan 12 mata pelajaran</span>
+            <span id="resultCounter">📚 Menampilkan 16 mata pelajaran</span>
             <span class="shortcut-msg">⌨️ Ctrl+K / Shift+F / ESC</span>
             <span id="shortcutNotif" style="font-size:0.7rem;"></span>
         </div>
 
         <div class="mapel-grid" id="mapelGrid">
-            <!-- 12 MAPEL dengan href PERSIS seperti daftar Anda -->
+            <!-- 12 MAPEL AWAL -->
             <a href="1. BahasaArabdanPAI.html" class="mapel-card" data-title="Bahasa Arab & PAI">
                 <div class="mapel-icon">🕌</div>
                 <div class="mapel-title">Bahasa Arab & PAI</div>
@@ -894,6 +898,28 @@
                 <div class="mapel-title">Seni</div>
                 <div class="btn-masuk">Masuk →</div>
             </a>
+
+            <!-- 4 MAPEL BARU -->
+            <a href="13. BahasaPerancis.html" class="mapel-card" data-title="Bahasa Perancis">
+                <div class="mapel-icon">🇫🇷</div>
+                <div class="mapel-title">Bahasa Perancis</div>
+                <div class="btn-masuk">Masuk →</div>
+            </a>
+            <a href="14. BahasaJepang.html" class="mapel-card" data-title="Bahasa Jepang">
+                <div class="mapel-icon">🇯🇵</div>
+                <div class="mapel-title">Bahasa Jepang</div>
+                <div class="btn-masuk">Masuk →</div>
+            </a>
+            <a href="15. PKKWU.html" class="mapel-card" data-title="PKKWU">
+                <div class="mapel-icon">🧵</div>
+                <div class="mapel-title">PKKWU</div>
+                <div class="btn-masuk">Masuk →</div>
+            </a>
+            <a href="16. DesainGrafis.html" class="mapel-card" data-title="Desain Grafis">
+                <div class="mapel-icon">🎨</div>
+                <div class="mapel-title">Desain Grafis</div>
+                <div class="btn-masuk">Masuk →</div>
+            </a>
         </div>
     </div>
 
@@ -912,7 +938,6 @@
 
     <script>
         (function () {
-            // ========== ELEMEN DOM ==========
             const searchInput = document.getElementById('searchInput');
             const resultCounter = document.getElementById('resultCounter');
             const clearBtn = document.getElementById('clearSearchBtn');
@@ -920,18 +945,15 @@
             const refreshBtn = document.getElementById('refreshButton');
             const allCards = Array.from(document.querySelectorAll('.mapel-card'));
 
-            // ========== UPDATE STATISTIK ==========
             function updateStatistik() {
                 const totalMateri = document.getElementById('totalMateriCount');
                 const materiSudah = document.getElementById('materiSudahAda');
                 const materiBelum = document.getElementById('materiBelumAda');
-
                 if (totalMateri) totalMateri.innerText = allCards.length;
                 if (materiSudah) materiSudah.innerText = allCards.length;
                 if (materiBelum) materiBelum.innerText = 0;
             }
 
-            // ========== FILTER PENCARIAN ==========
             function filterMateri() {
                 const searchTerm = searchInput.value.trim().toLowerCase();
                 let visibleCount = 0;
@@ -943,20 +965,18 @@
                     if (isMatch) visibleCount++;
                 });
 
-                // Update counter
                 if (resultCounter) {
                     if (searchTerm !== '' && visibleCount === 0) {
                         resultCounter.innerHTML = '❌ Mata pelajaran tidak ditemukan';
                         resultCounter.style.color = '#f59e0b';
                     } else {
-                        resultCounter.innerHTML = searchTerm !== ''
-                            ? `✨ Ditemukan ${visibleCount} mata pelajaran`
-                            : `📚 Menampilkan ${visibleCount} mata pelajaran`;
+                        resultCounter.innerHTML = searchTerm !== '' ?
+                            `✨ Ditemukan ${visibleCount} mata pelajaran` :
+                            `📚 Menampilkan ${visibleCount} mata pelajaran`;
                         resultCounter.style.color = '#66BB6A';
                     }
                 }
 
-                // Tampilkan pesan "tidak ditemukan"
                 let noResultDiv = document.getElementById('customNoResultMsg');
                 if (searchTerm !== '' && visibleCount === 0) {
                     if (!noResultDiv) {
@@ -976,14 +996,12 @@
                 }
             }
 
-            // ========== DEBOUNCE SEARCH ==========
             let debounceTimer;
             searchInput.addEventListener('input', () => {
                 clearTimeout(debounceTimer);
                 debounceTimer = setTimeout(filterMateri, 200);
             });
 
-            // ========== TOMBOL CLEAR ==========
             if (clearBtn) {
                 clearBtn.addEventListener('click', () => {
                     searchInput.value = '';
@@ -993,7 +1011,6 @@
                 });
             }
 
-            // ========== TOMBOL REFRESH ==========
             if (refreshBtn) {
                 refreshBtn.addEventListener('click', () => {
                     searchInput.value = '';
@@ -1002,7 +1019,6 @@
                 });
             }
 
-            // ========== NOTIFIKASI ==========
             function showNotif(message) {
                 if (shortcutNotif) {
                     shortcutNotif.innerText = message;
@@ -1013,25 +1029,19 @@
                 }
             }
 
-            // ========== SHORTCUT KEYBOARD ==========
             window.addEventListener('keydown', (e) => {
-                // Ctrl+K atau Ctrl+K
                 if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) {
                     e.preventDefault();
                     searchInput.focus();
                     searchInput.select();
                     showNotif('🔎 Ctrl+K fokus pencarian');
                 }
-
-                // Shift+F
                 if (e.shiftKey && (e.key === 'F' || e.key === 'f')) {
                     e.preventDefault();
                     searchInput.focus();
                     searchInput.select();
                     showNotif('⚡ Shift+F fokus');
                 }
-
-                // ESC
                 if (e.key === 'Escape') {
                     if (searchInput.value !== '') {
                         searchInput.value = '';
@@ -1041,15 +1051,12 @@
                         searchInput.blur();
                     }
                 }
-
-                // Ctrl+Shift+R = Refresh (mirip browser)
                 if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'r' || e.key === 'R')) {
                     e.preventDefault();
                     if (refreshBtn) refreshBtn.click();
                 }
             });
 
-            // ========== INISIALISASI ==========
             updateStatistik();
             filterMateri();
 
