@@ -490,68 +490,82 @@
         }
 
         /* ========= STATUS MAPEL ========= */
-        /* STATUS 0 = TIDAK DITAMPILKAN
-           JS akan menghapus card dari layout. */
-        /* STATUS 1 = AKAN HADIR */
 
-        .mapel-card.status-1 {
-            background: #4a4a4a !important;
-            background-image: none !important;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25) !important;
-            animation: none !important;
-            filter: grayscale(1);
-            opacity: 0.72;
-            cursor: not-allowed;
-            border-color: rgba(255, 255, 255, 0.12) !important;
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 24px;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-top: 0.1rem;
         }
 
-        .mapel-card.status-1 .mapel-title,
-        .mapel-card.status-1 .mapel-icon {
-            filter: grayscale(1);
+        /* 0 = NONAKTIF */
+
+        .mapel-card.status-0 {
+            opacity: 0.55;
+            filter: grayscale(0.75);
+            cursor: not-allowed;
+        }
+
+        .mapel-card.status-0 .status-badge {
+            color: #ff6b6b;
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+        }
+
+        .mapel-card.status-0 .status-badge::before {
+            content: "🔒 Nonaktif";
+        }
+
+        .mapel-card.status-0 .btn-masuk {
+            background: #3a3a3a !important;
+            color: #999 !important;
+            animation: none !important;
+        }
+
+        /* 1 = AKAN HADIR */
+
+        .mapel-card.status-1 {
             opacity: 0.75;
+            cursor: not-allowed;
+        }
+
+        .mapel-card.status-1 .status-badge {
+            color: #fbbf24;
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+        }
+
+        .mapel-card.status-1 .status-badge::before {
+            content: "⏳ Akan Hadir";
         }
 
         .mapel-card.status-1 .btn-masuk {
-            background: #666 !important;
-            color: #d5d5d5 !important;
+            background: #4a4a4a !important;
+            color: #c5c5c5 !important;
             animation: none !important;
-            cursor: not-allowed;
         }
 
+        /* 2 = AKTIF */
+
+        .mapel-card.status-2 .status-badge {
+            color: #86efac;
+            background: rgba(34, 197, 94, 0.15);
+            border: 1px solid rgba(34, 197, 94, 0.4);
+        }
+
+        .mapel-card.status-2 .status-badge::before {
+            content: "✅ Aktif";
+        }
+
+        .mapel-card.status-0:hover,
         .mapel-card.status-1:hover {
             transform: none;
-            filter: grayscale(1);
-        }
-
-        /* STATUS 2 = AKTIF / MENYALA */
-
-        .mapel-card.status-2 {
-            animation: activeGlow 1.8s ease-in-out infinite alternate, cardRainbow 14s ease-in-out infinite;
-            border-color: rgba(129, 199, 132, 0.65) !important;
-        }
-
-        .mapel-card.status-2 .btn-masuk {
-            animation: activeButtonGlow 1.8s ease-in-out infinite alternate, btnRainbow 14s ease-in-out infinite;
-        }
-
-        @keyframes activeGlow {
-            from {
-                box-shadow: 0 0 8px rgba(102, 187, 106, 0.25), 0 8px 20px rgba(61, 139, 61, 0.25);
-            }
-
-            to {
-                box-shadow: 0 0 28px rgba(129, 199, 132, 0.65), 0 8px 30px rgba(76, 175, 80, 0.45);
-            }
-        }
-
-        @keyframes activeButtonGlow {
-            from {
-                box-shadow: 0 0 4px rgba(129, 199, 132, 0.2);
-            }
-
-            to {
-                box-shadow: 0 0 18px rgba(129, 199, 132, 0.7);
-            }
         }
 
         /* ========= NO RESULT ========= */
@@ -906,64 +920,76 @@
 
         <div class="mapel-grid" id="mapelGrid">
             <!-- 12 MAPEL AWAL -->
-            <a href="1. BahasaArabdanPAI.html" class="mapel-card" data-title="Bahasa Arab & PAI" data-status="2">
+            <a href="1. BahasaArabdanPAI.html" class="mapel-card" data-title="Bahasa Arab & PAI" data-status="0">
                 <div class="mapel-icon">🕌</div>
                 <div class="mapel-title">Bahasa Arab & PAI</div>
+                <div class="status-badge" aria-label="Status"></div>
                 <div class="btn-masuk">Masuk →</div>
             </a>
-            <a href="2. BahasaIndonesia.html" class="mapel-card" data-title="Bahasa Indonesia" data-status="2">
+            <a href="2. BahasaIndonesia.html" class="mapel-card" data-title="Bahasa Indonesia" data-status="0">
                 <div class="mapel-icon">📖</div>
                 <div class="mapel-title">Bahasa Indonesia</div>
+                <div class="status-badge" aria-label="Status"></div>
                 <div class="btn-masuk">Masuk →</div>
             </a>
-            <a href="3. BahasaInggris.html" class="mapel-card" data-title="Bahasa Inggris" data-status="2">
+            <a href="3. BahasaInggris.html" class="mapel-card" data-title="Bahasa Inggris" data-status="0">
                 <div class="mapel-icon">🇬🇧</div>
                 <div class="mapel-title">Bahasa Inggris</div>
+                <div class="status-badge" aria-label="Status"></div>
                 <div class="btn-masuk">Masuk →</div>
             </a>
-            <a href="4. CodingProgrammer.html" class="mapel-card" data-title="Coding Programmer" data-status="2">
+            <a href="4. CodingProgrammer.html" class="mapel-card" data-title="Coding Programmer" data-status="0">
                 <div class="mapel-icon">💻</div>
                 <div class="mapel-title">Coding Programmer</div>
+                <div class="status-badge" aria-label="Status"></div>
                 <div class="btn-masuk">Masuk →</div>
             </a>
-            <a href="5. IPA.html" class="mapel-card" data-title="IPA" data-status="2">
+            <a href="5. IPA.html" class="mapel-card" data-title="IPA" data-status="0">
                 <div class="mapel-icon">🔬</div>
                 <div class="mapel-title">IPA</div>
+                <div class="status-badge" aria-label="Status"></div>
                 <div class="btn-masuk">Masuk →</div>
             </a>
-            <a href="6. IPS.html" class="mapel-card" data-title="IPS" data-status="2">
+            <a href="6. IPS.html" class="mapel-card" data-title="IPS" data-status="0">
                 <div class="mapel-icon">🌏</div>
                 <div class="mapel-title">IPS</div>
+                <div class="status-badge" aria-label="Status"></div>
                 <div class="btn-masuk">Masuk →</div>
             </a>
-            <a href="7. Informatika.html" class="mapel-card" data-title="Informatika" data-status="2">
+            <a href="7. Informatika.html" class="mapel-card" data-title="Informatika" data-status="0">
                 <div class="mapel-icon">🖥️</div>
                 <div class="mapel-title">Informatika</div>
+                <div class="status-badge" aria-label="Status"></div>
                 <div class="btn-masuk">Masuk →</div>
             </a>
-            <a href="8. MTK.html" class="mapel-card" data-title="Matematika" data-status="2">
+            <a href="8. MTK.html" class="mapel-card" data-title="Matematika" data-status="0">
                 <div class="mapel-icon">📐</div>
                 <div class="mapel-title">Matematika</div>
+                <div class="status-badge" aria-label="Status"></div>
                 <div class="btn-masuk">Masuk →</div>
             </a>
             <a href="9. PJok.html" class="mapel-card" data-title="PJOK" data-status="1">
                 <div class="mapel-icon">⚽</div>
                 <div class="mapel-title">PJOK</div>
+                <div class="status-badge" aria-label="Status"></div>
                 <div class="btn-masuk">Masuk →</div>
             </a>
             <a href="10. ppkn.html" class="mapel-card" data-title="PPKn" data-status="1">
                 <div class="mapel-icon">🇮🇩</div>
                 <div class="mapel-title">PPKn</div>
+                <div class="status-badge" aria-label="Status"></div>
                 <div class="btn-masuk">Masuk →</div>
             </a>
             <a href="11. sejarah.html" class="mapel-card" data-title="Sejarah" data-status="1">
                 <div class="mapel-icon">📜</div>
                 <div class="mapel-title">Sejarah</div>
+                <div class="status-badge" aria-label="Status"></div>
                 <div class="btn-masuk">Masuk →</div>
             </a>
             <a href="12. seni.html" class="mapel-card" data-title="Seni" data-status="1">
                 <div class="mapel-icon">🎨</div>
                 <div class="mapel-title">Seni</div>
+                <div class="status-badge" aria-label="Status"></div>
                 <div class="btn-masuk">Masuk →</div>
             </a>
 
@@ -971,21 +997,25 @@
             <a href="13. BahasaPerancis.html" class="mapel-card" data-title="Bahasa Perancis" data-status="0">
                 <div class="mapel-icon">🇫🇷</div>
                 <div class="mapel-title">Bahasa Perancis</div>
+                <div class="status-badge" aria-label="Status"></div>
                 <div class="btn-masuk">Masuk →</div>
             </a>
             <a href="14. BahasaJepang.html" class="mapel-card" data-title="Bahasa Jepang" data-status="0">
                 <div class="mapel-icon">🇯🇵</div>
                 <div class="mapel-title">Bahasa Jepang</div>
+                <div class="status-badge" aria-label="Status"></div>
                 <div class="btn-masuk">Masuk →</div>
             </a>
             <a href="15. PKKWU.html" class="mapel-card" data-title="PKKWU" data-status="0">
                 <div class="mapel-icon">🧵</div>
                 <div class="mapel-title">PKKWU</div>
+                <div class="status-badge" aria-label="Status"></div>
                 <div class="btn-masuk">Masuk →</div>
             </a>
             <a href="16. DesainGrafis.html" class="mapel-card" data-title="Desain Grafis" data-status="0">
                 <div class="mapel-icon">🎨</div>
                 <div class="mapel-title">Desain Grafis</div>
+                <div class="status-badge" aria-label="Status"></div>
                 <div class="btn-masuk">Masuk →</div>
             </a>
         </div>
@@ -1014,26 +1044,25 @@
             const allCards = Array.from(document.querySelectorAll('.mapel-card'));
 
             const STATUS = {
-                HIDDEN: 0,
-                COMING_SOON: 1,
-                ACTIVE: 2
+                NONAKTIF: 0,
+                AKAN_HADIR: 1,
+                AKTIF: 2
             };
 
             function getStatus(card) {
-                const value = Number(card.dataset.status);
-                return [0, 1, 2].includes(value) ? value : 0;
+                const status = Number(card.dataset.status);
+                return [0, 1, 2].includes(status) ? status : 0;
             }
 
             function showNotif(message) {
                 if (!shortcutNotif) return;
 
-                shortcutNotif.textContent = message;
-                shortcutNotif.style.color = '#81c784';
-
+                shortcutNotif.innerText = message;
                 clearTimeout(shortcutNotif._timer);
+
                 shortcutNotif._timer = setTimeout(() => {
-                    shortcutNotif.textContent = '';
-                }, 2200);
+                    shortcutNotif.innerText = '';
+                }, 1800);
             }
 
             function applyStatus() {
@@ -1043,50 +1072,23 @@
                     card.classList.remove('status-0', 'status-1', 'status-2');
                     card.classList.add(`status-${status}`);
 
-                    // Status 0: benar-benar hilang dari halaman.
-                    if (status === STATUS.HIDDEN) {
-                        card.style.display = 'none';
-                        card.setAttribute('aria-hidden', 'true');
-                        card.setAttribute('data-hidden-status', 'true');
-                        return;
-                    }
-
-                    // Status 1 dan 2: tampil.
-                    card.style.display = '';
-                    card.removeAttribute('aria-hidden');
-                    card.removeAttribute('data-hidden-status');
-
-                    // Simpan href asli.
                     if (card.dataset.originalHref === undefined) {
-                        card.dataset.originalHref =
-                            card.getAttribute('href') || '';
+                        card.dataset.originalHref = card.getAttribute('href') || '';
                     }
 
-                    if (status === STATUS.COMING_SOON) {
+                    if (status !== STATUS.AKTIF) {
                         card.removeAttribute('href');
                         card.setAttribute('aria-disabled', 'true');
                         card.setAttribute('tabindex', '-1');
+                    } else {
+                        const originalHref = card.dataset.originalHref;
 
-                        const button = card.querySelector('.btn-masuk');
-                        if (button) {
-                            button.textContent = '⏳ Akan Hadir';
-                        }
-                    }
-
-                    if (status === STATUS.ACTIVE) {
-                        const href = card.dataset.originalHref;
-
-                        if (href) {
-                            card.setAttribute('href', href);
+                        if (originalHref) {
+                            card.setAttribute('href', originalHref);
                         }
 
                         card.removeAttribute('aria-disabled');
                         card.removeAttribute('tabindex');
-
-                        const button = card.querySelector('.btn-masuk');
-                        if (button) {
-                            button.textContent = 'Masuk →';
-                        }
                     }
                 });
             }
@@ -1096,62 +1098,49 @@
                 const tersedia = document.getElementById('materiSudahAda');
                 const belum = document.getElementById('materiBelumAda');
 
-                let active = 0;
-                let comingSoon = 0;
-                let hidden = 0;
+                let aktif = 0;
+                let akanHadir = 0;
+                let nonaktif = 0;
 
                 allCards.forEach(card => {
                     const status = getStatus(card);
 
-                    if (status === STATUS.ACTIVE) active++;
-                    else if (status === STATUS.COMING_SOON) comingSoon++;
-                    else hidden++;
+                    if (status === 2) aktif++;
+                    else if (status === 1) akanHadir++;
+                    else nonaktif++;
                 });
 
-                // Total = semua mapel yang didefinisikan.
-                if (total) total.textContent = allCards.length;
-
-                // Tersedia = status 2.
-                if (tersedia) tersedia.textContent = active;
-
-                // Belum tersedia = status 1.
-                // Status 0 tidak dihitung karena memang tidak terlihat.
-                if (belum) belum.textContent = comingSoon;
+                if (total) total.innerText = allCards.length;
+                if (tersedia) tersedia.innerText = aktif;
+                if (belum) belum.innerText = akanHadir + nonaktif;
             }
 
             function filterMateri() {
-                const term = searchInput.value.trim().toLowerCase();
+                const searchTerm = searchInput.value.trim().toLowerCase();
                 let visibleCount = 0;
 
                 allCards.forEach(card => {
-                    const status = getStatus(card);
-
-                    // Status 0 selalu tersembunyi.
-                    if (status === STATUS.HIDDEN) {
-                        card.style.display = 'none';
-                        return;
-                    }
-
                     const title =
                         card.getAttribute('data-title') || '';
 
-                    const match =
-                        term === '' ||
-                        title.toLowerCase().includes(term);
+                    const isMatch =
+                        searchTerm === '' ||
+                        title.toLowerCase().includes(searchTerm);
 
-                    card.style.display = match ? '' : 'none';
+                    card.style.display =
+                        isMatch ? '' : 'none';
 
-                    if (match) visibleCount++;
+                    if (isMatch) visibleCount++;
                 });
 
                 if (resultCounter) {
-                    if (term !== '' && visibleCount === 0) {
-                        resultCounter.textContent =
+                    if (searchTerm !== '' && visibleCount === 0) {
+                        resultCounter.innerHTML =
                             '❌ Mata pelajaran tidak ditemukan';
                         resultCounter.style.color = '#f59e0b';
                     } else {
-                        resultCounter.textContent =
-                            term !== '' ?
+                        resultCounter.innerHTML =
+                            searchTerm !== '' ?
                                 `✨ Ditemukan ${visibleCount} mata pelajaran` :
                                 `📚 Menampilkan ${visibleCount} mata pelajaran`;
 
@@ -1159,15 +1148,15 @@
                     }
                 }
 
-                let noResult =
+                let noResultDiv =
                     document.getElementById('customNoResultMsg');
 
-                if (term !== '' && visibleCount === 0) {
-                    if (!noResult) {
-                        noResult = document.createElement('div');
-                        noResult.id = 'customNoResultMsg';
-                        noResult.className = 'no-result';
-                        noResult.innerHTML =
+                if (searchTerm !== '' && visibleCount === 0) {
+                    if (!noResultDiv) {
+                        noResultDiv = document.createElement('div');
+                        noResultDiv.id = 'customNoResultMsg';
+                        noResultDiv.className = 'no-result';
+                        noResultDiv.innerHTML =
                             '📚 Mata pelajaran tidak tersedia<br>' +
                             '<span style="font-size:0.8rem;">' +
                             'Coba kata kunci lain</span>';
@@ -1175,48 +1164,41 @@
                         const grid =
                             document.querySelector('.mapel-grid');
 
-                        if (grid) {
+                        if (grid && grid.parentNode) {
                             grid.parentNode.insertBefore(
-                                noResult,
+                                noResultDiv,
                                 grid.nextSibling
                             );
                         }
                     }
 
-                    noResult.style.display = 'block';
-                } else if (noResult) {
-                    noResult.style.display = 'none';
+                    noResultDiv.style.display = 'block';
+                } else if (noResultDiv) {
+                    noResultDiv.style.display = 'none';
                 }
             }
 
+            // Status 0 dan 1 tidak boleh membuka halaman.
             allCards.forEach(card => {
                 card.addEventListener('click', event => {
                     const status = getStatus(card);
 
-                    if (status === STATUS.HIDDEN) {
+                    if (status === STATUS.NONAKTIF) {
                         event.preventDefault();
-                        return;
-                    }
-
-                    if (status === STATUS.COMING_SOON) {
+                        showNotif('🔒 Menu sedang nonaktif');
+                    } else if (status === STATUS.AKAN_HADIR) {
                         event.preventDefault();
-                        showNotif(
-                            '⚠️ Mata pelajaran ini akan segera hadir!'
-                        );
+                        showNotif('⏳ Menu akan segera hadir');
                     }
-                    // Status 2 dibiarkan membuka link.
                 });
             });
 
             let debounceTimer;
 
-            if (searchInput) {
-                searchInput.addEventListener('input', () => {
-                    clearTimeout(debounceTimer);
-                    debounceTimer =
-                        setTimeout(filterMateri, 150);
-                });
-            }
+            searchInput.addEventListener('input', () => {
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(filterMateri, 200);
+            });
 
             if (clearBtn) {
                 clearBtn.addEventListener('click', () => {
@@ -1229,6 +1211,7 @@
 
             if (refreshBtn) {
                 refreshBtn.addEventListener('click', () => {
+                    searchInput.value = '';
                     applyStatus();
                     updateStatistik();
                     filterMateri();
@@ -1236,28 +1219,28 @@
                 });
             }
 
-            window.addEventListener('keydown', event => {
+            window.addEventListener('keydown', e => {
                 if (
-                    (event.ctrlKey || event.metaKey) &&
-                    (event.key === 'k' || event.key === 'K')
+                    (e.ctrlKey || e.metaKey) &&
+                    (e.key === 'k' || e.key === 'K')
                 ) {
-                    event.preventDefault();
+                    e.preventDefault();
                     searchInput.focus();
                     searchInput.select();
                     showNotif('🔎 Ctrl+K fokus pencarian');
                 }
 
                 if (
-                    event.shiftKey &&
-                    (event.key === 'f' || event.key === 'F')
+                    e.shiftKey &&
+                    (e.key === 'F' || e.key === 'f')
                 ) {
-                    event.preventDefault();
+                    e.preventDefault();
                     searchInput.focus();
                     searchInput.select();
                     showNotif('⚡ Shift+F fokus');
                 }
 
-                if (event.key === 'Escape') {
+                if (e.key === 'Escape') {
                     if (searchInput.value !== '') {
                         searchInput.value = '';
                         filterMateri();
@@ -1268,15 +1251,12 @@
                 }
 
                 if (
-                    (event.ctrlKey || event.metaKey) &&
-                    event.shiftKey &&
-                    (event.key === 'r' || event.key === 'R')
+                    (e.ctrlKey || e.metaKey) &&
+                    e.shiftKey &&
+                    (e.key === 'r' || e.key === 'R')
                 ) {
-                    event.preventDefault();
-
-                    if (refreshBtn) {
-                        refreshBtn.click();
-                    }
+                    e.preventDefault();
+                    if (refreshBtn) refreshBtn.click();
                 }
             });
 
@@ -1284,9 +1264,8 @@
             updateStatistik();
             filterMateri();
 
-            console.log(
-                'NOXA STORE STATUS: 0 = tersembunyi | 1 = akan hadir | 2 = aktif'
-            );
+            console.log('✅ NOXA STORE');
+            console.log('0 = Nonaktif | 1 = Akan Hadir | 2 = Aktif');
         })();
     </script>
 </body>
